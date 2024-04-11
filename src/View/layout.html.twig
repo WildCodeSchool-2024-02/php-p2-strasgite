@@ -13,7 +13,16 @@
 </head>
 
 <body>
-    {% block content %}{% endblock %}
+    <header>
+        {% include 'Include/_header.html.twig' %}
+        {% block banner %}{% endblock %}
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer>
+        {% include 'Include/_footer.html.twig' %}
+    </footer>
     {% block javascript %}{% endblock %}
 </body>
 </html>
