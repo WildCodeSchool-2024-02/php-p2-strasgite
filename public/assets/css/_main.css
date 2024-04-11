@@ -1,3 +1,8 @@
 main {
     text-align: center;
+    font-family: var(--body-font);
+}
+
+h1, h2, h3 {
+    font-family: var(--titles-font);
 }

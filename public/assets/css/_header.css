@@ -6,15 +6,31 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: #D9B368;
+    color: var(--primary-colour);
 }
 
 nav img {
     height: 100px;
 }
 
+header .img-container {
+    /* position: relative; */
+    overflow: hidden;
+    width: 100%;
+    height: 200px;
+}
+
+header .img-container #clip_accueil {
+    width: 100%;
+    object-position: 0 -400px;
+}
+
 ul {
     display: flex;
     align-items: center;
-    /* list-style-type: "/ "; */
+}
+
+p {
+    color: var(--font-colour);
+    text-align: center;
 }
