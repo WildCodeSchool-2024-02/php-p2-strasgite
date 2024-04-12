@@ -1,0 +1,17 @@
+main .homeblock {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+}
+
+.homeblock img {
+    height:20rem;
+    width:20rem;
+    margin:1rem;
+}
+
+.homeblock p {
+
+    margin:.5rem;
+    
+}
