@@ -6,6 +6,10 @@ footer {
     background-color: var(--primary-colour);
     border-top-left-radius: 17px;
     border-top-right-radius: 17px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width:100%;
 }
 
 footer ul {
@@ -15,6 +19,6 @@ footer ul {
     /* list-style-type: "/ "; */
 }
 
-ul > li {
+footer ul > li {
     margin-inline: 1rem;
 }
