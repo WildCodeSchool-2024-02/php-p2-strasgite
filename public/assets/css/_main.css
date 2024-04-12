@@ -9,6 +9,10 @@ h1, h2, h3 {
     font-family: var(--titles-font);
 }
 
+main h1 {
+    margin-block:2rem;
+}
+
 
 p {
     color: var(--font-colour);

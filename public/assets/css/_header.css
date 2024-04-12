@@ -35,6 +35,32 @@ header .img-container #clip_accueil {
     align-items: center;
 }
 
-.bannerhero {
-    width:100%;
+.header-navbar-ul li {
+
+    font-size:2.5rem;
+    margin:1rem;
+    list-style-type: none;
 }
+
+.header-navbar-ul li a:hover {
+    color:var(--secondary-colour);
+
+}
+
+.connect a {
+    text-decoration: none;
+    padding: 10px;
+    font-size: 1.2em;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    border: .2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+}
+
+.connect a:hover {
+    background-color: var(--secondary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+    }
