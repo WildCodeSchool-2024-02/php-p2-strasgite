@@ -1,6 +1,7 @@
 @import url('_footer.css');
 @import url('_header.css');
 @import url('_main.css');
+@import url('room.css');
 
 body {
     color: #D9B368;

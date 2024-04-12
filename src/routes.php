@@ -14,7 +14,6 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
-    'contact' => ['ContactController', 'contact',],
-    'contact/sent' => ['ContactController', 'sent', ['id']],
-    'contact/recap' => ['ContactController', 'recap', ['id']],
+    'room' => ['RoomController', 'room',],
+    'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
 ];

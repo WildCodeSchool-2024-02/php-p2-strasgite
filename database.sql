@@ -43,15 +43,6 @@ INSERT INTO
     `item` (`id`, `title`)
 VALUES (1, 'Stuff'),
     (2, 'Doodads');
-
---
--- Structure de la table `contact`
---
-
-CREATE TABLE `contact` (
-    `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL, `lastname` varchar(45) NOT NULL, `firstname` varchar(45) NOT NULL, `email` varchar(45) NOT NULL, `message` varchar(255) NOT NULL
-) ENGINE = InnoDB DEFAULT CHARSET = latin1;
-
 --
 -- Index pour les tables exportées
 --
