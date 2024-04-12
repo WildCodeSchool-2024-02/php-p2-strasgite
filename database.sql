@@ -26,6 +26,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 --
 
+CREATE DATABASE projet2;
+
 CREATE TABLE `item` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL
@@ -37,7 +39,9 @@ CREATE TABLE `item` (
 
 INSERT INTO `item` (`id`, `title`) VALUES
 (1, 'Stuff'),
-(2, 'Doodads');
+(2, 'Doodads'),
+(3, 'Doodles'),
+(4, 'Itsybits');
 
 --
 -- Index pour les tables exportées

@@ -19,6 +19,11 @@ header .img-container {
     height: 200px;
 }
 
+header .rooms-img {
+    width:100%;
+    height: 100%;
+}
+
 header .img-container #clip_accueil {
     width: 100%;
     object-position: 0 -400px;
