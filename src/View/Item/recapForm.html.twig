@@ -1,0 +1,9 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Merci {{ contact.firstname }} {{ contact.lastname }}</h1>
+    <p>Nous avons bien pris en compte votre demande.</p>
+    <p>Votre message :</p>
+    <p>{{ contact.message }}</p>
+    <a href="">Back</a>
+{% endblock %}

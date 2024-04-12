@@ -1,0 +1,19 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="https://picsum.photos/1920/200" alt="">
+{% endblock %}
+
+{% block title %}
+Contactez-nous
+{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Contactez-nous</h1>
+    </div>
+    <div>
+        {% include 'Item/_contactForm.html.twig' %}
+    </div>
+{% endblock %}
+
