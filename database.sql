@@ -26,6 +26,7 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 --
 
+
 CREATE TABLE `item` (
   `id` int(11) UNSIGNED NOT NULL,
   `title` varchar(255) NOT NULL
@@ -37,7 +38,9 @@ CREATE TABLE `item` (
 
 INSERT INTO `item` (`id`, `title`) VALUES
 (1, 'Stuff'),
-(2, 'Doodads');
+(2, 'Doodads'),
+(3, 'Doodles'),
+(4, 'Itsybits');
 
 --
 -- Index pour les tables exportées
@@ -61,3 +64,5 @@ ALTER TABLE `item`
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+

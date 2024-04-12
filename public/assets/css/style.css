@@ -1,8 +1,14 @@
 @import url('_footer.css');
 @import url('_header.css');
 @import url('_main.css');
+@import url('_globals.css');
+@import url('_rooms.css');
+
 
 body {
-    color: #D9B368;
+    color: var(--primary-colour);
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
