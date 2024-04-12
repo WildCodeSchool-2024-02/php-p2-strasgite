@@ -29,12 +29,7 @@ header .img-container #clip_accueil {
     object-position: 0 -400px;
 }
 
-ul {
+.header-navbar-ul {
     display: flex;
     align-items: center;
-}
-
-p {
-    color: var(--font-colour);
-    text-align: center;
 }

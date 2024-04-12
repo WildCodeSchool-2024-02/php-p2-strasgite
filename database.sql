@@ -26,7 +26,6 @@ SET time_zone = "+00:00";
 -- Structure de la table `item`
 --
 
-CREATE DATABASE projet2;
 
 CREATE TABLE `item` (
   `id` int(11) UNSIGNED NOT NULL,

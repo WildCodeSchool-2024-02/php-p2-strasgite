@@ -8,3 +8,9 @@ main {
 h1, h2, h3 {
     font-family: var(--titles-font);
 }
+
+
+p {
+    color: var(--font-colour);
+    text-align: center;
+}
