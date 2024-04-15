@@ -2,6 +2,8 @@ main .homeblock {
     display:flex;
     flex-direction:row;
     align-items: center;
+    align-items: flex-start;
+    margin-inline:20%;
 }
 
 .homeblock img {
