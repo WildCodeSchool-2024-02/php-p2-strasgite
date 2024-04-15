@@ -1,0 +1,10 @@
+/* Partie à supprimer avant le push pour éviter les conflits */
+header img:last-child {
+    width: 100%;
+}
+
+/* fin de la partie à supprimer */
+
+#carouselExampleFade {
+    width: 40%;
+}
