@@ -1,35 +1,64 @@
 {% extends 'layout.html.twig' %}
 
 {% block banner %}
-<img src="https://picsum.photos/seed/picsum/1920/200" alt="">
+<div class='img-container'>
+    <img src="../assets/images/facade.jpg" id='clip_accueil' alt="">
+</div>
 {% endblock %}
 
 {% block content %}
-    <h1>{{ room.title }}</h1>
-    <p>{{ room.description }}</p>
-    <div id="carouselExampleFade" class="carousel slide carousel-fade">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="../assets/images/room/room{{ room.id }}-1.webp" class="d-block w-100" alt="...">
+<article class="room-article">
+    <div class="room-description">
+        <h1>{{ room.title }}</h1>
+        <div class="room-content">
+            <div class="room-carousel">
+                <div class="carousel-wrap">
+                    <div id="carouselsliderdemo" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="../assets/images/room/room{{ room.id }}-1.webp" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/images/room/room{{ room.id }}-2.webp" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="../assets/images/room/room{{ room.id }}-3.webp" class="d-block w-100">
+                        </div>            
+                        </div>
+                        <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#carouselsliderdemo" class="active img-thumbnail" data-bs-slide-to="0">
+                            <img src="../assets/images/room/room{{ room.id }}-1.webp" alt="" class="d-block w-100">
+                        </button>
+                        <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="1">
+                            <img src="../assets/images/room/room{{ room.id }}-2.webp" alt="" class="d-block w-100">
+                        </button>
+                        <button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="2">
+                            <img src="../assets/images/room/room{{ room.id }}-3.webp" alt="" class="d-block w-100">
+                        </button>            
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselsliderdemo" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselsliderdemo" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                </div>
             </div>
-            <div class="carousel-item">
-                <img src="../assets/images/room/room{{ room.id }}-2.webp" class="d-block w-100" alt="...">
+            <div class="room-details">
+                <h3>Type de chambre</h3>
+                <p>{{ room.type }}</p>
+                <h3>Type et nombre de lits</h3>
+                <p>{{ room.bed_type }}</p>
+                <h3>Description de la chambre</h3>
+                <p>{{ room.description }}</p>
             </div>
-            <div class="carousel-item">
-                <img src="../assets/images/room/room{{ room.id }}-3.webp" class="d-block w-100" alt="...">
+            <div class="room-reservation">
+                <h3>Réservation</h3>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-{% endblock %}
-
-{% block javascript %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</article>
 {% endblock %}
