@@ -1,0 +1,38 @@
+.connection-form {
+    margin-top: 3rem;
+    width: 35%;
+    max-width: 20rem;
+    margin-inline: auto;
+    background-color: var(--primary-colour);
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 56px;
+    border-bottom-right-radius: 56px;
+    box-shadow: 4px 3px lightgray;
+}
+
+.btn {
+    background-color: var(--secondary-colour);
+}
+
+.form-text {
+    color: white;
+}
+
+.connect-h3 {
+    font-size: 1.2rem;
+    margin-top: 1rem;
+}
+
+
+.inscription-form {
+    width: 50%;
+    margin-inline: auto;
+    background-color: var(--primary-colour);
+    color: white;
+    padding: 1rem;
+    border-top-left-radius: 56px;
+    border-bottom-right-radius: 56px;
+    margin-top: 3rem;
+    box-shadow: 4px 3px lightgray;
+}

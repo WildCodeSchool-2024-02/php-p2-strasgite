@@ -1,0 +1,31 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+<img src="https://picsum.photos/seed/picsum/1920/200" alt="">
+{% endblock %}
+
+{% block content %}
+    <h1>Nos chambres</h1>
+        <ul class='index-ul'>
+            <div class='grid'>
+            {% for item in items %}
+                <div>
+                    <li><a href="/rooms/showRoom?id={{ item.id }}">{{ item.name }}</a></li>
+                    <article>
+                        <div class='room_img'><img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt=""></div>
+                        <div class='room_description'>
+                            <p>{{ item.name }}</p>
+                            <p>Room type :</p>
+                            <p>Nombre de lits : {{ item.bed }}</p>
+                            <p>Description :</p>
+                            <p>{{ item.description }}</p>
+                        </div>
+                    </article>
+                </div>
+            {% else %}
+                <li>Nothing to display</li>
+            {% endfor %}
+            </div>
+        </ul>
+    <a href="/items/add">Ajouter</a>
+{% endblock %}

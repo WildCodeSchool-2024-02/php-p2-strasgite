@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="https://picsum.photos/1920/200" alt="">
+{% endblock %}
+
+{% block content %}
+    <form method="post" class='inscription-form'>
+        <h2>S'inscrire</h2>
+        <div class="mb-3">
+        <label for="exampleInputtext1" class="form-label">Prénom</label>
+        <input type="text" class="form-control" name='firstname' id="exampleInputtext1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputext2" class="form-label">Nom</label>
+            <input type="text" class="form-control" name='lastname' id="exampleInputext2">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputext3" class="form-label">Adresse</label>
+            <input type="text" class="form-control" name='address' id="exampleInputext3">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Adresse Email</label>
+            <input type="email" class="form-control" name='mail' id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">Nous ne partagerons jamais votre email.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control" name='password' id="exampleInputPassword1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Confirmez votre mot de passe</label>
+            <input type="password" class="form-control" name='password2' id="exampleInputPassword2">
+        </div>
+        <button type="submit" class="btn btn-primary">Inscription</button>
+        <h3 class='connect-h3'>Déjà un compte ?</h3>
+        <a href="connect">Connectez-vous</a>
+    </form>
+{% endblock %}
