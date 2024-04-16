@@ -16,4 +16,5 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'room' => ['RoomController', 'room',],
     'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
+    'dashboard' => ['DashboardController', 'index',],
 ];
