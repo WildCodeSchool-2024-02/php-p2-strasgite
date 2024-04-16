@@ -2,7 +2,7 @@ main {
     text-align: center;
     font-family: var(--body-font);
     box-sizing: content-box;
-    margin-inline: 25%;
+    margin-inline: 5%;
 }
 
 h1, h2, h3 {
