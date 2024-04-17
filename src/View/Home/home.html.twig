@@ -16,4 +16,8 @@
         <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Amet labore adipisci earum voluptates, repellendus at fugit expedita! Et eligendi autem repudiandae optio, laboriosam pariatur tempora nulla veritatis dolorem modi culpa. Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita ab eum consequatur, harum et nihil minima natus temporibus necessitatibus quis id animi impedit iste officia. Ducimus molestiae non unde officia. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum mollitia dolores modi odio asperiores perferendis, veniam obcaecati ad inventore voluptatibus culpa adipisci quos repellendus, doloremque, eius aut. Rem, voluptatibus ipsa?</p>
         <img src="https://picsum.photos/200/300/?blur" alt="Image de présentation">
     </div>
+
+    {% if user %}
+        Vous êtes connecté en tant que {{user.firstname}}
+    {% endif %}
 {% endblock %}
