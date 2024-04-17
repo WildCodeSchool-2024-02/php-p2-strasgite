@@ -4,7 +4,7 @@
 
 .room-article {
     border: none;
-    margin: 1.5rem -10rem 5rem -10rem;
+    margin: 1.5rem 0 5rem 0;
     display: flex;
     justify-content: center;
     /* width: 100%; */
@@ -18,7 +18,8 @@
     flex-direction: column;
     padding: 0 2rem 1rem 2rem;
     width: 100%;
-    height: 34rem;
+    height: auto;
+
 }
 
 .room-description h1 {
@@ -59,7 +60,29 @@
     background-color: var(--primary-colour);
     border-radius: 25px 0 25px 0;
     width: 20%;
-    height: 60%;
+    height: auto;
+}
+
+.room-reservation-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.room-reservation-details label {
+    color: white;
+}
+
+.room-reservation-details label,
+.room-reservation-details input,
+.room-reservation-details button {
+    margin-bottom: .7rem;
+}
+
+.room-reservation-details button {
+    border-radius: 8px;
+    background-color: var(--secondary-colour);
+    color: white;
 }
 
 .room-reservation h3 {
@@ -68,11 +91,10 @@
     font-size: 1.5rem;
 }
 
-/* test en cours */
 
 .carousel-wrap {
     /* padding: 1rem 1rem 1rem; */
-    background: #666;
+    /* background: #666; */
     width: 100%;
 }
 
@@ -94,7 +116,8 @@
     bottom: auto;
     top: 100%;
     margin: 10px 0 0;
-    background: #333;
+    /* background: #333; */
+    position: relative;
 }
 
 .carousel-control-next-icon,
@@ -123,4 +146,65 @@
     position: relative;
     z-index: 2;
     outline: 1px solid white;
+}
+
+@media screen and (max-width: 1000px) {
+    .room-details {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: auto;
+        margin-bottom: 1rem;
+        padding: 0;
+    }
+
+    .room-details p {
+        text-align: justify;
+    }
+
+    .room-carousel {
+        width: auto;
+    }
+
+    .room-content {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .room-reservation {
+        width: auto;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .room-reservation h3 {
+        padding: 0 .5rem;
+    }
+
+
+    .room-reservation-details {
+        padding: .5rem .5rem;
+        display: grid;
+        grid:
+            ". ." 1fr ". ." 1fr ". ." 1fr "reservation-button reservation-button" 1fr / 1fr 1fr;
+        gap: 8px;
+    }
+
+    .room-reservation-details button {
+        grid-area: reservation-button;
+    }
+
+    .room-description h1 {
+        align-self: center;
+    }
+
+    .carousel-indicators {
+        margin-bottom: 1rem;
+    }
+
+    .carousel-control-prev,
+    .carousel-control-next {
+        visibility: hidden;
+    }
+
 }
