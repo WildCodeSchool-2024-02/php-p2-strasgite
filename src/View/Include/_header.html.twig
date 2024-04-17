@@ -6,7 +6,11 @@
         <li><a href="#">Nous contacter</a></li>
     </ul>
     <div class='connect'>
-        <a href="/connect">Connexion / S'inscrire</a>
+        {% if user %}
+            <a href="/profile">Votre compte</a>
+        {% else %}
+            <a href="/connect">Connexion / S'inscrire</a>
+        {% endif %}
     </div>
 </nav>
 

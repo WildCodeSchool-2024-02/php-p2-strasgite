@@ -16,6 +16,8 @@ return [
     'items/delete' => ['ItemController', 'delete',],
     'room' => ['RoomController', 'room',],
     'rooms/showRoom' => ['RoomsController', 'show', ['id']],
-    'connect' => ['ConnectController', 'connect'],
+    'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],
+    'profile' => ['ConnectController', 'profile'],
+    'logout' => ['ConnectController', 'logout'],
 ];
