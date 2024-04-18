@@ -15,9 +15,10 @@ return [
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
     'room' => ['RoomController', 'room',],
-    'rooms/showRoom' => ['RoomsController', 'show', ['id']],
+    // 'rooms/showRoom' => ['RoomsController', 'show', ['id']],
     'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
+    'contact' => ['ContactController', 'contact']
 ];

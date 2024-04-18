@@ -6,6 +6,7 @@
 @import url('_rooms.css');
 @import url('_homeblock.css');
 @import url('_connect.css');
+@import url('_contact.css');
 
 body {
     color: var(--primary-colour);
