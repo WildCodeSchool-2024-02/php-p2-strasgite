@@ -28,6 +28,17 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+
+    {% if user.isAdmin %}
+        <div class='admin-panel'>
+            <a href="/rooms/edit?id={{ item.id }}">Edit</a>
+            <form action="/rooms/delete" method="POST">
+                <input type="hidden" name="id" value="{{ item.id }}">
+                <button>Delete</button>
+            </form>
+            <a href="/rooms">Back</a>
+        </div>
+    {% endif %}
 {% endblock %}
 
 {% block javascript %}

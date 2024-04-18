@@ -35,6 +35,15 @@ article p {
     margin-right:2rem;
 }
 
+.admin-panel {
+    border: 2px solid var(--primary-colour);
+    border-radius: 16px;
+    width: 10rem;
+    margin-inline: auto;
+    margin-top: 4rem;
+    font-size: large;
+}
+
 @media screen and (max-width: 1000px) {
     .grid {
         display:flex;
