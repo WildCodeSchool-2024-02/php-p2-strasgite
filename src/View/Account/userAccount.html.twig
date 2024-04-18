@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block content %}
+    <h1>Profil personnel de {{user.firstname}} {{user.lastname}}</h1>
+    <ul>
+        <li>Adresse : {{user.address}}</li>
+        <li>Email: {{user.email}}</li>
+        {% if user.birthday %}
+            <li>Date d'anniversaire : {{user.birthday}}</li>
+        {% endif %}
+        {% if user.isAdmin %}
+            <p>Vous êtes un Admin, bien joué</p>
+        {% endif %}
+    </ul>
+    <a href="/logout">Déconnexion</a>
+{% endblock %}
