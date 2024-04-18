@@ -1,4 +1,4 @@
--- Active: 1712247778999@@127.0.0.1@3306@projet2
+-- Active: 1711381363336@@127.0.0.1@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -46,6 +46,32 @@ VALUES (1, 'Stuff'),
     (3, 'Doodles'),
     (4, 'Itsybits');
 
+--
+-- Création de la table `room` si elle n'existe pas
+--
+CREATE TABLE IF NOT EXISTS `room` (
+    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL
+);
+
+--
+-- Contenu de la table `room` pour le moment et à titre d'exemple
+--
+INSERT INTO
+    `room` (
+        `id`, `title`, `description`, `type`, `bed_type`
+    )
+VALUES (
+        1, 'Chambre1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Luxe', '1x Double XXL'
+    ),
+    (
+        2, 'Chambre2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Sénateur', '2x Simple'
+    ),
+    (
+        3, 'Chambre3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Présidentielle', '1x Simple XXL'
+    ),
+    (
+        4, 'Chambre4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Confort', '1x Double'
+    );
 --
 -- Index pour les tables exportées
 --
