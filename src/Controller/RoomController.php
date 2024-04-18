@@ -19,6 +19,5 @@ class RoomController extends AbstractController
         $room = $roomManager->selectOneById($id);
 
         return $this->twig->render('Room/showRoom.html.twig', ['room' => $room]);
-
     }
 }
