@@ -1,10 +1,13 @@
 @import url('_footer.css');
 @import url('_header.css');
 @import url('_main.css');
+@import url('room.css');
 @import url('_globals.css');
 @import url('_rooms.css');
 @import url('_homeblock.css');
 @import url('_temoignage.css');
+@import url('_dashboard.css');
+@import url('_connect.css');
 
 
 body {

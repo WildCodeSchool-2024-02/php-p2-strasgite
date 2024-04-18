@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2> Interface administrateur </h2>
+        </div>
+        <div class="dashboardList">
+            <ul class="listTitle">
+                <li><div class="listTitleLogo">&#x1F465;</div> <h3>Administration des utilisateurs</h3></li>
+                <li><div class="listTitleLogo">&#x1F4F1;</div> <h3>Administration des avis</h3></li>
+                <li><div class="listTitleLogo">&#x1F6CC;</div> <h3>Administration des chambres</h3></li>
+                <li><div class="listTitleLogo">&#x1F3E8;</div> <h3>Administration des services</h3></li>
+                <li><div class="listTitleLogo">&#x1F4D9;</div> <h3>Administration des reservations</h3></li>
+            </ul>*
+            <ul class="listButton">
+                <li>
+                    <a href="">Gérer</a>
+                </li>
+                <li>
+                    <a href="">Gérer</a>
+                </li>
+                <li>
+                    <a href="">Gérer</a>
+                </li>
+                <li>
+                    <a href="">Gérer</a>
+                </li>
+                <li>
+                    <a href="">Gérer</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+{% endblock %}
