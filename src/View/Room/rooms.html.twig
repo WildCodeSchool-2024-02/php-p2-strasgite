@@ -27,5 +27,7 @@
             {% endfor %}
             </div>
         </ul>
-    <a href="/items/add">Ajouter</a>
+        {% if user.isAdmin %}
+            <a href="/items/add">Ajouter</a>
+        {% endif %}
 {% endblock %}

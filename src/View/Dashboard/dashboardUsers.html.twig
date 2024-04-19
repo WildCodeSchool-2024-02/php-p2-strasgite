@@ -1,0 +1,34 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2> Interface utilisateurs </h2>
+        </div>
+        <div class="dashboardList">
+        <ul class="listTitle">
+            {% for item in items %}
+                <li><div class="listTitleLogo">&#x1F465;</div> <h3>{{item.firstname}} {{item.lastname}}</h3></li>
+                <li>{{item.email}} / {{item.address}}</li>
+                <li>
+                    {% if item.isAdmin %}<strong>Admin</strong> / {% endif %}
+                    {% if item.isClient %}<strong>Client</strong> / {% endif %}
+                    {% if item.isVIP %}<strong><em>VIP</em></strong>{% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="listButton">
+            {% for item in items %}
+                <li>
+                    <a href="#">Toggle Admin</a><a href="#">Toggle client</a><a href="#">Toggle VIP</a>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}

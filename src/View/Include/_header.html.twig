@@ -8,6 +8,9 @@
     <div class='connect'>
         {% if user %}
             <a href="/profile">Votre compte</a>
+            {% if user.isAdmin %}
+                <a href="/dashboard">Dashboard Admin</a>
+            {% endif %}
         {% else %}
             <a href="/connect">Connexion / S'inscrire</a>
         {% endif %}
