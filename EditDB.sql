@@ -1,4 +1,4 @@
--- Active: 1711641097871@@localhost@3306@projet2
+-- Active: 1712247778999@@127.0.0.1@3306@projet2
 
 SHOW TABLES;
 
@@ -37,10 +37,10 @@ VALUES (
 
 UPDATE user SET isAdmin = 1 WHERE id = 1;
 
+UPDATE user SET isClient = 1 WHERE id = 3;
+
+UPDATE user SET isVIP = 1 WHERE id = 3;
+
 SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO user birthday VALUES ('1993-01-24');
-
-CREATE TABLE contact IF NOT EXISTS (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, message TEXT NOT NULL
-);
+INSERT INTO user (birthday) VALUES ('1993-01-24');

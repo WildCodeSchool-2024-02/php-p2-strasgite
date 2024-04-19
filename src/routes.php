@@ -23,5 +23,6 @@ return [
     'inscription' => ['ConnectController', 'inscription'],
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
-    'contact' => ['ContactController', 'contact']
+    'contact' => ['ContactController', 'contact'],
+    'contact/result' => ['ContactController', 'result']
 ];
