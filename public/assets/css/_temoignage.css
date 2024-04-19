@@ -1,0 +1,24 @@
+.list-temoignage {
+    display: flex;
+    justify-content: flex-start;
+}
+
+
+.temoignages {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    border : solid black;
+    gap: 10px; 
+    
+}  
+
+
+
+   
+
+ 
+.en-tete { 
+    display: flex; 
+ }
