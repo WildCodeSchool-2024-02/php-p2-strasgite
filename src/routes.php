@@ -14,6 +14,7 @@ return [
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
     'items/delete' => ['ItemController', 'delete',],
+    'room' => ['RoomController', 'room',],
     'room/showRoom' => ['RoomController', 'showRoom', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
@@ -22,4 +23,5 @@ return [
     'inscription' => ['ConnectController', 'inscription'],
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
+    'contact' => ['ContactController', 'contact']
 ];

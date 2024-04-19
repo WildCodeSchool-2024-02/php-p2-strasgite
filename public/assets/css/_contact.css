@@ -1,0 +1,108 @@
+.bloc-form-infos {
+    display: flex;
+    margin-top: 3rem;
+    justify-content: center;
+    gap: 5rem;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.bloc-form-infos * {
+    font-family: var(--body-font);
+}
+
+.contact-infos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: start;
+    width: 60%;
+}
+
+.contact-infos>hr {
+    background-image: linear-gradient(to right, transparent, #DBDBDB, transparent);
+    border: 0;
+    height: 1px;
+    margin: 22px 0;
+}
+
+.horaires {
+    width: 100%;
+}
+
+.contact-infos li {
+    list-style: none;
+}
+
+.contact-infos a {
+    text-decoration: none;
+    color: var(--primary-colour);
+}
+
+.form-container {
+    width: 40%;
+}
+
+.contact-form {
+    display: grid;
+    grid:
+        "l-name f-name" .2fr "e-mail e-mail" .2fr "msg msg" .2fr "send-button send-button" .2fr / 1fr 1fr;
+    gap: 8px;
+
+    #l-name {
+        grid-area: l-name;
+    }
+
+    #f-name {
+        grid-area: f-name;
+    }
+
+    #e-mail {
+        grid-area: e-mail;
+    }
+
+    #msg {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        grid-area: msg;
+    }
+
+    #msg textarea {
+        resize: none;
+        width: 100%;
+    }
+
+    #send-button {
+        grid-area: send-button;
+        width: 30%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .bloc-form-infos {
+        margin-top: 2rem;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .form-container {
+        width: auto;
+    }
+
+    .contact-infos {
+        width: auto;
+    }
+
+    .contact-form {
+        #send-button {
+            width: 50%;
+            margin: auto;
+        }
+    }
+
+}
