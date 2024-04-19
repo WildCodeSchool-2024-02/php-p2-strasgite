@@ -11,19 +11,18 @@
     box-shadow: 4px 3px lightgray;
 }
 
-.btn {
+.connection-form .btn, .inscription-form .btn {
     background-color: var(--secondary-colour);
 }
 
-.form-text {
+.connection-form .form-text {
     color: white;
 }
 
-.connect-h3 {
+.connection-form .connect-h3 {
     font-size: 1.2rem;
     margin-top: 1rem;
 }
-
 
 .inscription-form {
     width: 50%;
@@ -34,5 +33,6 @@
     border-top-left-radius: 56px;
     border-bottom-right-radius: 56px;
     margin-top: 3rem;
+    margin-bottom: 3rem;
     box-shadow: 4px 3px lightgray;
 }

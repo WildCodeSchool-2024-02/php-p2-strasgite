@@ -37,6 +37,10 @@ INSERT INTO `user` (`firstname`, `lastname`, `email`, `address`, `password`, `is
 
 UPDATE user SET isAdmin = 1 WHERE id=1;
 
+UPDATE user SET isClient = 1 WHERE id=3;
+
+UPDATE user SET isVIP = 1 WHERE id=3;
+
 SELECT birthday from user WHERE firstname = 'Philippe';
 
 INSERT INTO user birthday VALUES ('1993-01-24');

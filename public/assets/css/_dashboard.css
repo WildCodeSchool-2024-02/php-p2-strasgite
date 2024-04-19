@@ -64,7 +64,7 @@
 
 .listButton a {
     color: var(--secondary-font-colour);
-    text-decoration: none; 
+    text-decoration: none;
     padding: 0.5rem;
     padding-inline:2rem;
     font-size: 1rem;
@@ -75,4 +75,5 @@
     -moz-border-radius: .5rem;
     border: 0.2rem solid var(--primary-color);
     box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
 }

@@ -8,17 +8,16 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
     border : solid black;
-    gap: 10px; 
-    
-}  
+    gap: 10px;
 
+}
 
+.en-tete {
+    display: flex;
+}
 
-   
-
- 
-.en-tete { 
-    display: flex; 
- }
+.listing-temoignages {
+    display: flex;
+}
