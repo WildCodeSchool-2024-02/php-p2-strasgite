@@ -1,5 +1,3 @@
--- Active: 1712247778999@@127.0.0.1@3306@projet2
-
 SHOW TABLES;
 
 CREATE TABLE rooms (
@@ -27,13 +25,9 @@ CREATE TABLE user (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, firstname VARCHAR(80) NOT NULL, lastname VARCHAR(80) NOT NULL, email VARCHAR(250) NOT NULL, address VARCHAR(250) NOT NULL, birthday DATE NULL, password VARCHAR(255) NOT NULL, isAdmin BOOLEAN NOT NULL, isClient BOOLEAN NOT NULL, isVIP BOOLEAN NOT NULL
 );
 
-INSERT INTO
-    `user` (
-        `firstname`, `lastname`, `email`, `address`, `password`, `isAdmin`, `isClient`, `isVIP`
-    )
-VALUES (
-        'John', 'Doe', 'johndoe@gmail.com', '42 rue du test 99999 nul part', '123456', 1, 0, 0
-    );
+INSERT INTO `user` (`firstname`, `lastname`, `email`, `address`, `password`, `isAdmin`, `isClient`, `isVIP`) VALUES
+('John', 'Doe', 'johndoe@gmail.com', '42 rue du test 99999 nul part', '123456', 1, 0, 0),
+('Jane', 'Doe', 'janedoe@gmail.com', '64 rue de l\'essai 88888 quelque part', 'test', 0, 1, 1);
 
 UPDATE user SET isAdmin = 1 WHERE id = 1;
 
@@ -43,4 +37,4 @@ UPDATE user SET isVIP = 1 WHERE id = 3;
 
 SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO user (birthday) VALUES ('1993-01-24');
+INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe';
