@@ -127,3 +127,13 @@ SELECT birthday from user WHERE firstname = 'Philippe';
 
 INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe';
 
+CREATE TABLE IF NOT EXISTS user_room (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+user_id INT NULL,
+room_id INT NULL,
+start_date DATE NOT NULL,
+end_date DATE NOT NULL,
+isBooked BOOLEAN NOT NULL DEFAULT '0',
+FOREIGN KEY (user_id) REFERENCES user(id),
+FOREIGN KEY (room_id) REFERENCES room(id)
+);

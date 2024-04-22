@@ -20,4 +20,35 @@ class RoomController extends AbstractController
 
         return $this->twig->render('Room/showRoom.html.twig', ['room' => $room]);
     }
+
+    public function upload()
+    {
+        $errors = [];
+        if ($_SERVER['REQUEST_METHOD'] === "POST") {
+            $uploadDir = __DIR__ . '\..\..\public\assets\images\room' . $_POST['id'] . '/';
+            $extension = 'webp';
+            $uploadFile = $_POST['pictureName'] . '.' . $extension;
+
+            $whereTo = $uploadDir . $uploadFile;
+            $authorizedExtensions = ['jpg','png', 'gif', 'webp'];
+            $maxFileSize = 2000000;
+
+            if ((!in_array($extension, $authorizedExtensions))) {
+                $errors[] = 'Veuillez sélectionner une image de type Jpg, gif, webp ou Png !';
+            }
+
+            if (
+                file_exists($_FILES['picture']['tmp_name'])
+                && filesize($_FILES['picture']['tmp_name']) > $maxFileSize
+            ) {
+                $errors[] = "Votre fichier doit faire moins de 2M !";
+            }
+
+            if (empty($errors)) {
+                $newName = $whereTo;
+                move_uploaded_file($_FILES['picture']['tmp_name'], $newName);
+                header('Location: /rooms/showRoom?id=' . $_POST['id']);
+            }
+        }
+    }
 }
