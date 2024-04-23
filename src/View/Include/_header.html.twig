@@ -5,15 +5,22 @@
         <li><a href="/rooms">Nos Chambres</a></li>
         <li><a href="contact">Nous contacter</a></li>
     </ul>
-    <div class='connect'>
-        {% if user %}
-            <a href="/profile">Votre compte</a>
+    <div class="dropdown">
+    {% if user %}
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu Utilisateur
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/profile">Profil</a></li>
             {% if user.isAdmin %}
-                <a href="/dashboard">Dashboard Admin</a>
+            <li><a class="dropdown-item" href="/dashboard">Panneau Administrateur</a></li>
             {% endif %}
-        {% else %}
-            <a href="/connect">Connexion / S'inscrire</a>
-        {% endif %}
+            <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
+        </ul>
+    {% else %}
+            <a href="/connect" class="connectbutton">Connexion / S'inscrire</a>
+    {% endif %}
     </div>
+
 </nav>
 
