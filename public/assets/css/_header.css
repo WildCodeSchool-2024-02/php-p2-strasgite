@@ -35,7 +35,9 @@ header #clip_accueil {
 }
 
 .header-navbar-ul li a {
-    font-size: clamp(1rem, -0.071rem + 2.857vw, 2.5rem);
+    font-size: clamp(0.8rem, 0.121rem + 1.81vw, 1.75rem);
+    transition: all .3s ease-in-out;
+    margin-inline:1rem;
 }
 
 .header-navbar-ul li a:hover {
@@ -43,7 +45,7 @@ header #clip_accueil {
 
 }
 
-.connect a {
+.dropdown .connectbutton {
     text-decoration: none;
     padding: .6rem;
     font-size: 1.2rem;
@@ -55,9 +57,44 @@ header #clip_accueil {
     border: .2rem solid var(--primary-color);
     box-shadow: 2px 4px 1.2px #44444471;
     font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem);
+    transition: all .3s ease-in-out;
 }
 
-.connect a:hover {
+.dropdown .connectbutton:hover {
     background-color: var(--secondary-colour);
     box-shadow: 2px 4px 1.2px #44444471;
     }
+
+.dropdown-item {
+    margin:0;
+    gap:0;
+    border-radius:0;
+    text-decoration: none;
+    padding: .6rem;
+    font-size: 1.2rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border: .2rem solid var(--primary-color);
+    font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem);
+    transition: all .3s ease-in-out;
+}
+
+.dropdown-menu.show {
+    padding:0;
+    transform: translate3d(0px, 38px, 0px) !important;
+    border: .1rem solid var(--secondary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+
+}
+
+.dropdown {
+    font-style: var(--titles-font) !important;
+    font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem) !important;
+}
+
+.dropdown .btn {
+    background-color: var(--primary-colour);
+    border: .1rem solid var(--secondary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+}
+
