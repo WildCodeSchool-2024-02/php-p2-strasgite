@@ -26,4 +26,5 @@ return [
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
+    'contact/result' => ['ContactController', 'result']
 ];
