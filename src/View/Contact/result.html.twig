@@ -1,0 +1,44 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+<div class='img-container'>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.916610286615!2d7.76338607676595!3d48.59229551939513!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4796c8f68e492631%3A0x566c9d45c0c3fc24!2s35%20Quai%20Mullenheim%2C%2067000%20Strasbourg!5e0!3m2!1sfr!2sfr!4v1713429701922!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id='clip_accueil' alt="">></iframe>
+</div>
+{% endblock %}
+
+{% block title %}
+Contactez-nous
+{% endblock %}
+
+{% block content %}   
+<div class="bloc-form-infos">
+    <div class="form-container">
+        <h4>Merci {{ contact.firstname }} {{ contact.lastname }} !</h4>
+            <p>Nous avons bien pris en compte votre message, nous reviendrons vers vous au plus vite à l'adresse {{ contact.email }}.</p>
+            <h5>Récapitulatif de votre message :</h5>
+            <p>{{ contact.message }}</p>
+    </div>
+    <div class="contact-infos">
+        <div>
+            <h4>N'hésitez pas à nous contacter si vous avez besoin de plus d'informations concernant votre séjour en Alsace.</h4>
+            <p>Vous pouvez également <a href="rooms">réservez votre chambre en ligne</a>.</p>
+            <hr>
+        </div>
+        <div>
+            <ul>
+                <li><i class="bi bi-geo-alt"></i><strong>  Adresse : </strong>35 Quai Mullenheim, 67000 Strasbourg</li>
+                <li><i class="bi bi-phone"></i></i><strong>  Téléphone : </strong>03 88 12 34 45</li>
+                <li><i class="bi bi-envelope"></i></i><strong>  E-mail : </strong><a href="mailto:contact@strasgite.fr">contact@strasgite.fr</a></li>
+            </ul>
+        </div>
+        <div class="horaires">
+            <hr>
+            <h4>Horaires d'ouverture</h4>
+            <ul>
+                <li><i class="bi bi-stopwatch"></i>  Tous les jours, de 9h à 19h.</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
