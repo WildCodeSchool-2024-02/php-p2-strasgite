@@ -33,7 +33,7 @@ class DashboardManager extends AbstractManager
 
         return $statement->execute();
     }
-    
+
     public function deleteUser(int $id): void
     {
         $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");

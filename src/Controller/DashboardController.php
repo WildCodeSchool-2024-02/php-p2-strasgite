@@ -25,7 +25,6 @@ class DashboardController extends AbstractController
         $urlMethod = $_GET['method'];
         $toggleValue = new DashboardManager();
         $boolCheck = $toggleValue->selectOneById($urlId['id']);
-        
 
         if ($urlMethod === 'isClient' && !$boolCheck['isClient']) {
             $toggleValue->toggleUser1($urlId, $urlMethod);
@@ -35,7 +34,7 @@ class DashboardController extends AbstractController
             header('Location: /dashboard/users');
         } elseif ($urlMethod === 'isVIP' && !$boolCheck['isVIP']) {
             $toggleValue->toggleUser1($urlId, $urlMethod);
-            header('Location: /dashboard/users'); 
+            header('Location: /dashboard/users');
         } elseif ($urlMethod === 'isVIP' && $boolCheck['isVIP']) {
             $toggleValue->toggleUser0($urlId, $urlMethod);
             header('Location: /dashboard/users');
@@ -44,18 +43,17 @@ class DashboardController extends AbstractController
             header('Location: /dashboard/users');
         } elseif ($urlMethod === 'isAdmin' && $boolCheck['isAdmin']) {
             $toggleValue->toggleUser0($urlId, $urlMethod);
-            header('Location: /dashboard/users'); 
-        } 
+            header('Location: /dashboard/users');
+        }
     }
 
     public function delete(): void
-    {   
-        $urlId = $_GET;
+    {
+        $urlId = $_GET['id'];
 
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
-            $id = trim($urlId['id']);
+        if ($urlId != '') {
             $userManager = new DashboardManager();
-            $userManager->deleteUser((int)$id);
+            $userManager->deleteUser((int)$urlId);
             header('Location: /dashboard/users');
         } else {
             header('Location: /dashboard/users');

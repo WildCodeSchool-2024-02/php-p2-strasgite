@@ -49,8 +49,7 @@ class ConnectController extends AbstractController
             if ($connectManager->insert($credentials)) {
                 header('location: /dashboard/users');
             }
-                
-        } 
+        }
         return $this->twig->render('Connect/dashboardusercreation.html.twig');
     }
 
