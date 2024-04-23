@@ -17,6 +17,7 @@ return [
     'rooms/upload' => ['RoomController', 'upload',],
     'room' => ['RoomController', 'room',],
     'room/showRoom' => ['RoomController', 'showRoom', ['id']],
+    'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
     'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
@@ -24,5 +25,5 @@ return [
     'inscription' => ['ConnectController', 'inscription'],
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
-    'contact' => ['ContactController', 'contact']
+    'contact' => ['ContactController', 'contact'],
 ];

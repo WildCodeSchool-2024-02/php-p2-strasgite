@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\RoomManager;
+use App\Model\ReservationManager;
 
 class RoomController extends AbstractController
 {
@@ -18,7 +19,23 @@ class RoomController extends AbstractController
         $roomManager = new RoomManager();
         $room = $roomManager->selectOneById($id);
 
-        return $this->twig->render('Room/showRoom.html.twig', ['room' => $room]);
+        $reservationManager = new ReservationManager();
+        $dates = $reservationManager->selectBooked($id);
+
+        if (!empty($_POST)) {
+            $userId = $_SESSION['user_id'];
+            $dateStart = $_POST['start_date'];
+            $dateEnd = $_POST['end_date'];
+            $room = trim($_POST['room']);
+
+
+            $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
+            header('Location: /room/showRoom?id=' . $id);
+        }
+        return $this->twig->render('Room/showRoom.html.twig', [
+            'room' => $room,
+            'dates' => json_encode($dates),
+        ]);
     }
 
     public function upload()
