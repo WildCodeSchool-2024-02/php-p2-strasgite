@@ -28,4 +28,5 @@ return [
     'profile/modif/delete' => ['ConnectController', 'delete',['id']],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
+    'contact/result' => ['ContactController', 'result']
 ];
