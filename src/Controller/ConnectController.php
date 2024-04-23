@@ -41,6 +41,24 @@ class ConnectController extends AbstractController
         return $this->twig->render('Connect/inscription.html.twig');
     }
 
+    public function edit(int $id): string
+    {
+        $connectManager = new ConnectManager();
+        $item = $connectManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $item = array_map('trim', $_POST);
+            if ($connectManager->edit($item)) {
+                header('Location: /profile');
+                exit();
+            };
+        }
+        return $this->twig->render('Account/userAccountEdit.html.twig', [
+            'item' => $item,
+        ]);
+    }
+
+
     public function profile(): string
     {
         if (!$this->user) {
@@ -55,5 +73,13 @@ class ConnectController extends AbstractController
     {
         unset($_SESSION['user_id']);
         header('location: /');
+    }
+
+    public function delete()
+    {
+        $connectManager = new ConnectManager();
+        $id = $_GET['id'];
+        $connectManager->delete($id);
+        header('Location: /');
     }
 }

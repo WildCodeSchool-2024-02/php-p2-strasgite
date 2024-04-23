@@ -20,7 +20,7 @@ class ConnectManager extends AbstractManager
         }
     }
 
-    public function insert(array $credentials): int
+    public function insert(array $credentials): string
     {
         $statement = $this->pdo->prepare("INSERT INTO " . static::TABLE .
             " (`firstname`, `lastname`, `address`, `email`, `password`)
@@ -31,6 +31,22 @@ class ConnectManager extends AbstractManager
         $statement->bindValue(':email', $credentials['email']);
         $statement->bindValue(':password', $credentials['password']);
         $statement->execute();
-        return (int)$this->pdo->lastInsertId();
+        return $this->pdo->lastInsertId();
+    }
+
+    public function edit(array $user): int
+    {
+        $statement = $this->pdo->prepare("UPDATE " . static::TABLE .
+            " SET `firstname` = :firstname, `lastname` = :lastname,
+            `address` = :address, `email` = :email, `password` = :password
+            WHERE id = :id");
+        $statement->bindValue(':firstname', $user['firstname']);
+        $statement->bindValue(':lastname', $user['lastname']);
+        $statement->bindValue(':address', $user['address']);
+        $statement->bindValue(':email', $user['email']);
+        $statement->bindValue(':password', $user['password']);
+        $statement->bindValue(':id', $user['id']);
+        $statement->execute();
+        return $user['id'];
     }
 }

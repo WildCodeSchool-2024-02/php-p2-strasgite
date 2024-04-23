@@ -8,6 +8,15 @@ class DashboardController extends AbstractController
 {
     public function index(): string
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
         return $this->twig->render('Dashboard/dashboard.html.twig');
     }
 

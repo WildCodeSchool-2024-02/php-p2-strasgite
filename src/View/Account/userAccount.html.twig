@@ -5,6 +5,7 @@
     <ul>
         <li>Adresse : {{user.address}}</li>
         <li>Email: {{user.email}}</li>
+        <li><a href="profile/modif?id={{user.id}}">Vous souhaitez modifier vos informations ?</a></li>
         {% if user.birthday %}
             <li>Date d'anniversaire : {{user.birthday}}</li>
         {% endif %}
