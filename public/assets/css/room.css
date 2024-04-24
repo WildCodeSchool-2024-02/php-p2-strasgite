@@ -149,6 +149,10 @@
     outline: 1px solid white;
 }
 
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 @media screen and (max-width: 1000px) {
     .room-details {
         display: flex;
