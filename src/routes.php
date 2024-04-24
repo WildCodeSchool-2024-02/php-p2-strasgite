@@ -36,5 +36,5 @@ return [
     'contact' => ['ContactController', 'contact'],
     'contact/result' => ['ContactController', 'result'],
     'dashboard/avis' => ['DashboardAvisController', 'index'],
-   'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
+    'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
 ];
