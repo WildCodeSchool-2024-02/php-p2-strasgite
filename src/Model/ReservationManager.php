@@ -42,14 +42,4 @@ class ReservationManager extends AbstractManager
         $statement->execute();
         return $statement->fetchAll();
     }
-        $query = "INSERT INTO " . static::TABLE . " (startDate, endDate, room_id, user_id, isBooked) VALUES
-        (:startDate, :endDate, :room_id, :user_id, 1)";
-        $statement = $this->pdo->prepare($query);
-        $statement->bindValue(':user_id', $userId);
-        $statement->bindValue(':room_id', $room, PDO::PARAM_INT);
-        $statement->bindValue(':startDate', $startDate);
-        $statement->bindValue(':endDate', $endDate);
-        $statement->execute();
-        return $this->pdo->lastInsertId();
-    }
 }
