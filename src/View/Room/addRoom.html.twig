@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Administration des chambres{% endblock %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Interface chambres > Ajouter une chambre </h2>
+        </div>
+        <div class="dashboardList">
+            <form class="add-room" method="post">
+	            <input type="hidden" value="{{ addRoom.id }}" name="id">
+	            <label for="title">Titre</label>
+	            <input type="text" value="{{ addRoom.title }}" name="title" id="title">
+                <label for="type">Type</label>
+	            <input type="text" value="{{ addRoom.type }}" name="type" id="type">
+                <label for="bed_type">Type de lit</label>
+	            <input type="text" value="{{ addRoom.bed_type }}" name="bed_type" id="bed_type">
+                <label for="description">Description</label>
+	            <textarea name="description" id="description" rows="5" cols="33">{{ addRoom.description }}</textarea>
+	            <button>Submit</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

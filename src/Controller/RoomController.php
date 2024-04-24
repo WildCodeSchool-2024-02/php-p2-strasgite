@@ -18,9 +18,10 @@ class RoomController extends AbstractController
     public function index(): string
     {
         $roomManager = new RoomManager();
-        $items = $roomManager->selectAll();
+        $rooms = $roomManager->selectAll();
 
-        return $this->twig->render('Room/rooms.html.twig', ['items' => $items]);
+        return $this->twig->render('Room/rooms.html.twig', ['rooms' => $rooms]);
+
     }
 
     public function showRoom(int $id): string
