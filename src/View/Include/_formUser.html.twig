@@ -1,0 +1,15 @@
+
+<form class='form_user_edit' method="post">
+	<input type="hidden" value="{{ user.id }}" name="id">
+	<label for="firstname">Prénom</label>
+	<input type="text" value="{{ user.firstname }}" name="firstname" id="firstname">
+    <label for="lastname">Nom</label>
+	<input type="text" value="{{ user.lastname }}" name="lastname" id="lastname">
+    <label for="email">Votre email</label>
+	<input type="text" value="{{ user.email }}" name="email" id="email">
+    <label for="address">Votre adresse postale</label>
+	<input type="text" value="{{ user.address }}" name="address" id="address">
+    <label for="password">Votre Mot de passe</label>
+	<input type="text" value="{{ user.password }}" name="password" id="password">
+	<button>Submit</button>
+</form>

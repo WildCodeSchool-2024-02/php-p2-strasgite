@@ -1,4 +1,3 @@
--- Active: 1711641097871@@localhost@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -50,7 +49,7 @@ VALUES (1, 'Stuff'),
 -- Création de la table `room` si elle n'existe pas Alex
 --
 CREATE TABLE IF NOT EXISTS `room` (
-    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL
+    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL, `isBooked` TINYINT(1) NOT NULL, `start_date` DATE, `end_date` DATE
 );
 
 --
@@ -58,19 +57,19 @@ CREATE TABLE IF NOT EXISTS `room` (
 --
 INSERT INTO
     `room` (
-        `id`, `title`, `description`, `type`, `bed_type`
+        `id`, `title`, `description`, `type`, `bed_type`, `isBooked`, `start_date`, `end_date`
     )
 VALUES (
-        1, 'Chambre1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Luxe', '1x Double XXL'
+        1, 'Chambre1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Luxe', '1x Double XXL', 0, NULL, NULL
     ),
     (
-        2, 'Chambre2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Sénateur', '2x Simple'
+        2, 'Chambre2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Sénateur', '2x Simple', 1, '2024-07-02', '2024-08-06'
     ),
     (
-        3, 'Chambre3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Présidentielle', '1x Simple XXL'
+        3, 'Chambre3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Présidentielle', '1x Simple XXL', 1, '2024-05-10', '2024-06-06'
     ),
     (
-        4, 'Chambre4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Confort', '1x Double'
+        4, 'Chambre4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Confort', '1x Double', 0, NULL, NULL
     );
 --
 -- Index pour les tables exportées
@@ -104,7 +103,6 @@ CREATE TABLE IF NOT EXISTS contact (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, message TEXT NOT NULL
 );
 
-
 CREATE TABLE rooms (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, name VARCHAR(80) NOT NULL, date DATE NULL, booked BOOLEAN NOT NULL, description TEXT NOT NULL, bed INT NOT NULL, rooms INT NULL
 );
@@ -127,31 +125,40 @@ VALUES (
     );
 
 CREATE TABLE IF NOT EXISTS user (
-id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-firstname VARCHAR(80) NOT NULL,
-lastname VARCHAR(80) NOT NULL,
-email VARCHAR(250) NOT NULL,
-address VARCHAR(250) NOT NULL,
-birthday DATE NULL,
-password VARCHAR(255) NOT NULL,
-isAdmin BOOLEAN NOT NULL DEFAULT '0',
-isClient BOOLEAN NOT NULL DEFAULT '0',
-isVIP BOOLEAN NOT NULL DEFAULT '0'
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, firstname VARCHAR(80) NOT NULL, lastname VARCHAR(80) NOT NULL, email VARCHAR(250) NOT NULL, address VARCHAR(250) NOT NULL, birthday DATE NULL, password VARCHAR(255) NOT NULL, isAdmin BOOLEAN NOT NULL DEFAULT '0', isClient BOOLEAN NOT NULL DEFAULT '0', isVIP BOOLEAN NOT NULL DEFAULT '0'
 );
 
-INSERT INTO `user` (`firstname`, `lastname`, `email`, `address`, `password`, `isAdmin`, `isClient`, `isVIP`) VALUES
-('John', 'Doe', 'johndoe@gmail.com', '42 rue du test 99999 nul part', '123456', 1, 0, 0),
-('Jane', 'Doe', 'janedoe@gmail.com', '64 rue de l\'essai 88888 quelque part', 'test', 0, 1, 1);
+INSERT INTO
+    `user` (
+        `firstname`, `lastname`, `email`, `address`, `password`, `isAdmin`, `isClient`, `isVIP`
+    )
+VALUES (
+        'John', 'Doe', 'johndoe@gmail.com', '42 rue du test 99999 nul part', '123456', 1, 0, 0
+    ),
+    (
+        'Jane', 'Doe', 'janedoe@gmail.com', '64 rue de l\'essai 88888 quelque part', 'test', 0, 1, 1
+    );
 
-UPDATE user SET isAdmin = 1 WHERE id=1;
+UPDATE user SET isAdmin = 1 WHERE id = 1;
 
-UPDATE user SET isClient = 1 WHERE id=3;
+UPDATE user SET isClient = 1 WHERE id = 3;
 
-UPDATE user SET isVIP = 1 WHERE id=3;
+UPDATE user SET isVIP = 1 WHERE id = 3;
 
 SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe'; 
+INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe';
+
+CREATE TABLE IF NOT EXISTS reservation (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+user_id INT NULL,
+room_id INT NULL,
+start_date DATE NOT NULL,
+end_date DATE NOT NULL,
+isBooked BOOLEAN NOT NULL DEFAULT '0',
+FOREIGN KEY (user_id) REFERENCES user(id),
+FOREIGN KEY (room_id) REFERENCES room(id)
+);
 
 use projet2; 
 
