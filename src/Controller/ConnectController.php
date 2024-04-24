@@ -41,6 +41,7 @@ class ConnectController extends AbstractController
         return $this->twig->render('Connect/inscription.html.twig');
     }
 
+
     public function edit(int $id): string
     {
         $connectManager = new ConnectManager();
@@ -56,6 +57,20 @@ class ConnectController extends AbstractController
         return $this->twig->render('Account/userAccountEdit.html.twig', [
             'item' => $item,
         ]);
+    }
+
+
+
+    public function creatuser(): string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $credentials = $_POST;
+            $connectManager = new ConnectManager();
+            if ($connectManager->insert($credentials)) {
+                header('location: /dashboard/users');
+            }
+        }
+        return $this->twig->render('Connect/dashboardusercreation.html.twig');
     }
 
 
