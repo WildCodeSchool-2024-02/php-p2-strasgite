@@ -140,7 +140,8 @@
                 <input type="hidden" name="id" value="{{ room.id }}">
                 <button>Delete</button>
             </form>
-            <a href="/rooms">Back</a>
+            {# <a href="/rooms">Back</a> #}
+            <a href="javascript:history.go(-1)">Back</a>
         </div>
     {% endif %}
 {% endblock %}
