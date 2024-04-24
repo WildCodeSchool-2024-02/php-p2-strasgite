@@ -1,0 +1,38 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <form method="post" class='inscription-form'>
+        <h2>Inscription d'un client</h2>
+        <div class="mb-3">
+        <label for="exampleInputtext1" class="form-label">Prénom</label>
+        <input type="text" class="form-control" name='firstname' id="exampleInputtext1">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputext2" class="form-label">Nom</label>
+            <input type="text" class="form-control" name='lastname' id="exampleInputext2">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputext3" class="form-label">Adresse</label>
+            <input type="text" class="form-control" name='address' id="exampleInputext3">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email</label>
+            <input type="email" class="form-control" name='email' id="exampleInputEmail1" aria-describedby="emailHelp">
+            
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Mot de passe temporaire du client</label>
+            <input type="password" class="form-control" name='password' id="exampleInputPassword1">
+            <div id="emailHelp" class="form-text">Rappeler au client de changer de mot de passe plus tard.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword2" class="form-label">Confirmez le mot de passe</label>
+            <input type="password" class="form-control" name='password2' id="exampleInputPassword2">
+        </div>
+        <button type="submit" class="btn btn-primary">Inscription</button>
+    </form>
+{% endblock %}

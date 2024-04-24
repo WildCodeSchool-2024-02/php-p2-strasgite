@@ -36,8 +36,14 @@ class ContactController extends AbstractController
                 // if validation is ok, insert and redirection
                 $contactManager = new ContactManager();
                 $contactManager->insert($contact);
+                return $this->result($contact);
             }
         }
         return $this->twig->render('Contact/contact.html.twig', ['errors' => $errors]);
+    }
+
+    public function result(array $contact): string
+    {
+        return $this->twig->render('Contact/result.html.twig', ['contact' => $contact]);
     }
 }

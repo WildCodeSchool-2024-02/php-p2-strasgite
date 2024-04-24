@@ -1,73 +1,81 @@
 .dashboard {
-    margin-block:2.5rem;
+    margin-block: 2.5rem;
     border-radius: 25px 0px 25px 0px;
     border: 3px solid var(--tertiary-colour);
-    font-size:1.2rem;
-    width:100%;
+    font-size: 1.2rem;
+    width: 100%;
 }
 
 .dashboard li {
-    list-style:none;
+    list-style: none;
 }
 
 .dashboard .dashboardTitle {
-    display:flex;
+    display: flex;
     justify-content: flex-start;
     align-items: baseline;
     flex-direction: row;
-    margin-left:2rem;
-    margin-top:1rem;
-    gap:1rem;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    gap: 1rem;
 }
 
 .dashboard .dashboardTitle img {
-    height:24px;
-    width:24px;
+    height: 24px;
+    width: 24px;
 }
 
-.dashboard .dashboardTitle h2, h3 {
-    font-size:1.5rem;
+.dashboard .dashboardTitle h2,
+h3 {
+    font-size: 1.5rem;
 }
 
 .dashboard .dashboardList {
-    display:flex;
+    display: flex;
     justify-content: space-around;
-    margin-block:2rem;
+    margin-block: 2rem;
+    flex-direction: row;
+
 }
 
 .dashboard .listTitle {
-    display:flex;
+    display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .listTitle li {
-    margin-block:.3rem;
-    display:flex;
+    margin-block: .3rem;
+    display: flex;
 }
 
 .listTitle li h3 {
-    margin-left:1rem;
+    margin-left: 1rem;
 }
 
 .listTitleLogo {
-    height:24px;
-    width:24px;
+    height: 24px;
+    width: 24px;
 }
 
 .listButton {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding-bottom:1rem;
+    padding-bottom: 1rem;
+}
+
+.listButton li {
+    display:flex;
 }
 
 .listButton a {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
-    padding-inline:2rem;
+    padding-inline: 2rem;
     font-size: 1rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
     border-radius: 0.5rem;
@@ -76,4 +84,52 @@
     border: 0.2rem solid var(--primary-color);
     box-shadow: 2px 4px 1.2px #44444471;
     margin-inline: 0.3rem;
+    white-space: nowrap;
+}
+
+.listButton a:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.addDeleteUser {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline:2rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    white-space: nowrap;
+}
+
+.addDeleteUser:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.userCard {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    
+}
+
+.dashboardUserList {
+    margin-inline:2rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.dashboardUserList .listButton {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-end;
 }
