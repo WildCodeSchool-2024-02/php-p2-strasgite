@@ -1,0 +1,30 @@
+{% extends 'layout.html.twig' %}
+
+{% block stylesheet %}
+    <link rel="stylesheet" href="/assets/css/_dashboardEdit.css">">
+{% endblock %}
+
+{% block banner %}
+    <img src="assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2> Interface utilisateurs > Interface des réservations</h2>
+        </div>
+        <div class="dashboardList">
+            <form class="room-reservation-details" action="" method="post">
+                    <label for="dateStart">ARRIVEE</label>
+                    <input type="date" id="dateStart" name="start_date" value='{{booking.start_date}}'/>
+                    <label for="dateEnd">DEPART</label>
+                    <input type="date" id="dateEnd" name="end_date" value='{{booking.end_date}}'/>
+                    <label for="travelers">VOYAGEURS</label>
+                    <input type="number" value="1" id="travelers" name="travelers" min="1" max="10" />
+                    <input type="hidden" name="room" value='{{booking.id}}' id="room_id">
+                        <button class="reservation-button">Réserver</button>
+                </form>
+        </div>
+    </div>
+{% endblock %}

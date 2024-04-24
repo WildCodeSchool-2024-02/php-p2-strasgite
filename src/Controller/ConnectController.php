@@ -87,4 +87,12 @@ class ConnectController extends AbstractController
         $connectManager->delete($id);
         header('Location: /');
     }
+
+    public function deleteReservation()
+    {
+        $reservationManager = new ReservationManager();
+        $id = $_GET['id'];
+        $reservationManager->delete($id);
+        header('Location: /profile');
+    }
 }

@@ -20,7 +20,7 @@
                     {{booking.firstname}} {{booking.lastname}}
                     du {{booking.start}} au {{booking.end}}
                     </li>
-                    <li><a class='dashboard-booking-btn' href="#">Modifier la réservation</a><a class='dashboard-booking-btn' href="">Supprimer la réservation</a></li>
+                    <li><a class='dashboard-booking-btn' href="bookingedit?id={{booking.id}}">Modifier la réservation</a><a class='dashboard-booking-btn' href="bookingdelete?id={{booking.id}}">Supprimer la réservation</a></li>
                 {% endfor %}
                 </ul>
             {% endif %}

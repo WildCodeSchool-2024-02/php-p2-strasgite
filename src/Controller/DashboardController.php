@@ -36,4 +36,28 @@ class DashboardController extends AbstractController
 
         return $this->twig->render('Dashboard/dashboardBooking.html.twig', ['bookings' => $bookings]);
     }
+
+    public function bookingDelete(): void
+    {
+        $reservationManager = new ReservationManager();
+        $id = $_GET['id'];
+        $reservationManager->delete($id);
+        header('Location: /dashboard/bookings');
+    }
+
+    public function bookingEdit(): string
+    {
+        $id = $_GET['id'];
+        $reservationManager = new ReservationManager();
+        $booking = $reservationManager->getReservationByItsId($id);
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $dateStart = $_POST['start_date'];
+            $dateEnd = $_POST['end_date'];
+
+            $reservationManager->editReservation($dateStart, $dateEnd, $id);
+            header('Location: /dashboard/bookings');
+        }
+
+        return $this->twig->render('Dashboard/dashboardBookingEdit.html.twig', ['booking' => $booking]);
+    }
 }

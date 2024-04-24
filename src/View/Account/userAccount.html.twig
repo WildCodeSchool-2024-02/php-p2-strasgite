@@ -20,7 +20,7 @@
             {% for reservation in reservations %}
                 <div class='profile-booking'>
                     <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
-                    <li><a class='dashboard-booking-btn' href="#">Annuler cette réservation</a></li>
+                    <li><a class='dashboard-booking-btn' href="/profile/bookingdelete?id={{reservation.id}}">Annuler cette réservation</a></li>
                 </div>
             {% endfor %}
             </ul>
@@ -28,6 +28,6 @@
             <h3>Vous n'avez aucune réservation en cours</h3>
         {% endif %}
     </ul>
-    <a href="/logout">Déconnexion</a>
+    <a class='edit-btn' href="/logout">Déconnexion</a>
     </div>
 {% endblock %}
