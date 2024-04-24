@@ -23,6 +23,7 @@ return [
     'dashboard/users/toggle' => ['DashboardController', 'toggle',],
     'dashboard/users/creatuser' => ['ConnectController', 'creatuser'],
     'dashboard/users/delete' => ['DashboardController', 'delete'],
+    'dashboard/service' => ['DashboardController', 'service'],
     'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
     'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],

@@ -40,4 +40,14 @@ class DashboardManager extends AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectAllService(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT * FROM service JOIN reservation';
+        if ($orderBy) {
+            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
+        }
+
+        return $this->pdo->query($query)->fetchAll();
+    }
 }

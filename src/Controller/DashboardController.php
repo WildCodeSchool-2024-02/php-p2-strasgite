@@ -59,4 +59,12 @@ class DashboardController extends AbstractController
             header('Location: /dashboard/users');
         }
     }
+
+    public function service(): string
+    {
+        $dashboardManager = new DashboardManager();
+        $items = $dashboardManager->selectAllService();
+
+        return $this->twig->render('Dashboard/dashboardService.html.twig', ['items' => $items]);
+    }
 }
