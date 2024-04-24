@@ -36,15 +36,15 @@ class DashboardManager extends AbstractManager
         $statement->execute();
     }
 
-    public function insertRoom(array $item): int
+    public function insertRoom(array $room): int
     {
         $statement = $this->pdo->prepare("INSERT INTO " . self::TABLE2 .
          " (`title`, `description`, `type`, `bed_type`, `isBooked`)
          VALUES (:title, :description, :type, :bed_type, 0)");
-        $statement->bindValue('title', $item['title'], PDO::PARAM_STR);
-        $statement->bindValue('description', $item['description'], PDO::PARAM_STR);
-        $statement->bindValue('type', $item['type'], PDO::PARAM_STR);
-        $statement->bindValue('bed_type', $item['bed_type'], PDO::PARAM_STR);
+        $statement->bindValue('title', $room['title'], PDO::PARAM_STR);
+        $statement->bindValue('description', $room['description'], PDO::PARAM_STR);
+        $statement->bindValue('type', $room['type'], PDO::PARAM_STR);
+        $statement->bindValue('bed_type', $room['bed_type'], PDO::PARAM_STR);
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
