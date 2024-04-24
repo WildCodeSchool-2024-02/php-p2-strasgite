@@ -114,15 +114,36 @@ class DashboardController extends AbstractController
     }
 
     public function toggleService()
-    {   
+    {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            // $services = $_POST;
-            // $servicesManager = new DashboardManager();
-            // $servicesManager->toggleService($services);
-        }
-        var_dump($_POST);
-        exit();
-        header('Location: /dashboard/services');
+            $services = [
+                'id' => '',
+                'breakfast' => false,
+                'minibar' => false,
+                'parking'=> false,
+                'service24'=> false,
+                'driver'=> false
+            ];
 
+            if (isset($_POST['breakfast']) && $_POST['breakfast'] === 'true') {
+                $services['breakfast'] = true;
+            } if (isset($_POST['minibar']) && $_POST['minibar'] === 'true') {
+                $services['minibar'] = true;
+            } if (isset($_POST['parking']) && $_POST['parking'] === 'true') {
+                $services['parking'] = true;
+            } if (isset($_POST['service24']) && $_POST['service24'] === 'true') {
+                $services['services24'] = true;
+            } if (isset($_POST['driver']) && $_POST['driver'] === 'true') {
+                $services['driver'] = true;
+            } if (isset($_POST['id'])) {
+                $services['id'] = intval($_POST['id']);
+            } else {
+                return $services;
+            }
+            $servicesManager = new DashboardManager();
+            $servicesManager->updateService($services);
+        }
+
+        header('Location: /dashboard/services');
     }
 }
