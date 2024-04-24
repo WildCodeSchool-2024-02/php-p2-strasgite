@@ -46,7 +46,6 @@ class ConnectController extends AbstractController
     {
         $connectManager = new ConnectManager();
         $user = $connectManager->selectOneById($id);
-
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $user = array_map('trim', $_POST);
             if ($connectManager->edit($user)) {
