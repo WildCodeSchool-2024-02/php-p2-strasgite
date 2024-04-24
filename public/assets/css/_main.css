@@ -1,0 +1,20 @@
+main {
+    text-align: center;
+    font-family: var(--body-font);
+    box-sizing: content-box;
+    margin-inline: 5%;
+}
+
+h1, h2, h3 {
+    font-family: var(--titles-font);
+}
+
+main h1 {
+    margin-block:2rem;
+}
+
+
+p {
+    color: var(--font-colour);
+    text-align: center;
+}

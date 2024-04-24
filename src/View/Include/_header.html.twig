@@ -1,0 +1,24 @@
+<nav>
+    <a href="/"><img src="/assets/images/logo2.png" alt="logo_en_png"></a>
+    <ul class='header-navbar-ul'>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/rooms">Nos Chambres</a></li>
+        <li><a href="/contact">Nous contacter</a></li>
+    </ul>
+    <div class="dropdown">
+    {% if user %}
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Menu Utilisateur
+        </button>
+        <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="/profile">Profil</a></li>
+            {% if user.isAdmin %}
+            <li><a class="dropdown-item" href="/dashboard">Panneau Administrateur</a></li>
+            {% endif %}
+            <li><a class="dropdown-item" href="/logout">Déconnexion</a></li>
+        </ul>
+    {% else %}
+            <a href="/connect" class="connectbutton">Connexion / S'inscrire</a>
+    {% endif %}
+    </nav>
+    </div>

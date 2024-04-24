@@ -1,0 +1,43 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2> Interface administrateur > Interface utilisateurs </h2>
+        </div>
+        <a href="users/creatuser" class='addDeleteUser'>Ajouter un utilisateur</a>
+        
+        <div class="dashboardUserList">
+            
+                {% for item in items %}
+               <div class="userCard"> 
+                    <ul class="listTitle">
+                        <li>
+                            <div class="listTitleLogo">&#x1F465;</div> <h3>{{item.firstname}} {{item.lastname}}</h3>
+                        </li>
+                        <li>
+                            {{item.email}} / {{item.address}}</li>
+                        <li>
+                            {% if item.isAdmin %}<strong>{{item.firstname}} {{item.lastname}} est Administrateur </strong> / {% endif %}
+                            {% if item.isClient %}<strong>{{item.firstname}} {{item.lastname}} est client </strong> / {% endif %}
+                            {% if item.isVIP %}<strong><em>{{item.firstname}} {{item.lastname}} est VIP </em></strong>{% endif %}
+                        </li>
+                    </ul>
+                    <ul class="listButton">
+                        <li>
+                            <a href="users/toggle?id={{ item.id }}&method=isAdmin">Toggle Admin</a>
+                            <a href="users/toggle?id={{ item.id }}&method=isClient">Toggle Client</a>
+                            <a href="users/toggle?id={{ item.id }}&method=isVIP">Toggle VIP</a>
+                            <a href="users/delete?id={{ item.id }}" class='addDeleteUser'> Supprimer client</a>
+                        </li>
+                    </ul>
+                </div>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}

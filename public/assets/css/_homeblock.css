@@ -1,0 +1,40 @@
+main .homeblock1 {
+    display:flex;
+    flex-direction:row;
+    align-items: center;
+    align-items: flex-start;
+    margin-inline:20%;
+    margin-block:3rem;
+}
+
+.homeblock1 img {
+    height:20rem;
+    width:20rem;
+    margin:1rem;
+}
+
+.homeblock1 p {
+
+    margin:.5rem;
+    text-align : left;
+    
+}
+
+.homeblock2 {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    margin-inline:20%;
+    margin-block:3rem;
+}
+
+.homeblock2 p {
+
+    margin:.5rem;
+    text-align : left;
+    
+}
+
+.homeblock2 img {
+    margin-right:1rem;
+}

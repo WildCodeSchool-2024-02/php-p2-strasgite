@@ -1,0 +1,25 @@
+footer {
+    display: flex;
+    margin-top: auto;
+    justify-content: center;
+    color: var(--font-colour);
+    background-color: var(--primary-colour);
+    border-top-left-radius: 17px;
+    border-top-right-radius: 17px;
+}
+
+footer ul {
+    display: flex;
+    align-items: center;
+    padding-inline: 1rem;
+    /* list-style-type: "/ "; */
+}
+
+footer ul>li {
+    margin-inline: 1rem;
+}
+
+.socials>a {
+    text-decoration: none;
+    color: black;
+}

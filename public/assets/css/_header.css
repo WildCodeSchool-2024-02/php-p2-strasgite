@@ -1,0 +1,108 @@
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--primary-colour);
+}
+
+nav img {
+    max-width: 7.5rem;
+    max-height: calc(10rem / 1.33);
+    margin-block: 1rem;
+}
+
+header #clip_accueil {
+    width: 100%;
+    object-fit: fill;
+    overflow:hidden;
+    max-height:12.5rem;
+}
+
+.header-navbar-ul {
+    display: flex;
+    align-items: center;
+}
+
+.header-navbar-ul li {
+
+    font-size:2.5rem;
+    margin:1rem;
+    list-style-type: none;
+}
+
+.header-navbar-ul li a {
+    font-size: clamp(0.8rem, 0.121rem + 1.81vw, 1.75rem);
+    transition: all .3s ease-in-out;
+    margin-inline:1rem;
+}
+
+.header-navbar-ul li a:hover {
+    color:var(--secondary-colour);
+
+}
+
+.dropdown .connectbutton {
+    text-decoration: none;
+    padding: .6rem;
+    font-size: 1.2rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: .5rem;
+    -webkit-border-radius: .5rem;
+    -moz-border-radius: .5rem;
+    border: .2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem);
+    transition: all .3s ease-in-out;
+}
+
+.dropdown .connectbutton:hover {
+    background-color: var(--secondary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+    }
+
+.dropdown-item {
+    margin:0;
+    gap:0;
+    border-radius:0 0 0 0;
+    text-decoration: none;
+    padding: .4rem;
+    font-size: 1.2rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border: .1rem solid var(--primary-colour);
+    font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem);
+    transition: all .3s ease-in-out;
+}
+
+.dropdown .dropdown-item:hover {
+    background-color: var(--secondary-colour);
+    color: var(--secondary-font-colour);
+}
+
+.dropdown-menu.show {
+    padding:0;
+    transform: translate3d(0px, 38px, 0px) !important;
+    border: .1rem solid var(--secondary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+
+}
+
+.dropdown {
+    font-style: var(--titles-font) !important;
+    font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem) !important;
+}
+
+.dropdown .btn {
+    background-color: var(--primary-colour);
+    box-shadow: 2px 4px 1.2px #44444471;
+}
+
+.dropdown .btn:hover {
+    background-color: var(--secondary-colour);
+    }
+

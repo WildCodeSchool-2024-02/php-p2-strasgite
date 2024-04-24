@@ -1,0 +1,39 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Accueil
+{% endblock %}
+
+{% block banner %}
+        <img src="assets/images/facade2.jpg" id='clip_accueil' alt="Facade du git">
+{% endblock %}
+
+{% block content %}
+    <h1>Bienvenue à Strasgite</h1>
+    <div class='homeblock1'>
+        <p>Bienvenue au Strasgite du 35 Quai Mullenheim, un havre d'élégance et de raffinement niché au cœur de Strasbourg, à quelques pas du parlement européen. Niché sur les rives paisibles du Rhin, notre gîte offre une atmosphère luxueuse et intimiste, idéale pour une escapade exclusive dans la capitale alsacienne.<br>
+        <br>
+        Nos quatre chambres élégamment décorées vous accueillent dans un confort incomparable, où chaque détail a été soigneusement pensé pour votre bien-être. Avec des vues imprenables sur le fleuve majestueux ou sur les pittoresques ruelles de la vieille ville, chaque chambre offre un refuge paisible et luxueux après une journée bien remplie.<br>
+        <br>
+        Outre nos chambres somptueuses, notre gîte propose des services haut de gamme conçus pour répondre aux besoins des voyageurs les plus exigeants. De notre service de conciergerie attentif à nos chauffeurs à disposition, nous nous engageons à rendre votre séjour inoubliable, que ce soit pour affaires ou pour le plaisir.
+        <br>
+        Découvrez le charme intemporel de Strasbourg depuis le confort de notre gîte haut de gamme, où l'élégance rencontre l'hospitalité à chaque instant.
+        </p>
+        <img src="/assets/images/strasgiteview.png" alt="Image de présentation">
+    </div>
+    <div class="homeblock2">
+        <img src="/assets/images/Strasview.png" alt="Image de Strasbourg">
+        <p>
+            Situé dans le prestigieux quartier de Strasbourg, notre gîte offre un accès privilégié à certains des trésors les plus emblématiques de la ville. Promenez-vous le long des berges pittoresques du Rhin et découvrez l'histoire fascinante de la vieille ville, avec ses ruelles pavées, ses charmantes places et ses monuments historiques.<br>
+            <br>
+            Les amateurs d'art et d'histoire seront comblés par la proximité du Musée d'Art Moderne et Contemporain, qui abrite une collection exceptionnelle d'œuvres d'art moderne, ainsi que par la majestueuse Cathédrale Notre-Dame, emblème incontesté de la ville. Pour une pause détente, explorez les nombreux parcs et jardins qui parsèment la ville, offrant des havres de verdure propices à la contemplation et à la relaxation.<br>
+            <br>
+            Quel que soit votre intérêt, notre gîte est le point de départ idéal pour découvrir les trésors cachés de Strasbourg et vivre une expérience inoubliable au cœur de l'Europe.
+        </p>
+    </div>
+
+
+    {% if user %}
+        Vous êtes connecté en tant que {{user.firstname}}
+    {% endif %}
+{% endblock %}

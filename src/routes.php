@@ -8,9 +8,26 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
+    'rooms' => ['RoomsController', 'index',],
     'items' => ['ItemController', 'index',],
-    'items/edit' => ['ItemController', 'edit', ['id']],
+    'rooms/edit' => ['RoomsController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
     'items/add' => ['ItemController', 'add',],
-    'items/delete' => ['ItemController', 'delete',],
+    'rooms/delete' => ['ItemController', 'delete',],
+    'rooms/upload' => ['RoomController', 'upload',],
+    'room' => ['RoomController', 'room',],
+    'room/showRoom' => ['RoomController', 'showRoom', ['id']],
+    'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
+    'dashboard' => ['DashboardController', 'index',],
+    'dashboard/users' => ['DashboardController', 'users',],
+    'dashboard/users/toggle' => ['DashboardController', 'toggle',],
+    'dashboard/users/creatuser' => ['ConnectController', 'creatuser'],
+    'dashboard/users/delete' => ['DashboardController', 'delete'],
+    'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
+    'connect' => ['ConnectController', 'login'],
+    'inscription' => ['ConnectController', 'inscription'],
+    'profile' => ['ConnectController', 'profile'],
+    'logout' => ['ConnectController', 'logout'],
+    'contact' => ['ContactController', 'contact'],
+    'contact/result' => ['ContactController', 'result']
 ];

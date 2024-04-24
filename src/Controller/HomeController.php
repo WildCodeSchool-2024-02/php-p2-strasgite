@@ -9,6 +9,11 @@ class HomeController extends AbstractController
      */
     public function index(): string
     {
-        return $this->twig->render('Home/index.html.twig');
+        return $this->twig->render('Home/home.html.twig');
+    }
+
+    public function new(): string
+    {
+        return $this->twig->render('Home/newPage.html.twig');
     }
 }
