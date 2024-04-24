@@ -22,9 +22,9 @@ class DashboardController extends AbstractController
     public function rooms(): string
     {
         $dashboardManager = new DashboardManager();
-        $roomItems = $dashboardManager->selectAllRooms();
+        $rooms = $dashboardManager->selectAllRooms();
 
-        return $this->twig->render('Dashboard/dashboardRooms.html.twig', ['roomItems' => $roomItems]);
+        return $this->twig->render('Dashboard/dashboardRooms.html.twig', ['rooms' => $rooms]);
     }
 
     public function deleteRoom(): void
