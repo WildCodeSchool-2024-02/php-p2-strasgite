@@ -149,8 +149,19 @@
     outline: 1px solid white;
 }
 
+/* Add room dashboard */
+
+.add-room {
+    display: flex;
+    flex-direction: column;
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
+}
+
+.room_link_div {
+    display: block;
+    height: 20px;
 }
 
 @media screen and (max-width: 1000px) {
@@ -211,5 +222,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .carousel-control-next {
         visibility: hidden;
     }
-
 }

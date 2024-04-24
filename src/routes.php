@@ -8,7 +8,7 @@
 // e.g route '/item/edit?id=1' will execute $itemController->edit(1)
 return [
     '' => ['HomeController', 'index',],
-    'rooms' => ['RoomsController', 'index',],
+    'rooms' => ['RoomController', 'index',],
     'items' => ['ItemController', 'index',],
     'rooms/edit' => ['RoomsController', 'edit', ['id']],
     'items/show' => ['ItemController', 'show', ['id']],
@@ -20,6 +20,9 @@ return [
     'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
+    'dashboard/rooms' => ['DashboardController', 'rooms',],
+    'dashboard/rooms/delete' => ['DashboardController', 'deleteRoom', ['id']],
+    'dashboard/rooms/add' => ['DashboardController', 'addRoom',],
     'dashboard/users/toggle' => ['DashboardController', 'toggle',],
     'dashboard/users/creatuser' => ['ConnectController', 'creatuser'],
     'dashboard/users/delete' => ['DashboardController', 'delete'],
@@ -27,6 +30,8 @@ return [
     'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],
     'profile' => ['ConnectController', 'profile'],
+    'profile/modif' => ['ConnectController', 'edit', ['id']],
+    'profile/modif/delete' => ['ConnectController', 'delete',['id']],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
     'contact/result' => ['ContactController', 'result']

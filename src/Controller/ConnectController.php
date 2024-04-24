@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ConnectManager;
+use App\Model\ReservationManager;
 use Exception;
 
 class ConnectController extends AbstractController
@@ -41,6 +42,26 @@ class ConnectController extends AbstractController
         return $this->twig->render('Connect/inscription.html.twig');
     }
 
+
+    public function edit(int $id): string
+    {
+        $connectManager = new ConnectManager();
+        $user = $connectManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user = array_map('trim', $_POST);
+            if ($connectManager->edit($user)) {
+                header('Location: /profile');
+                exit();
+            };
+        }
+        return $this->twig->render('Account/userAccountEdit.html.twig', [
+            'user' => $user,
+        ]);
+    }
+
+
+
     public function creatuser(): string
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -53,6 +74,7 @@ class ConnectController extends AbstractController
         return $this->twig->render('Connect/dashboardusercreation.html.twig');
     }
 
+
     public function profile(): string
     {
         if (!$this->user) {
@@ -60,12 +82,24 @@ class ConnectController extends AbstractController
             header('HTTP/1.1 401 unauthorized');
             exit();
         }
-        return $this->twig->render('Account/userAccount.html.twig');
+
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->getReservation($this->user['id']);
+
+        return $this->twig->render('Account/userAccount.html.twig', ['reservations' => $reservations]);
     }
 
     public function logout()
     {
         unset($_SESSION['user_id']);
         header('location: /');
+    }
+
+    public function delete()
+    {
+        $connectManager = new ConnectManager();
+        $id = $_GET['id'];
+        $connectManager->delete($id);
+        header('Location: /');
     }
 }
