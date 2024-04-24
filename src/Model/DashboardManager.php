@@ -75,17 +75,30 @@ class DashboardManager extends AbstractManager
 
     public function selectAllreservation(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
     {
-        $query = 'SELECT * FROM service JOIN reservation';
-        if ($orderBy) {
-            $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
-        }
+        $query = 'SELECT * FROM service JOIN reservation ON reservation.id = service.reservation_id JOIN user ON user.id = reservation.user_id JOIN room ON room.id = reservation.room_id ORDER BY ' . $orderBy . ' ' . $direction;
 
         return $this->pdo->query($query)->fetchAll();
     }
 
-    public function toggleService(array $reservation, string $service)
+    public function toggleService(array $services)
     {
-        $statement = $this->pdo->prepare("UPDATE service SET " . $service . "= 1 WHERE id=:id");
-        $statement->bindValue('id', $reservation['id'], PDO::PARAM_INT);
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            
+            $breakfast = $services['breakfast'];
+            $minibar = $services['minibar'];
+            $parking = $services['parking'];
+            $service24 = $services['service24'];
+            $driver = $services['driver'];
+            $userId = $services['user_id'];
+
+            $statement = $this->pdo->prepare("UPDATE service SET ('breakfast', 'minibar', 'parking', 'service24', 'driver') VALUES (:breakfast, :minibar, :parking, :service24, :driver) WHERE id =:id");
+            $statement->bindValue(':breakfast', $breakfast['breakfast'], PDO::PARAM_BOOL);
+            $statement->bindValue(':minibar', $minibar['minibar'], PDO::PARAM_BOOL);
+            $statement->bindValue(':parking', $parking['parking'], PDO::PARAM_BOOL);
+            $statement->bindValue(':service24', $service24['service24'], PDO::PARAM_BOOL);
+            $statement->bindValue(':driver', $driver['driver'], PDO::PARAM_BOOL);
+            $statement->bindValue(':id', $userId['id'], PDO::PARAM_INT);
+            $statement->execute();
+        }
     }
 }

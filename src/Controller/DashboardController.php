@@ -112,4 +112,17 @@ class DashboardController extends AbstractController
 
         return $this->twig->render('Dashboard/dashboardService.html.twig', ['reservations' => $reservations]);
     }
+
+    public function toggleService()
+    {   
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            // $services = $_POST;
+            // $servicesManager = new DashboardManager();
+            // $servicesManager->toggleService($services);
+        }
+        var_dump($_POST);
+        exit();
+        header('Location: /dashboard/services');
+
+    }
 }

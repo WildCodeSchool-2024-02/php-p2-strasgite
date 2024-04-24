@@ -27,6 +27,7 @@ return [
     'dashboard/users/creatuser' => ['ConnectController', 'creatuser'],
     'dashboard/users/delete' => ['DashboardController', 'delete'],
     'dashboard/services' => ['DashboardController', 'service'],
+    'dashboard/services/add' => ['DashboardController', 'toggleService'],
     'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
     'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],
