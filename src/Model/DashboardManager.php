@@ -49,7 +49,7 @@ class DashboardManager extends AbstractManager
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
     }
-      
+
     public function toggleUser0(array $item, string $column): bool
     {
         $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET " . $column . "= 0 WHERE id=:id");
