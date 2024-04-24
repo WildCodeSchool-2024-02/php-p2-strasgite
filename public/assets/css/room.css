@@ -149,11 +149,14 @@
     outline: 1px solid white;
 }
 
-/* Add room */
+/* Add room dashboard */
 
 .add-room {
     display: flex;
     flex-direction: column;
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
 }
 
 @media screen and (max-width: 1000px) {

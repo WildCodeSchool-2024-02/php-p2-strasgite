@@ -38,11 +38,15 @@ article p {
 .admin-panel {
     border: 2px solid var(--primary-colour);
     border-radius: 16px;
-    width: 10rem;
+    width: 20rem;
     margin-inline: auto;
     margin-top: 4rem;
     margin-bottom: 2rem;
     font-size: large;
+}
+
+.form-delete-btn {
+    margin-top: 0.5rem;
 }
 
 @media screen and (max-width: 1000px) {
