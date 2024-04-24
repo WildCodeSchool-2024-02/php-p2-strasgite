@@ -21,7 +21,6 @@ class RoomController extends AbstractController
         $rooms = $roomManager->selectAll();
 
         return $this->twig->render('Room/rooms.html.twig', ['rooms' => $rooms]);
-
     }
 
     public function showRoom(int $id): string
