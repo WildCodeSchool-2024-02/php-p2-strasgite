@@ -9,7 +9,7 @@ class DashboardManager extends AbstractManager
     public const TABLE = 'user';
     public const TABLE2 = 'room';
 
-    public function selectAll(string $orderBy = '', string $direction = 'ASC'): array
+    public function selectAll(string $orderBy = 'lastname', string $direction = 'ASC'): array
     {
         $query = 'SELECT * FROM ' . static::TABLE;
         if ($orderBy) {
@@ -48,5 +48,28 @@ class DashboardManager extends AbstractManager
 
         $statement->execute();
         return (int)$this->pdo->lastInsertId();
+    }
+      
+    public function toggleUser0(array $item, string $column): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET " . $column . "= 0 WHERE id=:id");
+        $statement->bindValue('id', $item['id'], PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
+    public function toggleUser1(array $item, string $column): bool
+    {
+        $statement = $this->pdo->prepare("UPDATE " . self::TABLE . " SET " . $column . "= 1 WHERE id=:id");
+        $statement->bindValue('id', $item['id'], PDO::PARAM_INT);
+
+        return $statement->execute();
+    }
+
+    public function deleteUser(int $id): void
+    {
+        $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");
+        $statement->bindValue('id', $id, \PDO::PARAM_INT);
+        $statement->execute();
     }
 }
