@@ -77,3 +77,19 @@
     box-shadow: 2px 4px 1.2px #44444471;
     margin-inline: 0.3rem;
 }
+
+.dashboard-booking-btn {
+    margin-left: 1rem;
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline:1rem;
+    font-size: 0.8rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+}

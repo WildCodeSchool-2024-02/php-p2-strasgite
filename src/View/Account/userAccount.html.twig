@@ -1,6 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    <div class='profile-page'>
     <h1>Profil personnel de {{user.firstname}} {{user.lastname}}</h1>
     <ul>
         <li>Adresse : {{user.address}}</li>
@@ -17,7 +18,10 @@
             <h3>Vos réservation en cours :</h3>
             <ul>
             {% for reservation in reservations %}
-                <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start_date}} au {{reservation.end_date}}</li>
+                <div class='profile-booking'>
+                    <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
+                    <li><a class='dashboard-booking-btn' href="#">Annuler cette réservation</a></li>
+                </div>
             {% endfor %}
             </ul>
         {% else %}
@@ -25,4 +29,5 @@
         {% endif %}
     </ul>
     <a href="/logout">Déconnexion</a>
+    </div>
 {% endblock %}

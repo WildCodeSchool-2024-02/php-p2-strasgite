@@ -20,6 +20,7 @@ return [
     'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
+    'dashboard/bookings' => ['DashboardController', 'booking',],
     'rooms/showRoom' => ['RoomController', 'showRoom', ['id']],
     'connect' => ['ConnectController', 'login'],
     'inscription' => ['ConnectController', 'inscription'],

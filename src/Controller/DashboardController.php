@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\DashboardManager;
+use App\Model\ReservationManager;
 
 class DashboardController extends AbstractController
 {
@@ -26,5 +27,13 @@ class DashboardController extends AbstractController
         $items = $dashboardManager->selectAll();
 
         return $this->twig->render('Dashboard/dashboardUsers.html.twig', ['items' => $items]);
+    }
+
+    public function booking(): string
+    {
+        $reservationManager = new ReservationManager();
+        $bookings = $reservationManager->getAllReservation();
+
+        return $this->twig->render('Dashboard/dashboardBooking.html.twig', ['bookings' => $bookings]);
     }
 }
