@@ -41,7 +41,7 @@ class DashboardManager extends AbstractManager
         $statement->execute();
     }
 
-    public function selectAllService(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
+    public function selectAllreservation(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
     {
         $query = 'SELECT * FROM service JOIN reservation';
         if ($orderBy) {
@@ -49,5 +49,12 @@ class DashboardManager extends AbstractManager
         }
 
         return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function toggleService(array $reservation, string $service)
+    {
+        $statement = $this->pdo->prepare("UPDATE service SET " . $service . "= 1 WHERE id=:id");
+        $statement->bindValue('id', $reservation['id'], PDO::PARAM_INT);
+
     }
 }

@@ -72,8 +72,8 @@ class DashboardController extends AbstractController
     public function service(): string
     {
         $dashboardManager = new DashboardManager();
-        $items = $dashboardManager->selectAllService();
+        $reservations = $dashboardManager->selectAllreservation();
 
-        return $this->twig->render('Dashboard/dashboardService.html.twig', ['items' => $items]);
+        return $this->twig->render('Dashboard/dashboardService.html.twig', ['reservations' => $reservations]);
     }
 }
