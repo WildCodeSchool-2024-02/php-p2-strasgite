@@ -151,4 +151,16 @@ UPDATE user SET isVIP = 1 WHERE id=3;
 
 SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe';
+INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe'; 
+
+use projet2; 
+
+CREATE TABLE avis (
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    description TEXT NOT NULL, 
+    note INT NULL, 
+    avis_room_id  INT NOT NULL, 
+    avis_user_id int NOT NULL, 
+    foreign KEY (avis_room_id) REFERENCES room(id),
+    FOREIGN KEY (avis_user_id) REFERENCES user(id)
+); 

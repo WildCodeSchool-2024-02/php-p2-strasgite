@@ -24,5 +24,7 @@ return [
     'profile' => ['ConnectController', 'profile'],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
-    'contact/result' => ['ContactController', 'result']
+    'contact/result' => ['ContactController', 'result'],
+    'dashboard/avis' => ['DashboardAvisController', 'index'],
+   'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
 ];
