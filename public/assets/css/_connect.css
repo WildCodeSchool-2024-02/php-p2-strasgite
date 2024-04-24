@@ -36,3 +36,10 @@
     margin-bottom: 3rem;
     box-shadow: 4px 3px lightgray;
 }
+
+.form_user_edit {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-inline: auto;
+}
