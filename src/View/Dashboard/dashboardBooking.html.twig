@@ -1,0 +1,37 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2> Interface utilisateurs > Interface des réservations</h2>
+        </div>
+        <div class="dashboardList">
+        <ul class="listTitle">
+            {% if bookings %}
+                <h2>Chambres actuellement réservées :</h2>
+                <ul>
+                {% for booking in bookings %}
+                    <li>La chambre {{booking.title}} est réservée par
+                    {{booking.firstname}} {{booking.lastname}}
+                    du {{booking.start}} au {{booking.end}}
+                    </li>
+                    <li><a class='dashboard-booking-btn' href="bookingedit?id={{booking.id}}">Modifier la réservation</a><a class='dashboard-booking-btn' href="bookingdelete?id={{booking.id}}">Supprimer la réservation</a></li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        </ul>
+        <ul class="listButton">
+            {% for item in items %}
+                <li>
+                    <a href="#">Toggle Admin</a><a href="#">Toggle client</a><a href="#">Toggle VIP</a>
+                </li>
+            {% endfor %}
+        </ul>
+        </div>
+    </div>
+{% endblock %}
