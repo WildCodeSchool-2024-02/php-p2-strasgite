@@ -8,17 +8,17 @@
     <h1>Nos chambres</h1>
         <ul class='index-ul'>
             <div class='grid'>
-            {% for item in items %}
+            {% for room in rooms %}
                 <div>
-                    <li><a href="/rooms/showRoom?id={{ item.id }}">{{ item.title }}</a></li>
+                    <li><a href="/rooms/showRoom?id={{ room.id }}">{{ room.title }}</a></li>
                     <article>
                         <div class='room_img'><img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt=""></div>
                         <div class='room_description'>
-                            <p>{{ item.title }}</p>
-                            <p>Type : {{ item.type }}:</p>
-                            <p>Type de lits : {{ item.bed_type }}</p>
+                            <p>{{ room.title }}</p>
+                            <p>Type : {{ room.type }}:</p>
+                            <p>Type de lits : {{ room.bed_type }}</p>
                             <p>Description :</p>
-                            <p>{{ item.description }}</p>
+                            <p>{{ room.description }}</p>
                         </div>
                     </article>
                 </div>
