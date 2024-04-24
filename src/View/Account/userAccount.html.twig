@@ -5,12 +5,23 @@
     <ul>
         <li>Adresse : {{user.address}}</li>
         <li>Email: {{user.email}}</li>
-        <li><a href="profile/modif?id={{user.id}}">Vous souhaitez modifier vos informations ?</a></li>
+    </ul>
+        <a class='edit-btn' href="profile/modif?id={{user.id}}">Vous souhaitez modifier vos informations ?</a></li>
         {% if user.birthday %}
             <li>Date d'anniversaire : {{user.birthday}}</li>
         {% endif %}
         {% if user.isAdmin %}
             <p>Vous êtes un Admin, bien joué</p>
+        {% endif %}
+        {% if reservations %}
+            <h3>Vos réservation en cours :</h3>
+            <ul>
+            {% for reservation in reservations %}
+                <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start_date}} au {{reservation.end_date}}</li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <h3>Vous n'avez aucune réservation en cours</h3>
         {% endif %}
     </ul>
     <a href="/logout">Déconnexion</a>
