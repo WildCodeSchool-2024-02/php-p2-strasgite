@@ -1,9 +1,9 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Edition du profil de {{ item.firstname }}</h1>
+    <h1>Edition du profil de {{ user.firstname }}</h1>
     {% include 'Include/_formUser.html.twig' %}
     <a href="/profile">Back</a>
     </br>
-    <a href="/profile/modif/delete?id={{ item.id }}">Souhaitez vous supprimer votre profil ? Cette action est irréversible.</a>
+    <a href="/profile/modif/delete?id={{ user.id }}">Souhaitez vous supprimer votre profil ? Cette action est irréversible.</a>
 {% endblock %}

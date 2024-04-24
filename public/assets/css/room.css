@@ -149,6 +149,12 @@
     outline: 1px solid white;
 }
 
+/* Add room dashboard */
+
+.add-room {
+    display: flex;
+    flex-direction: column;
+
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
@@ -216,5 +222,4 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .carousel-control-next {
         visibility: hidden;
     }
-
 }
