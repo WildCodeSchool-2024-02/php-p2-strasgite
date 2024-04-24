@@ -1,0 +1,40 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Administration des chambres{% endblock %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Interface chambres </h2>
+        </div>
+        <div class="dashboardList">
+        <ul class="listTitle">
+            {% for roomItem in roomItems %}
+                <li><div class="listTitleLogo">&#x1F6CC;</div> <h3>{{roomItem.id}}. {{roomItem.title}}</h3></li>
+                <li>{{roomItem.type}} / {{roomItem.bed_type}}</li>
+                <li>
+                    {% if roomItem.isBooked %}<strong>Reserved</strong>&nbsp;/ {{roomItem.start_date}} - {{roomItem.end_date}}
+                    {% else %}<strong>Vacant</strong>{% endif %}                    
+                </li>
+            {% endfor %}
+        </ul>
+        <ul class="listButton">
+            {% for roomItem in roomItems %}
+                <li>
+                    <a href="/dashboard/rooms/delete?id={{roomItem.id}}">Delete</a>
+                    <a href="/rooms/edit?id={{roomItem.id}}">Edit room</a>
+                </li>                    
+                    {# <a href="/dashboard/rooms/delete?id={{roomItem.id}}">Delete room</a> #}
+            {% endfor %}
+        </ul>
+        </div>
+        <ul class="listButton">
+            <li><a href="/dashboard/rooms/add">Add room</a></li>
+        </ul>        
+    </div>
+{% endblock %}

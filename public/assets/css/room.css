@@ -149,6 +149,13 @@
     outline: 1px solid white;
 }
 
+/* Add room */
+
+.add-room {
+    display: flex;
+    flex-direction: column;
+}
+
 @media screen and (max-width: 1000px) {
     .room-details {
         display: flex;
@@ -207,5 +214,4 @@
     .carousel-control-next {
         visibility: hidden;
     }
-
 }
