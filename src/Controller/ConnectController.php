@@ -46,8 +46,7 @@ class ConnectController extends AbstractController
     public function edit(int $id): string
     {
         $connectManager = new ConnectManager();
-        $item = $connectManager->selectOneById($id);
-      
+        $item = $connectManager->selectOneById($id);      
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $item = array_map('trim', $_POST);
             if ($connectManager->edit($item)) {
