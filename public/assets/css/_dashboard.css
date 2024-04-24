@@ -34,6 +34,8 @@ h3 {
     display: flex;
     justify-content: space-around;
     margin-block: 2rem;
+    flex-direction: row;
+
 }
 
 .dashboard .listTitle {
@@ -63,12 +65,17 @@ h3 {
     padding-bottom: 1rem;
 }
 
+.listButton li {
+    display:flex;
+}
+
 .listButton a {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
     padding-inline: 2rem;
     font-size: 1rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
     border-radius: 0.5rem;
@@ -77,4 +84,52 @@ h3 {
     border: 0.2rem solid var(--primary-color);
     box-shadow: 2px 4px 1.2px #44444471;
     margin-inline: 0.3rem;
+    white-space: nowrap;
+}
+
+.listButton a:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.addDeleteUser {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline:2rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    white-space: nowrap;
+}
+
+.addDeleteUser:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.userCard {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    
+}
+
+.dashboardUserList {
+    margin-inline:2rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.dashboardUserList .listButton {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-end;
 }

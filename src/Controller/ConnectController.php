@@ -41,6 +41,18 @@ class ConnectController extends AbstractController
         return $this->twig->render('Connect/inscription.html.twig');
     }
 
+    public function creatuser(): string
+    {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $credentials = $_POST;
+            $connectManager = new ConnectManager();
+            if ($connectManager->insert($credentials)) {
+                header('location: /dashboard/users');
+            }
+        }
+        return $this->twig->render('Connect/dashboardusercreation.html.twig');
+    }
+
     public function profile(): string
     {
         if (!$this->user) {
