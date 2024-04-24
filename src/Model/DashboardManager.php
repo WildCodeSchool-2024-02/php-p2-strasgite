@@ -55,6 +55,5 @@ class DashboardManager extends AbstractManager
     {
         $statement = $this->pdo->prepare("UPDATE service SET " . $service . "= 1 WHERE id=:id");
         $statement->bindValue('id', $reservation['id'], PDO::PARAM_INT);
-
     }
 }
