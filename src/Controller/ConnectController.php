@@ -51,7 +51,14 @@ class ConnectController extends AbstractController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $item = array_map('trim', $_POST);
             if ($connectManager->edit($item)) {
-
+                header('Location: /profile');
+                exit();
+            };
+        }
+        return $this->twig->render('Account/userAccountEdit.html.twig', [
+            'item' => $item,
+        ]);
+    }
 
     public function edit(int $id): string
     {
