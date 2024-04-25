@@ -1,3 +1,4 @@
+-- Active: 1711381363336@@127.0.0.1@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -133,5 +134,23 @@ WHERE
     firstname = 'Philippe';
 
 CREATE TABLE IF NOT EXISTS reservation (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, user_id INT NULL, room_id INT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, isBooked BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (user_id) REFERENCES user (id), FOREIGN KEY (room_id) REFERENCES room (id)
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+user_id INT NULL,
+room_id INT NULL,
+start_date DATE NOT NULL,
+end_date DATE NOT NULL,
+isBooked BOOLEAN NOT NULL DEFAULT '0',
+FOREIGN KEY (user_id) REFERENCES user(id),
+FOREIGN KEY (room_id) REFERENCES room(id)
+);
+
+CREATE TABLE IF NOT EXISTS service (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+reservation_id INT NULL,
+breakfast BOOLEAN NOT NULL DEFAULT '0',
+minibar BOOLEAN NOT NULL DEFAULT '0',
+parking BOOLEAN NOT NULL DEFAULT '0',
+service24 BOOLEAN NOT NULL DEFAULT '0',
+driver BOOLEAN NOT NULL DEFAULT '0',
+FOREIGN KEY (reservation_id) REFERENCES reservation(id) ON DELETE CASCADE
 );

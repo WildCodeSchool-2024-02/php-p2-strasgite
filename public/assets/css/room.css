@@ -154,10 +154,12 @@
 .add-room {
     display: flex;
     flex-direction: column;
+}
 
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
+
 
 .room_link_div {
     display: block;

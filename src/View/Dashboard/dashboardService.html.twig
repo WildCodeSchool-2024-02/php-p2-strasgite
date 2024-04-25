@@ -1,0 +1,109 @@
+{% extends 'layout.html.twig' %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+{% block title %}
+Gestion des Services
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Interface Administrateur > Gestion des services </h2>
+        </div>
+        <div class="DashboardServiceContent">
+             {% for reservation in reservations %}
+             <form method="POST">
+             
+             <input type="hidden" name="id" value="{{reservation.reservation_id}}">
+                <div = class="serviceCheckCard">
+                    <p>&#x1F3E8 Client {{reservation.firstname ~ " " ~ reservation.lastname}}<br>
+                    {{ reservation.title ~ " reservée du " ~ reservation.start_date ~ " au " ~ reservation.end_date }}</p>
+                    <div class="serviceBtnList">
+                    <input class="btnSubmit" type="submit" value="Valider les services" formaction="/dashboard/services/add">
+                    {% if reservation.breakfast == 1 %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="breakfast" value="true" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                breakfast
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="breakfast" value="true" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                breakfast
+                            </label>
+                        </div>
+                    {% endif %}
+                    {% if reservation.minibar == 1 %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="minibar" value="true" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                minibar
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="minibar" value="true" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                minibar
+                            </label>
+                        </div>
+                    {% endif %}   
+                    {% if reservation.parking == 1 %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parking" value="true" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                parking
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="parking" value="true" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                parking
+                            </label>
+                        </div>
+                    {% endif %}
+                    {% if reservation.service24 == 1 %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="servicechambre" value="true" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                service24
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="servicechambre" value="true" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                service24
+                            </label>
+                        </div>
+                    {% endif %}
+                    {% if reservation.driver == 1 %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="driver" value="true" id="flexCheckChecked" checked>
+                            <label class="form-check-label" for="flexCheckChecked">
+                                driver
+                            </label>
+                        </div>
+                    {% else %}
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" name="driver" value="true" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                driver
+                            </label>
+                        </div>
+                    {% endif %}
+                    </div>
+                </div>
+            </form>
+            
+        {% endfor %}
+        
+        </div>
+    </div>
+{% endblock %}

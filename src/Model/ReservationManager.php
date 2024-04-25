@@ -32,6 +32,16 @@ class ReservationManager extends AbstractManager
         return $this->pdo->lastInsertId();
     }
 
+    public function insertservice(string $id): string
+    {
+        $query = "INSERT INTO service (reservation_id, breakfast, minibar, parking, service24, driver) 
+                VALUES (:reservation_id, 0, 0, 0, 0, 0)";
+        $statement = $this->pdo->prepare($query);
+        $statement->bindValue(':reservation_id', $id, PDO::PARAM_INT);
+        $statement->execute();
+        return $this->pdo->lastInsertId();
+    }
+
     public function getReservationById(int $id)
     {
         $query = "SELECT reservation.id, u.firstname, u.lastname, room.title,
