@@ -96,10 +96,14 @@ h3 {
 .dashboard-booking-btn {
     margin-left: 1rem;
     color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 8px;
     text-decoration: none;
     padding: 0.5rem;
     padding-inline:1rem;
     font-size: 0.8rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
 }
 
 .addDeleteUser {
@@ -128,7 +132,7 @@ h3 {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    
+
 }
 
 .dashboardUserList {
