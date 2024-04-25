@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\ConnectManager;
+use App\Model\ReservationManager;
 use Exception;
 
 class ConnectController extends AbstractController
@@ -81,7 +82,11 @@ class ConnectController extends AbstractController
             header('HTTP/1.1 401 unauthorized');
             exit();
         }
-        return $this->twig->render('Account/userAccount.html.twig');
+
+        $reservationManager = new ReservationManager();
+        $reservations = $reservationManager->getReservationById($this->user['id']);
+
+        return $this->twig->render('Account/userAccount.html.twig', ['reservations' => $reservations]);
     }
 
     public function logout()
@@ -96,5 +101,13 @@ class ConnectController extends AbstractController
         $id = $_GET['id'];
         $connectManager->delete($id);
         header('Location: /');
+    }
+
+    public function deleteReservation()
+    {
+        $reservationManager = new ReservationManager();
+        $id = $_GET['id'];
+        $reservationManager->delete($id);
+        header('Location: /profile');
     }
 }

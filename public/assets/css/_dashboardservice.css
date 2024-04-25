@@ -15,10 +15,13 @@
 
 .serviceCheckCard p {
     text-align: left;
+    font-size:1.3rem;
 }
 
 .serviceBtnList {
     display:flex;
+    flex-direction: row-reverse;
+    font-weight:700;
 }
 
 .DashboardServiceContent .btnSubmit {
@@ -40,4 +43,20 @@
 .DasboardServiceContent .btnSubmit:hover {
     background-color: var(--secondary-colour);
     transition: all 0.3s;
+}
+
+.serviceBtnList .form-check {
+    margin-inline:1rem;
+}
+
+.serviceBtnList .form-check-input {
+    background-color: var(--primary-colour);
+    border-color: var(--primary-colour);
+    border: var(--secondary-colour);
+}
+
+.serviceBtnList .form-check-input[checked] {
+    background-color: var(--primary-colour);
+    border-color: var(--primary-colour);
+    border: var(--secondary-colour);
 }

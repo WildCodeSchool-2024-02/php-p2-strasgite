@@ -43,3 +43,33 @@
     width: 50%;
     margin-inline: auto;
 }
+
+.edit-btn {
+    text-decoration: none;
+    color: white;
+    border: 0.1rem solid var(--primary-colour);
+    border-radius: 8px;
+    padding: 0.3rem;
+    background-color: var(--primary-colour);
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.profile-booking {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+}
+
+.profile-booking li {
+    margin-top: 0.5rem;
+}
+
+.profile-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-page ul {
+    list-style: none;
+    padding: 0;
+}

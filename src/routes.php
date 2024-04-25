@@ -20,6 +20,9 @@ return [
     'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
+    'dashboard/bookings' => ['DashboardController', 'booking',],
+    'dashboard/bookingedit' => ['DashboardController', 'bookingEdit',],
+    'dashboard/bookingdelete' => ['DashboardController', 'bookingDelete',],
     'dashboard/rooms' => ['DashboardController', 'rooms',],
     'dashboard/rooms/delete' => ['DashboardController', 'deleteRoom', ['id']],
     'dashboard/rooms/add' => ['DashboardController', 'addRoom',],
@@ -34,6 +37,7 @@ return [
     'profile' => ['ConnectController', 'profile'],
     'profile/modif' => ['ConnectController', 'edit', ['id']],
     'profile/modif/delete' => ['ConnectController', 'delete',['id']],
+    'profile/bookingdelete' => ['ConnectController', 'deleteReservation',],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
     'contact/result' => ['ContactController', 'result']
