@@ -37,8 +37,8 @@ class RoomController extends AbstractController
             $dateEnd = $_POST['end_date'];
             $room = trim($_POST['room']);
 
-            $machin =$reservationManager->insert($dateStart, $dateEnd, $room, $userId);
-            $reservationManager->insertservice($machin);
+            $insertService = $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
+            $reservationManager->insertservice($insertService);
 
             header('Location: /room/showRoom?id=' . $id);
         }

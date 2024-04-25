@@ -89,12 +89,12 @@ class DashboardManager extends AbstractManager
             $statement = $this->pdo->prepare("UPDATE service 
             SET breakfast=:breakfast, minibar=:minibar, parking=:parking, service24=:service24, driver=:driver 
             WHERE reservation_id =:reservation_id");
-            $statement->bindValue(':breakfast', $services['breakfast'],);
-            $statement->bindValue(':minibar', $services['minibar'],);
-            $statement->bindValue(':parking', $services['parking'],);
-            $statement->bindValue(':service24', $services['servicechambre'],);
-            $statement->bindValue(':driver', $services['driver'],);
-            $statement->bindValue(':reservation_id', $services['id'],);
+            $statement->bindValue(':breakfast', $services['breakfast']);
+            $statement->bindValue(':minibar', $services['minibar']);
+            $statement->bindValue(':parking', $services['parking']);
+            $statement->bindValue(':service24', $services['servicechambre']);
+            $statement->bindValue(':driver', $services['driver']);
+            $statement->bindValue(':reservation_id', $services['id']);
             $statement->execute();
     }
 }
