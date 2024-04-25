@@ -58,19 +58,19 @@ CREATE TABLE IF NOT EXISTS `room` (
 --
 INSERT INTO
     `room` (
-        `id`, `title`, `description`, `type`, `bed_type`, `isBooked`, `start_date`, `end_date`
+        `id`, `title`, `description`, `type`, `bed_type`
     )
 VALUES (
-        1, 'Chambre1', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Luxe', '1x Double XXL', 0, NULL, NULL
+        1, 'La Suite Enchantée', 'Plongez dans un monde de magie et d\'élégance dans notre suite enchantée. Cette chambre spacieuse est ornée de détails raffinés, d\'un lit drapé de voiles soyeuses et d\'un coin salon confortable. Profitez de vues panoramiques sur notre jardin luxuriant depuis votre propre balcon privé. Laissez-vous emporter par le charme de cette suite et vivez une expérience inoubliable.', 'Luxe', 'A baldaquin'
     ),
     (
-        2, 'Chambre2', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Sénateur', '2x Simple', 1, '2024-07-02', '2024-08-06'
+        2, 'La Chambre Bohème', 'Découvrez un refuge bohème où le confort moderne rencontre l\'ambiance artistique. Cette chambre est décorée avec des couleurs vives, des tissus ethniques et des œuvres d\'art originales, créant une atmosphère chaleureuse et accueillante. Dotée d\'un lit moelleux et d\'une salle de bains privative, cette chambre vous invite à vous détendre et à vous ressourcer dans un cadre unique.', 'Sénateur', 'King-size'
     ),
     (
-        3, 'Chambre3', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Présidentielle', '1x Simple XXL', 1, '2024-05-10', '2024-06-06'
+        3, 'La Suite Romantique', 'Vivez une escapade romantique dans notre suite romantique, conçue pour les amoureux en quête d\'intimité et de confort. Avec sa cheminée et son bain à remous pour deux personnes, cette suite offre le cadre idéal pour une escapade romantique. Détendez-vous sur votre terrasse privée avec vue sur les montagnes ou profitez d\'un dîner aux chandelles dans notre salle à manger intime.', 'Présidentielle', 'A baldaquin'
     ),
     (
-        4, 'Chambre4', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur nobis velit deserunt dicta perferendis fugiat tempora quod hic sit, a officiis culpa praesentium maxime mollitia ab accusantium repudiandae? Perspiciatis!', 'Confort', '1x Double', 0, NULL, NULL
+        4, 'La Chambre Rustique', 'Retrouvez le charme de la campagne dans notre chambre rustique, décorée dans un style champêtre élégant. Les poutres en bois, les meubles en bois massif et les accents rustiques créent une atmosphère chaleureuse et authentique. Installez-vous près de la cheminée avec un bon livre ou profitez de l\'air frais sur votre terrasse privée. Cette chambre offre une expérience paisible et relaxante.', 'Confort', '1x Double'
     );
 --
 -- Index pour les tables exportées
@@ -104,27 +104,6 @@ CREATE TABLE IF NOT EXISTS contact (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, message TEXT NOT NULL
 );
 
-CREATE TABLE rooms (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, name VARCHAR(80) NOT NULL, date DATE NULL, booked BOOLEAN NOT NULL, description TEXT NOT NULL, bed INT NOT NULL, rooms INT NULL
-);
-
-INSERT INTO
-    `rooms` (
-        `name`, `booked`, `description`, `bed`
-    )
-VALUES (
-        'Chambre 1', 0, 'Chambre très éclairée et parfaite pour un couple sans enfants', 1
-    ),
-    (
-        'Chambre 2', 0, 'Chambre simple, rustique et avec la plus belle vue sur Strasbourg', 2
-    ),
-    (
-        'Chambre 3', 0, 'Petit chambre située au rez-de-chaussée de la maison, elle offre un accès direct et une vue sur le jardin', 1
-    ),
-    (
-        'Chambre 4', 0, 'Chambre très éclairée et parfaite pour un couple sans enfants', 1
-    );
-
 CREATE TABLE IF NOT EXISTS user (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, firstname VARCHAR(80) NOT NULL, lastname VARCHAR(80) NOT NULL, email VARCHAR(250) NOT NULL, address VARCHAR(250) NOT NULL, birthday DATE NULL, password VARCHAR(255) NOT NULL, isAdmin BOOLEAN NOT NULL DEFAULT '0', isClient BOOLEAN NOT NULL DEFAULT '0', isVIP BOOLEAN NOT NULL DEFAULT '0'
 );
@@ -148,7 +127,11 @@ UPDATE user SET isVIP = 1 WHERE id = 3;
 
 SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO user `birthday` VALUES ('1993-01-24') WHERE firstname = 'Philippe';
+INSERT INTO
+    user `birthday`
+VALUES ('1993-01-24')
+WHERE
+    firstname = 'Philippe';
 
 CREATE TABLE IF NOT EXISTS reservation (
 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

@@ -66,16 +66,22 @@ h3 {
 }
 
 .listButton li {
-    display:flex;
+    display: flex;
 }
 
-.listButton a {
+.addRoomButton {
+    justify-content: center;
+}
+
+.listButton a,
+.addRoomButton a,
+.add-room a {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
     padding-inline: 2rem;
     font-size: 1rem;
-    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    /* font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem); */
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
     border-radius: 0.5rem;
@@ -87,7 +93,9 @@ h3 {
     white-space: nowrap;
 }
 
-.listButton a:hover {
+.listButton a:hover,
+.addRoomButton a:hover,
+.add-room a:hover {
     background-color: var(--secondary-colour);
     transition: all 0.3s;
 }
@@ -104,4 +112,30 @@ h3 {
     font-size: 0.8rem;     
     border: 0.2rem solid var(--primary-color);     
     box-shadow: 2px 4px 1.2px #44444471;
+}
+
+.listTitle hr,
+.listButton hr {
+    color: var(--primary-color);
+    border: .1rem solid;
+    width: 100%;
+    margin: 0;
+}
+
+.RoomsList {
+    border: 1px solid var(--primary-color);
+}
+
+.add-room {
+    margin: 10rem auto;
+
+    textarea {
+        resize: none;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        width: fit-content;
+        align-self: center;
+    }
 }

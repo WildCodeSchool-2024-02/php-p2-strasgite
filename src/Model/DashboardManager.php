@@ -8,6 +8,7 @@ class DashboardManager extends AbstractManager
 {
     public const TABLE = 'user';
     public const TABLE2 = 'room';
+    public const TABLE3 = 'reservation';
 
     public function selectAll(string $orderBy = 'lastname', string $direction = 'ASC'): array
     {
@@ -21,7 +22,9 @@ class DashboardManager extends AbstractManager
 
     public function selectAllRooms(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE2;
+        $query = 'SELECT room.id, room.title, room.type, room.bed_type, reservation.isBooked,
+         reservation.start_date, reservation.end_date FROM ' . static::TABLE2 . ' LEFT JOIN ' . static::TABLE3 .
+         ' ON ' . static::TABLE2 . '.id = ' . static::TABLE3 . '.' . static::TABLE2 . '_id';
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
