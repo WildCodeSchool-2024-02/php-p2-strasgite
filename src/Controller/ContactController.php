@@ -29,6 +29,9 @@ class ContactController extends AbstractController
             if (filter_var($contact['email'], FILTER_VALIDATE_EMAIL) === false) {
                 $errors['email'] = 'L\'adresse email n\'est pas valide';
             }
+            if (empty($contact['subject'])) {
+                $errors['subject'] = 'Le subject du message est obligatoire';
+            }
             if (mb_strlen($contact['message']) < 30) {
                 $errors['message'] = 'Le message doit faire plus de 30 caractères';
             }

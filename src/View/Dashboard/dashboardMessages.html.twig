@@ -1,0 +1,45 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Interface messages reçus{% endblock %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboardMessages">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Interface messages </h2>
+        </div>
+        <div class="messagesList">
+            <table class"messageTable">
+                <thead>
+                    <tr>
+                        <th class="mailIconColon"></th>
+                        <th class="mailNameColon" scope="col">Nom</th>
+                        <th class="mailSubjectColon" scope="col">Sujet</th>
+                        <th class="mailMessageColon"scope="col">Message</th>
+                        <th class="mailButtonColon"></th>
+                        <th class="mailButtonColon"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for message in messages %}
+                    <tr>
+                        <td>📧</td>
+                        <th scope="row">{{message.firstname}} {{message.lastname}}</th>
+                        <td>{{message.subject|slice(0, 10)}}</td>
+                        <td>{{message.message|slice(0, 25) }}...</td>
+                        <td class="messageButton"><a href="/dashboard/messages/show?id={{message.id}}">Lire</a></td>
+                        <td class="messageButton"><a href="/dashboard/messages/delete?id={{message.id}}">Effacer</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>        
+        </div>
+        <div class="backButton">
+            <a href="/dashboard">Retour au Panneau Administrateur</a>
+        </div>        
+    </div>
+{% endblock %}
