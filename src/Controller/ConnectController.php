@@ -84,7 +84,7 @@ class ConnectController extends AbstractController
         }
 
         $reservationManager = new ReservationManager();
-        $reservations = $reservationManager->getReservation($this->user['id']);
+        $reservations = $reservationManager->getReservationById($this->user['id']);
 
         return $this->twig->render('Account/userAccount.html.twig', ['reservations' => $reservations]);
     }
@@ -101,5 +101,13 @@ class ConnectController extends AbstractController
         $id = $_GET['id'];
         $connectManager->delete($id);
         header('Location: /');
+    }
+
+    public function deleteReservation()
+    {
+        $reservationManager = new ReservationManager();
+        $id = $_GET['id'];
+        $reservationManager->delete($id);
+        header('Location: /profile');
     }
 }
