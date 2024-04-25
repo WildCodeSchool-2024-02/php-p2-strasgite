@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1>Edit item {{ item.name }}</h1>
-    {% include 'Include/_form.html.twig' %}
+    <h1>Edit {{ room.title }}</h1>
+    {% include 'Include/_formRoom.html.twig' %}
     <a href="javascript:history.go(-1)">Back</a>
 {% endblock %}

@@ -78,4 +78,27 @@ class RoomController extends AbstractController
             }
         }
     }
+
+    public function edit(int $id)
+    {
+        $roomManager = new RoomManager();
+        $room = $roomManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $room = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, update and redirection
+            if ($roomManager->update($room)) {
+                header('Location: /dashboard/rooms');
+            };
+            // we are redirecting so we don't want any content rendered
+            return null;
+        }
+        return $this->twig->render('Room/roomEdit.html.twig', [
+            'room' => $room,
+        ]);
+    }
 }

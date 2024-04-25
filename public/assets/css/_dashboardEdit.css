@@ -1,3 +1,11 @@
 input[type="date"]::-webkit-calendar-picker-indicator {
     display: block;
 }
+
+.booking-edit-text {
+    color: var(--primary-colour);
+}
+
+.room-reservation-details label {
+    color: var(--primary-colour);
+}
