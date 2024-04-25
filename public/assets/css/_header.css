@@ -68,15 +68,20 @@ header #clip_accueil {
 .dropdown-item {
     margin:0;
     gap:0;
-    border-radius:0;
+    border-radius:0 0 0 0;
     text-decoration: none;
-    padding: .6rem;
+    padding: .4rem;
     font-size: 1.2rem;
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
-    border: .2rem solid var(--primary-color);
+    border: .1rem solid var(--primary-colour);
     font-size: clamp(0.5rem, 0rem + 1.333vw, 1.2rem);
     transition: all .3s ease-in-out;
+}
+
+.dropdown .dropdown-item:hover {
+    background-color: var(--secondary-colour);
+    color: var(--secondary-font-colour);
 }
 
 .dropdown-menu.show {
@@ -94,7 +99,10 @@ header #clip_accueil {
 
 .dropdown .btn {
     background-color: var(--primary-colour);
-    border: .1rem solid var(--secondary-colour);
     box-shadow: 2px 4px 1.2px #44444471;
 }
+
+.dropdown .btn:hover {
+    background-color: var(--secondary-colour);
+    }
 
