@@ -10,20 +10,20 @@
     <div class="dashboard">
         <div class="dashboardTitle">
             <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
-            <h2> Interface chambres > Ajouter une chambre </h2>
+            <h2> Ajout d'une chambre </h2>
         </div>
-        <div class="dashboardList">
-            <form class="add-room" method="post">
+        <div>
+            <form class="add-room inscription-form" method="post">
 	            <input type="hidden" value="{{ addRoom.id }}" name="id">
-	            <label for="title">Titre</label>
+	            <label for="title">Nom de la chambre</label>
 	            <input type="text" value="{{ addRoom.title }}" name="title" id="title">
-                <label for="type">Type</label>
+                <label for="type">Type de chambre</label>
 	            <input type="text" value="{{ addRoom.type }}" name="type" id="type">
                 <label for="bed_type">Type de lit</label>
 	            <input type="text" value="{{ addRoom.bed_type }}" name="bed_type" id="bed_type">
-                <label for="description">Description</label>
+                <label for="description">Description de la chambre</label>
 	            <textarea name="description" id="description" rows="5" cols="33">{{ addRoom.description }}</textarea>
-	            <button>Submit</button>
+	            <button type="submit" class="btn btn-primary">Valider</button>
             </form>
         </div>
     </div>

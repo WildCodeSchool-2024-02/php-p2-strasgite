@@ -8,6 +8,7 @@ class DashboardManager extends AbstractManager
 {
     public const TABLE = 'user';
     public const TABLE2 = 'room';
+    public const TABLE3 = 'reservation';
 
     public function selectAll(string $orderBy = 'lastname', string $direction = 'ASC'): array
     {
@@ -21,7 +22,9 @@ class DashboardManager extends AbstractManager
 
     public function selectAllRooms(string $orderBy = '', string $direction = 'ASC'): array
     {
-        $query = 'SELECT * FROM ' . static::TABLE2;
+        $query = 'SELECT room.id, room.title, room.type, room.bed_type, reservation.isBooked,
+         reservation.start_date, reservation.end_date FROM ' . static::TABLE2 . ' LEFT JOIN ' . static::TABLE3 .
+         ' ON ' . static::TABLE2 . '.id = ' . static::TABLE3 . '.' . static::TABLE2 . '_id';
         if ($orderBy) {
             $query .= ' ORDER BY ' . $orderBy . ' ' . $direction;
         }
@@ -71,5 +74,30 @@ class DashboardManager extends AbstractManager
         $statement = $this->pdo->prepare("DELETE FROM " . static::TABLE . " WHERE id=:id");
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
+    }
+
+    public function selectAllreservation(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT * FROM service 
+        JOIN reservation ON reservation.id = service.reservation_id 
+        JOIN user ON user.id = reservation.user_id 
+        JOIN room ON room.id = reservation.room_id 
+        ORDER BY ' . $orderBy . ' ' . $direction;
+
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function updateService(array $services)
+    {
+            $statement = $this->pdo->prepare("UPDATE service 
+            SET breakfast=:breakfast, minibar=:minibar, parking=:parking, service24=:service24, driver=:driver 
+            WHERE reservation_id =:reservation_id");
+            $statement->bindValue(':breakfast', $services['breakfast']);
+            $statement->bindValue(':minibar', $services['minibar']);
+            $statement->bindValue(':parking', $services['parking']);
+            $statement->bindValue(':service24', $services['servicechambre']);
+            $statement->bindValue(':driver', $services['driver']);
+            $statement->bindValue(':reservation_id', $services['id']);
+            $statement->execute();
     }
 }

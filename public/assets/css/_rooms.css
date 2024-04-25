@@ -13,6 +13,7 @@ main .index-ul {
 article {
     display: flex;
     border: 10px solid var(--tertiary-colour);
+    height: 95%;
 }
 
 article p {
