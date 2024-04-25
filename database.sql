@@ -1,3 +1,4 @@
+-- Active: 1711381363336@@127.0.0.1@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -144,3 +145,16 @@ isBooked BOOLEAN NOT NULL DEFAULT '0',
 FOREIGN KEY (user_id) REFERENCES user(id) ON DELETE CASCADE,
 FOREIGN KEY (room_id) REFERENCES room(id) ON DELETE CASCADE
 );
+
+
+CREATE TABLE IF NOT EXISTS service (
+id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+reservation_id INT NULL,
+breakfast BOOLEAN NOT NULL DEFAULT '0',
+minibar BOOLEAN NOT NULL DEFAULT '0',
+parking BOOLEAN NOT NULL DEFAULT '0',
+service24 BOOLEAN NOT NULL DEFAULT '0',
+driver BOOLEAN NOT NULL DEFAULT '0',
+FOREIGN KEY (reservation_id) REFERENCES reservation(id) ON DELETE CASCADE
+);
+

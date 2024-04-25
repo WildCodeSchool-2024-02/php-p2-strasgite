@@ -126,34 +126,6 @@ h3 {
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: .5rem;
     border: 0.2rem solid var(--primary-color);
-    box-shadow: 2px 4px 1.2px #44444471;
-    white-space: nowrap;
-}
-
-.addDeleteUser:hover {
-    background-color: var(--secondary-colour);
-    transition: all 0.3s;
-}
-
-.userCard {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-
-}
-
-.dashboardUserList {
-    margin-inline: 2rem;
-    display: flex;
-    flex-direction: column;
-}
-
-.dashboardUserList .listButton {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: flex-end;
 }
 
 .listTitle hr,

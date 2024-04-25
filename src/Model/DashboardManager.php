@@ -75,4 +75,29 @@ class DashboardManager extends AbstractManager
         $statement->bindValue('id', $id, \PDO::PARAM_INT);
         $statement->execute();
     }
+
+    public function selectAllreservation(string $orderBy = 'reservation_id', string $direction = 'DESC'): array
+    {
+        $query = 'SELECT * FROM service 
+        JOIN reservation ON reservation.id = service.reservation_id 
+        JOIN user ON user.id = reservation.user_id 
+        JOIN room ON room.id = reservation.room_id 
+        ORDER BY ' . $orderBy . ' ' . $direction;
+
+        return $this->pdo->query($query)->fetchAll();
+    }
+
+    public function updateService(array $services)
+    {
+            $statement = $this->pdo->prepare("UPDATE service 
+            SET breakfast=:breakfast, minibar=:minibar, parking=:parking, service24=:service24, driver=:driver 
+            WHERE reservation_id =:reservation_id");
+            $statement->bindValue(':breakfast', $services['breakfast']);
+            $statement->bindValue(':minibar', $services['minibar']);
+            $statement->bindValue(':parking', $services['parking']);
+            $statement->bindValue(':service24', $services['servicechambre']);
+            $statement->bindValue(':driver', $services['driver']);
+            $statement->bindValue(':reservation_id', $services['id']);
+            $statement->execute();
+    }
 }
