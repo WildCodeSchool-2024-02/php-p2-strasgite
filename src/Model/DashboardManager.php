@@ -84,17 +84,17 @@ class DashboardManager extends AbstractManager
         return $this->pdo->query($query)->fetchAll();
     }
 
-    public function updateService(array $services )
+    public function updateService(array $services)
     {
             $statement = $this->pdo->prepare("UPDATE service 
-            SET breakfast=:breakfast, minibar=:minibar, parking=:parking, service24=:service24, driver=:driver WHERE id =:id");
-            $statement->bindValue(':breakfast', $services['breakfast'], PDO::PARAM_BOOL);
-            $statement->bindValue(':minibar', $services['minibar'], PDO::PARAM_BOOL);
-            $statement->bindValue(':parking', $services['parking'], PDO::PARAM_BOOL);
-            $statement->bindValue(':service24', $services['service24'], PDO::PARAM_BOOL);
-            $statement->bindValue(':driver', $services['driver'], PDO::PARAM_BOOL);
-            $statement->bindValue(':id', $services['id'], PDO::PARAM_INT);
+            SET breakfast=:breakfast, minibar=:minibar, parking=:parking, service24=:service24, driver=:driver 
+            WHERE reservation_id =:reservation_id");
+            $statement->bindValue(':breakfast', $services['breakfast'],);
+            $statement->bindValue(':minibar', $services['minibar'],);
+            $statement->bindValue(':parking', $services['parking'],);
+            $statement->bindValue(':service24', $services['servicechambre'],);
+            $statement->bindValue(':driver', $services['driver'],);
+            $statement->bindValue(':reservation_id', $services['id'],);
             $statement->execute();
-
     }
 }

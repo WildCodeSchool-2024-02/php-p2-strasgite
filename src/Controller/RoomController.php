@@ -37,8 +37,9 @@ class RoomController extends AbstractController
             $dateEnd = $_POST['end_date'];
             $room = trim($_POST['room']);
 
+            $machin =$reservationManager->insert($dateStart, $dateEnd, $room, $userId);
+            $reservationManager->insertservice($machin);
 
-            $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
             header('Location: /room/showRoom?id=' . $id);
         }
         return $this->twig->render('Room/showRoom.html.twig', [

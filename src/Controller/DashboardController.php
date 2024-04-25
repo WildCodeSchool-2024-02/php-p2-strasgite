@@ -118,23 +118,23 @@ class DashboardController extends AbstractController
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $services = [
                 'id' => '',
-                'breakfast' => false,
-                'minibar' => false,
-                'parking'=> false,
-                'service24'=> false,
-                'driver'=> false
+                'breakfast' => 0,
+                'minibar' => 0,
+                'parking' => 0,
+                'servicechambre' => 0,
+                'driver' => 0
             ];
 
             if (isset($_POST['breakfast']) && $_POST['breakfast'] === 'true') {
-                $services['breakfast'] = true;
+                $services['breakfast'] = 1;
             } if (isset($_POST['minibar']) && $_POST['minibar'] === 'true') {
-                $services['minibar'] = true;
+                $services['minibar'] = 1;
             } if (isset($_POST['parking']) && $_POST['parking'] === 'true') {
-                $services['parking'] = true;
-            } if (isset($_POST['service24']) && $_POST['service24'] === 'true') {
-                $services['services24'] = true;
+                $services['parking'] = 1;
+            } if (isset($_POST['servicechambre']) && $_POST['servicechambre'] === 'true') {
+                $services['servicechambre'] = 1;
             } if (isset($_POST['driver']) && $_POST['driver'] === 'true') {
-                $services['driver'] = true;
+                $services['driver'] = 1;
             } if (isset($_POST['id'])) {
                 $services['id'] = intval($_POST['id']);
             } else {
