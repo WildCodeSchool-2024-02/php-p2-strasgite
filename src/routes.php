@@ -17,7 +17,7 @@ return [
     'rooms/upload' => ['RoomController', 'upload',],
     'room' => ['RoomController', 'room',],
     'room/showRoom' => ['RoomController', 'showRoom', ['id']],
-    'rooms/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
+    'room/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
     'dashboard/bookings' => ['DashboardController', 'booking',],
