@@ -12,29 +12,32 @@
             <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
             <h2> Interface chambres </h2>
         </div>
+        <ul class="addRoomButton">
+            <li><a href="/dashboard/rooms/add">Ajouter une chambre</a></li>
+        </ul>   
         <div class="dashboardList">
         <ul class="listTitle">
+        <hr>
             {% for room in rooms %}
                 <li><div class="listTitleLogo">&#x1F6CC;</div> <h3>{{room.id}}. {{room.title}}</h3></li>
-                <li>{{room.type}} / {{room.bed_type}}</li>
+                <li>Type :&nbsp;<em>{{room.type}}</em>&nbsp;/ Lit :&nbsp;<em>{{room.bed_type}}</em></li>
                 <li>
-                    {% if room.isBooked %}<strong>Reserved</strong>&nbsp;/ {{room.start_date}} - {{room.end_date}}
-                    {% else %}<strong>Vacant</strong>{% endif %}                    
+                    {% if room.isBooked is same as 1 %}<strong>Réservée</strong>&nbsp;du {{room.start_date|date("d/m/Y")}} au {{room.end_date|date("d/m/Y")}}
+                    {% else %}<strong>Libre</strong>{% endif %}                    
                 </li>
+                <hr>
             {% endfor %}
         </ul>
         <ul class="listButton">
+        <hr>
             {% for room in rooms %}
                 <li>
-                    <a href="/dashboard/rooms/delete?id={{room.id}}">Delete</a>
-                    <a href="/rooms/edit?id={{room.id}}">Edit room</a>
-                </li>                    
-                    {# <a href="/dashboard/rooms/delete?id={{room.id}}">Delete room</a> #}
+                    <a href="/rooms/edit?id={{room.id}}">Modifier</a>
+                    <a href="/dashboard/rooms/delete?id={{room.id}}">Supprimer</a>
+                </li> 
+                <hr>                   
             {% endfor %}
         </ul>
-        </div>
-        <ul class="listButton">
-            <li><a href="/dashboard/rooms/add">Add room</a></li>
-        </ul>        
+        </div>     
     </div>
 {% endblock %}

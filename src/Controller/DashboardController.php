@@ -64,6 +64,16 @@ class DashboardController extends AbstractController
 
     public function rooms(): string
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         $dashboardManager = new DashboardManager();
         $rooms = $dashboardManager->selectAllRooms();
 
@@ -72,6 +82,16 @@ class DashboardController extends AbstractController
 
     public function deleteRoom(): void
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = trim($_GET['id']);
             $dashboardManager = new DashboardManager();
@@ -82,6 +102,16 @@ class DashboardController extends AbstractController
 
     public function addRoom(): ?string
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $addRoom = array_map('trim', $_POST);
