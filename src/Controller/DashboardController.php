@@ -64,6 +64,16 @@ class DashboardController extends AbstractController
 
     public function rooms(): string
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         $dashboardManager = new DashboardManager();
         $rooms = $dashboardManager->selectAllRooms();
 
@@ -72,6 +82,16 @@ class DashboardController extends AbstractController
 
     public function deleteRoom(): void
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'GET') {
             $id = trim($_GET['id']);
             $dashboardManager = new DashboardManager();
@@ -82,6 +102,16 @@ class DashboardController extends AbstractController
 
     public function addRoom(): ?string
     {
+        if (!$this->user) {
+            echo 'Vous n\'êtes pas connecté';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        } elseif (!$this->user['isAdmin']) {
+            echo 'Vous n\'êtes pas Administrateur';
+            header('HTTP/1.1 401 unauthorized');
+            exit();
+        }
+
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // clean $_POST data
             $addRoom = array_map('trim', $_POST);
@@ -137,5 +167,47 @@ class DashboardController extends AbstractController
         } else {
             header('Location: /dashboard/users');
         }
+    }
+
+    public function service(): string
+    {
+        $dashboardManager = new DashboardManager();
+        $reservations = $dashboardManager->selectAllreservation();
+
+        return $this->twig->render('Dashboard/dashboardService.html.twig', ['reservations' => $reservations]);
+    }
+
+    public function toggleService()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "POST") {
+            $services = [
+                'id' => '',
+                'breakfast' => 0,
+                'minibar' => 0,
+                'parking' => 0,
+                'servicechambre' => 0,
+                'driver' => 0
+            ];
+
+            if (isset($_POST['breakfast']) && $_POST['breakfast'] === 'true') {
+                $services['breakfast'] = 1;
+            } if (isset($_POST['minibar']) && $_POST['minibar'] === 'true') {
+                $services['minibar'] = 1;
+            } if (isset($_POST['parking']) && $_POST['parking'] === 'true') {
+                $services['parking'] = 1;
+            } if (isset($_POST['servicechambre']) && $_POST['servicechambre'] === 'true') {
+                $services['servicechambre'] = 1;
+            } if (isset($_POST['driver']) && $_POST['driver'] === 'true') {
+                $services['driver'] = 1;
+            } if (isset($_POST['id'])) {
+                $services['id'] = intval($_POST['id']);
+            } else {
+                return $services;
+            }
+            $servicesManager = new DashboardManager();
+            $servicesManager->updateService($services);
+        }
+
+        header('Location: /dashboard/services');
     }
 }

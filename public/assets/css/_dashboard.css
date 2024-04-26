@@ -73,16 +73,22 @@ h3 {
 }
 
 .listButton li {
-    display:flex;
+    display: flex;
 }
 
-.listButton a {
+.addRoomButton {
+    justify-content: center;
+}
+
+.listButton a,
+.addRoomButton a,
+.add-room a {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
     padding-inline: 2rem;
     font-size: 1rem;
-    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    /* font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem); */
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
     border-radius: 0.5rem;
@@ -94,7 +100,9 @@ h3 {
     white-space: nowrap;
 }
 
-.listButton a:hover {
+.listButton a:hover,
+.addRoomButton a:hover,
+.add-room a:hover {
     background-color: var(--secondary-colour);
     transition: all 0.3s;
 }
@@ -103,17 +111,21 @@ h3 {
 .dashboard-booking-btn {
     margin-left: 1rem;
     color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 8px;
     text-decoration: none;
     padding: 0.5rem;
     padding-inline:1rem;
     font-size: 0.8rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
 }
 
 .addDeleteUser {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
-    padding-inline:2rem;
+    padding-inline: 2rem;
     font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
@@ -121,34 +133,32 @@ h3 {
     -webkit-border-radius: 0.5rem;
     -moz-border-radius: .5rem;
     border: 0.2rem solid var(--primary-color);
-    box-shadow: 2px 4px 1.2px #44444471;
-    white-space: nowrap;
 }
 
-.addDeleteUser:hover {
-    background-color: var(--secondary-colour);
-    transition: all 0.3s;
+.listTitle hr,
+.listButton hr {
+    color: var(--primary-color);
+    border: .1rem solid;
+    width: 100%;
+    margin: 0;
 }
 
-.userCard {
-    display:flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: flex-start;
-    
+.RoomsList {
+    border: 1px solid var(--primary-color);
 }
 
-.dashboardUserList {
-    margin-inline:2rem;
-    display:flex;
-    flex-direction: column;
-}
+.add-room {
+    margin: 10rem auto;
 
-.dashboardUserList .listButton {
-    flex-direction: column;
-    flex-wrap: nowrap;
-    justify-content: center;
-    align-content: flex-end;
+    textarea {
+        resize: none;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        width: fit-content;
+        align-self: center;
+    }
 }
 
 .listButton button {

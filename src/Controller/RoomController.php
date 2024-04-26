@@ -41,8 +41,9 @@ class RoomController extends AbstractController
             $dateEnd = $_POST['end_date'];
             $room = trim($_POST['room']);
 
+            $insertService = $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
+            $reservationManager->insertservice($insertService);
 
-            $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
             header('Location: /room/showRoom?id=' . $id);
         }
         return $this->twig->render('Room/showRoom.html.twig', [
@@ -81,5 +82,28 @@ class RoomController extends AbstractController
                 header('Location: /rooms/showRoom?id=' . $_POST['id']);
             }
         }
+    }
+
+    public function edit(int $id)
+    {
+        $roomManager = new RoomManager();
+        $room = $roomManager->selectOneById($id);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // clean $_POST data
+            $room = array_map('trim', $_POST);
+
+            // TODO validations (length, format...)
+
+            // if validation is ok, update and redirection
+            if ($roomManager->update($room)) {
+                header('Location: /dashboard/rooms');
+            };
+            // we are redirecting so we don't want any content rendered
+            return null;
+        }
+        return $this->twig->render('Room/roomEdit.html.twig', [
+            'room' => $room,
+        ]);
     }
 }

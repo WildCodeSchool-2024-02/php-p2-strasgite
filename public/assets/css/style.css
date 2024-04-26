@@ -7,8 +7,11 @@
 @import url('_homeblock.css');
 @import url('_temoignage.css');
 @import url('_dashboard.css');
+@import url('_dashboardMessages.css');
 @import url('_connect.css');
 @import url('_contact.css');
+@import url('_dashboarduser.css');
+@import url('_dashboardservice.css');
 
 
 body {

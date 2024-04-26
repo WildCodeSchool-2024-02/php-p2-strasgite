@@ -23,6 +23,7 @@ class ReservationController extends AbstractController
 
 
             $reservationManager->insert($dateStart, $dateEnd, $room, $userId);
+            $reservationManager->insertService($reservationManager->insert($dateStart, $dateEnd, $room, $userId));
             header('Location: /showRoom?id=' . $id);
         }
         return $this->twig->render('Room/showRoom.html.twig', [
