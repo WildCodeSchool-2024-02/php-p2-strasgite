@@ -5,6 +5,13 @@
     font-size: 1.2rem;
     width: 100%;
 }
+.dashboard-card {
+    margin-block: 2.5rem;
+    border-radius: 25px 0px 25px 0px;
+    border: 3px solid var(--tertiary-colour);
+    font-size: 1.2rem;
+    width: 33%;
+}
 
 .dashboard li {
     list-style: none;
@@ -211,9 +218,7 @@ h3 {
 
 .listButton button {
     color: var(--secondary-font-colour);
-    text-decoration: none;
     padding: 0.5rem;
-    padding-inline: 2rem;
     font-size: 1rem;
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
@@ -223,4 +228,12 @@ h3 {
     border: 0.2rem solid var(--primary-color);
     box-shadow: 2px 4px 1.2px #44444471;
     margin-inline: 0.3rem;
+}
+
+.title-avis {
+    font-size: 0.75rem;
+}
+
+.paragraph-avis {
+    font-size : 0.75rem;
 }

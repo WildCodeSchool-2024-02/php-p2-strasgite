@@ -14,7 +14,7 @@
 		</div>
 		<form class="dashboardList w-25 m-auto d-flex flex-column" method="GET">
 			<select class="form-select" name="room" aria-label="Default select example">
-				<option selected>Choisir une chambre</option>
+				<option selected>Selectionner une chambre</option>
                 {% for room in rooms %}
 				<option value="{{room.id}}">{{room.title}}</option>
                 {% endfor %}

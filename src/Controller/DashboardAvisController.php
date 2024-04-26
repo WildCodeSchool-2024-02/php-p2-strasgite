@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Model\RoomManager;
+use App\Model\AvisManager;
 
 class DashboardAvisController extends AbstractController
 {
@@ -26,9 +27,30 @@ class DashboardAvisController extends AbstractController
     {
         $roomManager = new RoomManager();
         $room = $roomManager->selectOneById($id);
+        $avisManager = new AvisManager();
+        $avis = $avisManager->selectAvis($id);
 
         return $this->twig->render('Dashboard/Avis/show.html.twig', [
-        'room' => $room
+        'room' => $room,
+        "avis" => $avis
         ]);
+    }
+
+
+    public function allAvisIsVisible(int $roomId, bool $statut)
+    {
+        $avisManager = new AvisManager();
+        $avisManager->updateLesAvisIsVisible($roomId, $statut);
+
+        header('location: /room/showRoom?id=' . $roomId);
+    }
+
+      // MAJ du status d'un avis
+    public function isVisible(int $id, bool $statut, int $roomId)
+    {
+        $avisManager = new AvisManager();
+        $avisManager->updateAvisIsVisible($id, $statut);
+
+        header('location: /room/showRoom?id=' . $roomId);
     }
 }

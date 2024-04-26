@@ -84,7 +84,8 @@
         <div class="temoignages">
             <h3 class="title-temoignage">Temoignages</h3>
         <div class='listing-temoignages'>
-        <div class="temoignage">
+        {% for temoignage in allAvis %}
+         <div class="temoignage">
             <div class="en-tete">
                 <img src="https://picsum.photos/50/50" alt="">
                 <div>
@@ -93,32 +94,9 @@
                     <p><i>Septembre 2023</i></p>
                 </div>
             </div>
-                <p><i>Endroit incroyable. Superbe et paisible. La maison est impeccablement meublée et tout fonctionne</i></p>
+                <p><i>{{ temoignage.description }}</i></p>
         </div>
-        <div class="temoignage">
-                <div class="en-tete">
-                <img src="https://picsum.photos/50/50" alt="">
-                <div>
-                <h6>Charlie</h6>
-                <p class= "localisation"> Angleterre, Royaume-Uni </p>
-                <p><i>Septembre 2023</i></p>
-                </div>
-                </div>
-                <p><i>Endroit incroyable. Superbe et paisible. La maison est impeccablement meublée et tout fonctionne</i></p>
-            </div>
-        <div class="temoignage">
-                <div class="en-tete">
-                <img src="https://picsum.photos/50/50" alt="">
-                <div>
-                <h6>Charlie</h6>
-                <p class= "localisation"> Angleterre, Royaume-Uni </p>
-                <p><i> Septembre 2023</i></p>
-                </div>
-                </div>
-                <p><i>Endroit incroyable. Superbe et paisible. La maison est impeccablement meublée et tout fonctionne</i></p>
-            </div>
-            </div>
-        </div>
+        {% endfor %}
         </div>
         </div>
         </div>

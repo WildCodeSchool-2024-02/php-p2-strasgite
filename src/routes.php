@@ -41,4 +41,6 @@ return [
     'contact/result' => ['ContactController', 'result'],
     'dashboard/avis' => ['DashboardAvisController', 'index'],
     'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
+    'dashboard/avis/visible' => ['DashboardAvisController', 'isVisible', ['id','statut','roomId']],
+    'dashboard/allAvisIsVisible/visible' => ['DashboardAvisController', 'allAvisIsVisible', ['roomId','statut']],
 ];

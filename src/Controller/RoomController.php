@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\RoomManager;
 use App\Model\ReservationManager;
+use App\Model\AvisManager;
 
 class RoomController extends AbstractController
 {
@@ -31,6 +32,9 @@ class RoomController extends AbstractController
         $reservationManager = new ReservationManager();
         $dates = $reservationManager->selectBooked($id);
 
+        $avisManager = new AvisManager();
+        $allAvis = $avisManager->selectVisibleAvis($id);
+
         if (!empty($_POST)) {
             $userId = $_SESSION['user_id'];
             $dateStart = $_POST['start_date'];
@@ -43,6 +47,7 @@ class RoomController extends AbstractController
         }
         return $this->twig->render('Room/showRoom.html.twig', [
             'room' => $room,
+            'allAvis' =>  $allAvis,
             'dates' => json_encode($dates),
         ]);
     }

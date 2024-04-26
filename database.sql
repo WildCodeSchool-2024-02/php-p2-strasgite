@@ -1,3 +1,4 @@
+-- SQLBook: Code
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -168,6 +169,9 @@ CREATE TABLE avis (
     note INT NULL, 
     avis_room_id  INT NOT NULL, 
     avis_user_id int NOT NULL, 
+    isVisible BOOLEAN NOT NULL,
     foreign KEY (avis_room_id) REFERENCES room(id),
     FOREIGN KEY (avis_user_id) REFERENCES user(id)
 ); 
+
+ALTER TABLE avis add isVisible BOOLEAN; 

@@ -1,2 +1,67 @@
-{% extends "layout.html.twig" %} 
+{% extends "layout.html.twig" %}
 
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboard d-flex flex-column">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <h2>
+                Interface Administrateur > Administration des avis
+            </h2>
+        </div>
+        {# MAJ status tous les avis #}
+        <div class="listButton mt-3 d-flex flex-row justify-content-around">
+            <a href="/dashboard/allAvisIsVisible/visible?roomId={{room.id}}&statut=1" name="envoyer">Afficher toutes avis</a>
+            <a href="/dashboard/allAvisIsVisible/visible?roomId={{room.id}}&statut=0" name="envoyer">Cacher toutes avis</a>
+        </div>
+        <div class="container text-center">
+            <div class="row">
+                {% for temoignage in avis %}
+                    {# MAJ status un avis #}
+                    <div class="col-md-4 w-25 m-2 dashboard-card"> 
+
+                        <div class="listButton mt-3 w-15 m-auto">
+                            {% if temoignage.isVisible == 1 %}
+                                <a href="/dashboard/avis/visible?id={{ temoignage.id }}&statut=0&roomId={{room.id}}" class="w-2" name="envoyer">Cacher l'avis
+                                </a>
+                            {% else %}
+                                <a href="/dashboard/avis/visible?id={{ temoignage.id }}&statut=1&roomId={{room.id}}" class="w-2" name="envoyer">Afficher l'avis
+                                </a>
+                            {% endif %}
+
+                        </div>
+                        <div class="temoignage">
+                            <p>
+                                {% if temoignage.isVisible == 1 %}
+                                    <span style="color:green">l'avis est visible</span>
+                                {% else %}
+                                    <span style="color:red">l'avis est caché</span>
+                                {% endif %}
+                            </p>
+                            <div class="overflow-hidden d-flex ">
+                                <img class="rounded-circle object-fit-cover" src="https://picsum.photos/50/50" alt="">
+                                  <div class="d-flex flex-column align-items-start ms-3">
+								    <h6 class="title-avis">Charlie</h6>
+                                    <p class="title-avis">
+                                        Angleterre, Royaume-Uni
+                                    </p>
+									</div>
+                                <div>
+                                </div>
+                            </div>
+                                    <p class="title-avis">
+                                        <i>Septembre 2023</i>
+                                    </p>
+                            <p class="paragraph-avis text-start">
+                                 <i>{{temoignage.description}}</i> 
+						    </p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}
