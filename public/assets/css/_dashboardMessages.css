@@ -1,0 +1,84 @@
+.messageButton a,
+.backButton a {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: 1rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
+    white-space: nowrap;
+}
+
+.messageButton a:hover,
+.backButton a:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.messagesList {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 2rem auto;
+
+}
+
+.mailIconColon {
+    width: 2rem;
+}
+
+.mailNameColon {
+    width: 10rem;
+}
+
+.mailSubjectColon {
+    width: 10rem;
+}
+
+.mailMessageColon {
+    width: 16rem;
+    margin-right: 10rem;
+}
+
+.mailButtonColon,
+.messageButton {
+    width: 8rem;
+    height: 3rem;
+}
+
+.dashboardMessages {
+    margin-block: 2.5rem;
+    border-radius: 25px 0px 25px 0px;
+    border: 3px solid var(--tertiary-colour);
+    font-size: 1.2rem;
+    width: 100%;
+}
+
+.dashboardMessages .dashboardTitle {
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+    flex-direction: row;
+    margin-left: 2rem;
+    margin-top: 1rem;
+    gap: 1rem;
+}
+
+.backButton {
+    width: fit-content;
+    margin: 0 0 1rem 2rem;
+    align-self: start;
+}
+
+.messagesListDetail {
+    list-style: none;
+    text-align: left;
+    color: var(--font-colour);
+}

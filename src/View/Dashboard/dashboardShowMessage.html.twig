@@ -1,0 +1,29 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Interface messages reçus{% endblock %}
+
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+    <div class="dashboardMessages">
+        <div class="dashboardTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Message de {{ message.firstname }} {{ message.lastname }} - {{message.email}}</h2>
+            <div class="backButton">             
+                <a href="/dashboard/messages/delete?id={{message.id}}">Effacer</a>
+            </div>  
+        </div>
+        <div class="messagesList">
+            <ul class="messagesListDetail">            
+                <li>Sujet : {{message.subject}}</li>
+                <li>Message :</li>
+                <li>{{message.message}}</li>
+            </ul>
+        </div>
+        <div class="backButton">
+            <a href="/dashboard/messages">Retour aux messages</a>
+        </div>   
+    </div>
+{% endblock %}

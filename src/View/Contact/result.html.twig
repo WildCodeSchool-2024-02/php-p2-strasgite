@@ -16,7 +16,8 @@ Contactez-nous
         <h4>Merci {{ contact.firstname }} {{ contact.lastname }} !</h4>
             <p>Nous avons bien pris en compte votre message, nous reviendrons vers vous au plus vite à l'adresse {{ contact.email }}.</p>
             <h5>Récapitulatif de votre message :</h5>
-            <p>{{ contact.message }}</p>
+            <p>Sujet :&nbsp;{{ contact.subject }}</p>
+            <p>Votre message :<br>{{ contact.message }}</p>
     </div>
     <div class="contact-infos">
         <div>
