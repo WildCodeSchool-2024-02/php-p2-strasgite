@@ -18,6 +18,7 @@ return [
     'room' => ['RoomController', 'room',],
     'room/showRoom' => ['RoomController', 'showRoom', ['id']],
     'room/showRoom/reservation' => ['ReservationController', 'insert', ['id']],
+    'add_avis' => ['DashboardAvisController', 'addAvis', ['id']],
     'dashboard' => ['DashboardController', 'index',],
     'dashboard/users' => ['DashboardController', 'users',],
     'dashboard/bookings' => ['DashboardController', 'booking',],
@@ -48,4 +49,5 @@ return [
     'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
     'dashboard/avis/visible' => ['DashboardAvisController', 'isVisible', ['id','statut','roomId']],
     'dashboard/allAvisIsVisible/visible' => ['DashboardAvisController', 'allAvisIsVisible', ['roomId','statut']],
+    'deleteAvis' => ['DashboardAvisController', 'delete'],
 ];

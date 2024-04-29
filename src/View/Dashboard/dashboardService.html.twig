@@ -11,12 +11,12 @@ Gestion des Services
     <div class="dashboard">
         <div class="dashboardTitle">
             <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
-            <h2> Interface Administrateur > Gestion des services </h2>
+            <h2> <a class='backlink' href="/dashboard">Interface Administrateur</a> > Gestion des services </h2>
         </div>
         <div class="DashboardServiceContent">
              {% for reservation in reservations %}
              <form method="POST">
-             
+
              <input type="hidden" name="id" value="{{reservation.reservation_id}}">
                 <div = class="serviceCheckCard">
                     <p>&#x1F3E8 Client {{reservation.firstname ~ " " ~ reservation.lastname}}<br>
@@ -52,7 +52,7 @@ Gestion des Services
                                 minibar
                             </label>
                         </div>
-                    {% endif %}   
+                    {% endif %}
                     {% if reservation.parking == 1 %}
                         <div class="form-check">
                             <input class="form-check-input" type="checkbox" name="parking" value="true" id="flexCheckChecked" checked>
@@ -101,9 +101,9 @@ Gestion des Services
                     </div>
                 </div>
             </form>
-            
+
         {% endfor %}
-        
+
         </div>
     </div>
 {% endblock %}

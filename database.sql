@@ -1,4 +1,4 @@
--- Active: 1711381363336@@127.0.0.1@3306@projet2
+-- Active: 1711641097871@@localhost@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -50,7 +50,7 @@ VALUES (1, 'Stuff'),
 -- Création de la table `room` si elle n'existe pas Alex
 --
 CREATE TABLE IF NOT EXISTS `room` (
-    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL, `isBooked` TINYINT(1) NOT NULL, `start_date` DATE, `end_date` DATE
+    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL
 );
 
 --
@@ -101,7 +101,7 @@ MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 3;
 -- Création table `contact`
 --
 CREATE TABLE IF NOT EXISTS contact (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45), message TEXT NOT NULL
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45) NOT NULL, message TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user (
@@ -119,21 +119,13 @@ VALUES (
         'Jane', 'Doe', 'janedoe@gmail.com', '64 rue de l\'essai 88888 quelque part', 'test', 0, 1, 1
     );
 
-UPDATE user SET isAdmin = 1 WHERE id = 1;
+-- UPDATE user SET isAdmin = 1 WHERE id = 1;
 
-UPDATE user SET isClient = 1 WHERE id = 3;
+-- UPDATE user SET isClient = 1 WHERE id = 3;
 
-UPDATE user SET isVIP = 1 WHERE id = 3;
+-- UPDATE user SET isVIP = 1 WHERE id = 3;
 
-SELECT birthday from user WHERE firstname = 'Philippe';
 
-INSERT INTO
-    user `birthday`
-VALUES ('1993-01-24')
-WHERE
-    firstname = 'Philippe';
-
-DROP TABLE reservation;
 
 CREATE TABLE IF NOT EXISTS reservation (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, user_id INT NULL, room_id INT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, isBooked BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE, FOREIGN KEY (room_id) REFERENCES room (id) ON DELETE CASCADE
@@ -142,16 +134,16 @@ CREATE TABLE IF NOT EXISTS reservation (
 
 CREATE TABLE avis (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    description TEXT NOT NULL, 
-    note INT NULL, 
-    avis_room_id  INT NOT NULL, 
-    avis_user_id int NOT NULL, 
+    description TEXT NOT NULL,
+    note INT NULL,
+    avis_room_id  INT NOT NULL,
+    avis_user_id int NOT NULL,
     isVisible BOOLEAN NOT NULL,
     foreign KEY (avis_room_id) REFERENCES room(id),
     FOREIGN KEY (avis_user_id) REFERENCES user(id)
-); 
+);
 
-ALTER TABLE avis add isVisible BOOLEAN; 
+ALTER TABLE avis add isVisible BOOLEAN;
 
 
 CREATE TABLE IF NOT EXISTS service (
