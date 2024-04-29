@@ -10,14 +10,14 @@ Gestion des Clients
     <div class="dashboard">
         <div class="dashboardTitle">
             <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
-            <h2> Interface Administrateur > Gestion des clients</h2>
+            <h2> <a class='backlink' href="/dashboard">Interface Administrateur</a> > Gestion des clients</h2>
         </div>
         <a href="users/creatuser" class='addDeleteUser'>Ajouter un utilisateur</a>
-        
+
         <div class="dashboardUserList">
-            
+
                 {% for item in items %}
-               <div class="userCard"> 
+               <div class="userCard">
                     <ul class="listTitle">
                         <li>
                             <div class="listTitleLogo">&#x1F465;</div> <h3>{{item.firstname}} {{item.lastname}}</h3>

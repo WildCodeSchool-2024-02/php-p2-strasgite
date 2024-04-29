@@ -165,6 +165,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     height: 20px;
 }
 
+.avis-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#avis {
+    margin-left: 1rem;
+}
+
+.form-avis {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin-inline: auto;
+}
+
 @media screen and (max-width: 1000px) {
     .room-details {
         display: flex;
