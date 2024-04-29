@@ -7,7 +7,7 @@
 {% block content %}
 	<div class="dashboard d-flex flex-column h-100">
 		<div class="dashboardTitle">
-			<img src="/assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+			<img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
 			<h2>
 				Interface Administrateur > Administration des avis
 			</h2>
@@ -19,10 +19,9 @@
 				<option value="{{room.id}}">{{room.title}}</option>
                 {% endfor %}
 			</select>
-			<div class="listButton mt-3 w-50 m-auto">
-				<button type="submit" name="envoyer">Gérer les avis</a>
+			<div class="listButton-avis mt-3 w-50 m-auto">
+				<button type="submit" name="envoyer">Gérer les avis</button>
 			</div>
-		</form
-
+		</form>
 	</div>
 {% endblock %}
