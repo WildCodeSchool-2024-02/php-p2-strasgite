@@ -125,10 +125,6 @@ VALUES (
 
 -- UPDATE user SET isVIP = 1 WHERE id = 3;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 74fb35b9ed06afe713b24ddcc83e577b8c33473e
 
 CREATE TABLE IF NOT EXISTS reservation (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, user_id INT NULL, room_id INT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, isBooked BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE, FOREIGN KEY (room_id) REFERENCES room (id) ON DELETE CASCADE
