@@ -240,4 +240,9 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     .carousel-control-next {
         visibility: hidden;
     }
+
+    .d-flex {
+        display: flex !important;
+        flex-direction: column;
+    }
 }

@@ -42,7 +42,7 @@
 									<img src="../assets/images/room{{ room.id }}/room{{ room.id }}-2.webp" alt="" class="d-block w-100">
 								</button>
 								<button type="button" data-bs-target="#carouselsliderdemo" class="img-thumbnail" data-bs-slide-to="2">
-									<img src="../assets/images/room{{ room.id }}room{{ room.id }}-3.webp" alt="" class="d-block w-100">
+									<img src="../assets/images/room{{ room.id }}/room{{ room.id }}-3.webp" alt="" class="d-block w-100">
 								</button>
 							</div>
 							<button class="carousel-control-prev" type="button" data-bs-target="#carouselsliderdemo" data-bs-slide="prev">
@@ -93,7 +93,7 @@
 					<div class="col-md-4 w-25 m-2 dashboard-card">
 						<div class="temoignage">
 							<div class='listing-temoignages'>
-								<div class="overflow-hidden d-flex ">
+								<div class=" d-flex ">
 									<img class="rounded-circle object-fit-cover" src="https://picsum.photos/50/50" alt="">
 									<div class="d-flex flex-column align-items-start ms-3">
 										<h6 class="title-avis">{{temoignage.firstname}}</h6>
@@ -117,8 +117,6 @@
 	</article>
 	{% if user.isAdmin %}
 		<div class='admin-panel'>
-			<a href="/rooms/edit?id={{ room.id }}">Edit</a>
-
 			<form action="/rooms/upload" method="POST" enctype="multipart/form-data">
 				<input type="hidden" name="id" value="{{ room.id }}">
 				<label for="imageUpload">Upload a picture</label>
@@ -127,11 +125,6 @@
 				<input type="text" name="pictureName" id="imageName" value='room{{ room.id }}-?'/>
 				<button name="send">Send</button>
 			</form>
-
-            <form class='form-delete-btn' action="/rooms/delete" method="POST">
-                <input type="hidden" name="id" value="{{ room.id }}">
-                <button>Delete the room</button>
-            </form>
             <a href="javascript:history.go(-1)">Back</a>
         </div>
     {% endif %}
