@@ -50,7 +50,7 @@ VALUES (1, 'Stuff'),
 -- Création de la table `room` si elle n'existe pas Alex
 --
 CREATE TABLE IF NOT EXISTS `room` (
-    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL, `isBooked` TINYINT(1) NOT NULL, `start_date` DATE, `end_date` DATE
+    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL
 );
 
 --
@@ -70,7 +70,7 @@ VALUES (
         3, 'La Suite Romantique', 'Vivez une escapade romantique dans notre suite romantique, conçue pour les amoureux en quête d\'intimité et de confort. Avec sa cheminée et son bain à remous pour deux personnes, cette suite offre le cadre idéal pour une escapade romantique. Détendez-vous sur votre terrasse privée avec vue sur les montagnes ou profitez d\'un dîner aux chandelles dans notre salle à manger intime.', 'Présidentielle', 'A baldaquin'
     ),
     (
-        4, 'La Chambre Rustique', 'Retrouvez le charme de la campagne dans notre chambre rustique, décorée dans un style champêtre élégant. Les poutres en bois, les meubles en bois massif et les accents rustiques créent une atmosphère chaleureuse et authentique. Installez-vous près de la cheminée avec un bon livre ou profitez de l\'air frais sur votre terrasse privée. Cette chambre offre une expérience paisible et relaxante.', 'Confort', '1x Double'
+        4, 'La Chambre Rustique', 'Retrouvez le charme de la campagne dans notre chambre rustique, décorée dans un style champêtre élégant. Les poutres en bois, les meubles en bois massif et les accents rustiques créent une atmosphère chaleureuse et authentique. Installez-vous près de la cheminée avec un bon livre ou profitez de l\'air frais sur votre terrasse privée. Cette chambre offre une expérience paisible et relaxante.', 'Confort', '2x Simple'
     );
 --
 -- Index pour les tables exportées
@@ -101,7 +101,7 @@ MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 3;
 -- Création table `contact`
 --
 CREATE TABLE IF NOT EXISTS contact (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45), message TEXT NOT NULL
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45) NOT NULL, message TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user (
