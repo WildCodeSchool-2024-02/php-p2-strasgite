@@ -1,34 +1,59 @@
 {% extends 'layout.html.twig' %}
 
-{% block content %}
-    <div class='profile-page'>
-    <h1>Profil personnel de {{user.firstname}} {{user.lastname}}</h1>
-    <ul>
-        <li>Adresse : {{user.address}}</li>
-        <li>Email: {{user.email}}</li>
-    </ul>
-        <a class='edit-btn' href="profile/modif?id={{user.id}}">Vous souhaitez modifier vos informations ?</a></li>
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+{% block title %}
+Profil
+{% endblock %}
 
-        {% if user.birthday %}
-            <li>Date d'anniversaire : {{user.birthday}}</li>
-        {% endif %}
-        {% if user.isAdmin %}
-            <p>Vous êtes un Admin, bien joué</p>
-        {% endif %}
-        {% if reservations %}
-            <h3>Vos réservation en cours :</h3>
-            <ul>
-            {% for reservation in reservations %}
-                <div class='profile-booking'>
-                    <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
-                    <li><a class='dashboard-booking-btn' href="/profile/bookingdelete?id={{reservation.id}}">Annuler cette réservation</a></li>
+{% block content %}
+    <div class='profilMenu'>
+        <div class="profilTitle">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2 class="profilsettingtitle">Paramètres de Profil</h2>
+        </div>
+        <div class="personnaltitle">
+            <h3>Informations Personnelles</h3> 
+            <a class='edit-btn' href="/logout">Déconnexion</a>
+        </div>
+        <ul>
+            <div class="firstlistrowprofil">
+                <li><h4>Nom</h4> {{user.firstname}}</li>
+                <li><h4>Prenom</h4> {{user.lastname}}</li>
+                <li class="adress"><h4>Adresse</h4> {{user.address}}</li>
+            </div>
+            <div class="secondlistrowprofil">
+                <li><h4>Email</h4> {{user.email}}</li>
+                <li><a class='edit-btn' href="profile/modif?id={{user.id}}">Modifier ces informations</a></li>
+            </div>
+        </ul>
+            
+
+            {% if user.birthday %}
+                <li>Date d'anniversaire : {{user.birthday}}</li>
+            {% endif %}
+            {% if user.isAdmin %}
+                <p>Votre profil est Administrateur.</p>
+            {% endif %}
+            {% if reservations %}
+                <div class="reservationcard">
+                    <h3>Vos réservation en cours</h3>
                 </div>
-            {% endfor %}
-            </ul>
-        {% else %}
-            <h3>Vous n'avez aucune réservation en cours</h3>
-        {% endif %}
-    </ul>
-    <a class='edit-btn' href="/logout">Déconnexion</a>
+                <div class="reservationlist">    
+                    <ul>
+                    {% for reservation in reservations %}
+                        <div class='profile-booking'>
+                            <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
+                            <li><a class='dashboard-booking-btn' href="/profile/bookingdelete?id={{reservation.id}}">Annuler cette réservation</a></li>
+                        </div>
+                </div>
+                {% endfor %}
+                </ul>
+            {% else %}
+                <h3>Vous n'avez aucune réservation en cours</h3>
+            {% endif %}
+        </ul>
+    
     </div>
 {% endblock %}
