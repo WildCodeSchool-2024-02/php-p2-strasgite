@@ -125,27 +125,16 @@ VALUES (
 
 -- UPDATE user SET isVIP = 1 WHERE id = 3;
 
-
 CREATE TABLE IF NOT EXISTS reservation (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, user_id INT NULL, room_id INT NULL, start_date DATE NOT NULL, end_date DATE NOT NULL, isBooked BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (user_id) REFERENCES user (id) ON DELETE CASCADE, FOREIGN KEY (room_id) REFERENCES room (id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE avis (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
-    description TEXT NOT NULL,
-    note INT NULL,
-    avis_room_id  INT NOT NULL,
-    avis_user_id int NOT NULL,
-    isVisible BOOLEAN NOT NULL,
-    foreign KEY (avis_room_id) REFERENCES room(id),
-    FOREIGN KEY (avis_user_id) REFERENCES user(id)
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, description TEXT NOT NULL, note INT NULL, avis_room_id INT NOT NULL, avis_user_id int NOT NULL, isVisible BOOLEAN NOT NULL, foreign KEY (avis_room_id) REFERENCES room (id), FOREIGN KEY (avis_user_id) REFERENCES user (id)
 );
 
 ALTER TABLE avis add isVisible BOOLEAN;
 
-
 CREATE TABLE IF NOT EXISTS service (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, reservation_id INT NULL, breakfast BOOLEAN NOT NULL DEFAULT '0', minibar BOOLEAN NOT NULL DEFAULT '0', parking BOOLEAN NOT NULL DEFAULT '0', service24 BOOLEAN NOT NULL DEFAULT '0', driver BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (reservation_id) REFERENCES reservation (id) ON DELETE CASCADE
 );
-

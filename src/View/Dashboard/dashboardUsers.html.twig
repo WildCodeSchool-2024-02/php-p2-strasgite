@@ -13,7 +13,7 @@ Gestion des Clients
             <h2> <a class='backlink' href="/dashboard">Interface Administrateur</a> > Gestion des clients</h2>
         </div>
         <a href="users/creatuser" class='addDeleteUser'>Ajouter un utilisateur</a>
-
+        
         <div class="dashboardUserList">
 
                 {% for item in items %}
@@ -30,7 +30,15 @@ Gestion des Clients
                             {% if item.isVIP %}<strong><em>{{item.firstname}} {{item.lastname}} est VIP </em></strong>{% endif %}
                         </li>
                     </ul>
-                    <ul class="listButton">
+                    <ul class="listButton-d">
+                        <li>
+                            <a href="users/toggle?id={{ item.id }}&method=isAdmin">Toggle Admin</a>
+                            <a href="users/toggle?id={{ item.id }}&method=isClient">Toggle Client</a>
+                            <a href="users/toggle?id={{ item.id }}&method=isVIP">Toggle VIP</a>
+                            <a href="users/delete?id={{ item.id }}" class='addDeleteUser'> Supprimer client</a>
+                        </li>
+                    </ul>
+                    <ul class="listButton-r">
                         <li>
                             <a href="users/toggle?id={{ item.id }}&method=isAdmin">Toggle Admin</a>
                             <a href="users/toggle?id={{ item.id }}&method=isClient">Toggle Client</a>
