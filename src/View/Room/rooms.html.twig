@@ -1,7 +1,7 @@
 {% extends 'layout.html.twig' %}
 
 {% block banner %}
-<img src="https://picsum.photos/seed/picsum/1920/200" alt="">
+    <img src="../assets/images/facade2.jpg" id='clip_accueil' alt="">
 {% endblock %}
 
 {% block content %}
@@ -11,15 +11,19 @@
             {% for room in rooms %}
                 <div id='room-article'>
                     <article>
-                        <div class='room_img'><img src="/assets/images/room{{room.id}}/room{{room.id}}-1.webp" alt=""></div>
                         <div class='room_description'>
-                            <p>{{ room.title }}</p>
-                            <div class='type-div'>
-                                <p>Type : {{ room.type }} </p>
-                                <a href="/rooms/showRoom?id={{ room.id }}">En savoir plus</a>
+                            <div class='text-and-image'>
+                                <div class='room_img'><img src="/assets/images/room{{room.id}}/room{{room.id}}-1.webp" alt=""></div>
+                                <div class='text-and-button'>
+                                    <h3>{{ room.title }}</h3>
+                                    <p><strong>Type : </strong>{{ room.type }} </p>
+                                    <p><strong>Type de lits : </strong>{{ room.bed_type }}</p>
+                                </div>
+                                <div class='type-div'>
+                                    <a href="/rooms/showRoom?id={{ room.id }}">En savoir plus</a>
+                                </div>
                             </div>
-                            <p>Type de lits : {{ room.bed_type }}</p>
-                            <p>Description :</p>
+                            <p><strong>Description :</strong></p>
                             <p>{{ room.description }}</p>
                         </div>
                     </article>

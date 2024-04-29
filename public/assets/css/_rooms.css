@@ -32,9 +32,8 @@ article p {
 }
 
 .room_img {
-    max-width: 5rem;
-    max-height: 5rem;
-    margin-right:2rem;
+    width: 25rem;
+    height: 14rem;
 }
 
 .room_img img {
@@ -73,6 +72,17 @@ article p {
 .type-div a:hover {
     background-color: var(--secondary-colour);
     transition: 0.5s;
+}
+
+.text-and-image {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-and-button {
+    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
 }
 
 @media screen and (max-width: 1000px) {

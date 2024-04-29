@@ -14,7 +14,7 @@ Profil
             <h2 class="profilsettingtitle">Paramètres de Profil</h2>
         </div>
         <div class="personnaltitle">
-            <h3>Informations Personnelles</h3> 
+            <h3>Informations Personnelles</h3>
             <a class='edit-btn' href="/logout">Déconnexion</a>
         </div>
         <ul>
@@ -28,7 +28,7 @@ Profil
                 <li><a class='edit-btn' href="profile/modif?id={{user.id}}">Modifier ces informations</a></li>
             </div>
         </ul>
-            
+
 
             {% if user.birthday %}
                 <li>Date d'anniversaire : {{user.birthday}}</li>
@@ -40,11 +40,11 @@ Profil
                 <div class="reservationcard">
                     <h3>Vos réservation en cours</h3>
                 </div>
-                <div class="reservationlist">    
+                <div class="reservationlist">
                     <ul>
                     {% for reservation in reservations %}
                         <div class='profile-booking'>
-                            <li>Vous avez réservé : la <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
+                            <li>Vous avez réservé : <strong>{{reservation.title}}</strong> du {{reservation.start}} au {{reservation.end}}</li>
                             <li><a class='dashboard-booking-btn' href="/profile/bookingdelete?id={{reservation.id}}">Annuler cette réservation</a></li>
                         </div>
                 </div>
@@ -54,6 +54,6 @@ Profil
                 <h3>Vous n'avez aucune réservation en cours</h3>
             {% endif %}
         </ul>
-    
+
     </div>
 {% endblock %}
