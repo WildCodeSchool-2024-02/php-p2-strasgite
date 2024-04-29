@@ -1,4 +1,4 @@
--- Active: 1711381363336@@127.0.0.1@3306@projet2
+-- Active: 1711641097871@@localhost@3306@projet2
 -- phpMyAdmin SQL Dump
 -- version 4.5.4.1deb2ubuntu2
 -- http://www.phpmyadmin.net
@@ -119,21 +119,12 @@ VALUES (
         'Jane', 'Doe', 'janedoe@gmail.com', '64 rue de l\'essai 88888 quelque part', 'test', 0, 1, 1
     );
 
-UPDATE user SET isAdmin = 1 WHERE id = 1;
+-- UPDATE user SET isAdmin = 1 WHERE id = 1;
 
-UPDATE user SET isClient = 1 WHERE id = 3;
+-- UPDATE user SET isClient = 1 WHERE id = 3;
 
-UPDATE user SET isVIP = 1 WHERE id = 3;
+-- UPDATE user SET isVIP = 1 WHERE id = 3;
 
-SELECT birthday from user WHERE firstname = 'Philippe';
-
-INSERT INTO
-    user `birthday`
-VALUES ('1993-01-24')
-WHERE
-    firstname = 'Philippe';
-
-DROP TABLE reservation;
 
 CREATE TABLE IF NOT EXISTS reservation (
 id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,

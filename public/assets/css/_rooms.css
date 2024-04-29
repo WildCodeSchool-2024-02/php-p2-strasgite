@@ -1,8 +1,9 @@
 .grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
+    box-sizing: content-box;
 }
+
 
 main .index-ul {
     display: block;
@@ -13,7 +14,7 @@ main .index-ul {
 article {
     display: flex;
     border: 10px solid var(--tertiary-colour);
-    height: 95%;
+    height: 100%;
 }
 
 article p {
@@ -31,9 +32,14 @@ article p {
 }
 
 .room_img {
-    max-width:12.5rem;
-    max-height:18.75rem;
+    max-width: 5rem;
+    max-height: 5rem;
     margin-right:2rem;
+}
+
+.room_img img {
+    height: 100%;
+    width: 100%;
 }
 
 .admin-panel {
@@ -41,13 +47,32 @@ article p {
     border-radius: 16px;
     width: 20rem;
     margin-inline: auto;
-    margin-top: 4rem;
     margin-bottom: 2rem;
     font-size: large;
 }
 
 .form-delete-btn {
     margin-top: 0.5rem;
+}
+
+.type-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.type-div a {
+    margin-right: 1rem;
+    text-decoration: none;
+    background-color: var(--primary-colour);
+    padding: 0.3rem;
+    border-radius: 8px;
+    color: white;
+}
+
+.type-div a:hover {
+    background-color: var(--secondary-colour);
+    transition: 0.5s;
 }
 
 @media screen and (max-width: 1000px) {
