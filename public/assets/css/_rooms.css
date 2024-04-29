@@ -81,4 +81,9 @@ article p {
         flex-direction: column;
         align-items: center;
     }
+
+    .type-div a {
+        width: 3rem;
+        height: 5rem;
+    }
 }
