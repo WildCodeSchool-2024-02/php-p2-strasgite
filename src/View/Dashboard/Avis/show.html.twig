@@ -25,10 +25,10 @@
 
                         <div class="listButton mt-3 w-15 m-auto">
                             {% if temoignage.isVisible == 1 %}
-                                <a href="/dashboard/avis/visible?id={{ temoignage.id }}&statut=0&roomId={{room.id}}" class="w-2" name="envoyer">Cacher l'avis
+                                <a href="/dashboard/avis/visible?id={{ temoignage.id_avis }}&statut=0&roomId={{room.id}}" class="w-2" name="envoyer">Cacher l'avis
                                 </a>
                             {% else %}
-                                <a href="/dashboard/avis/visible?id={{ temoignage.id }}&statut=1&roomId={{room.id}}" class="w-2" name="envoyer">Afficher l'avis
+                                <a href="/dashboard/avis/visible?id={{ temoignage.id_avis }}&statut=1&roomId={{room.id}}" class="w-2" name="envoyer">Afficher l'avis
                                 </a>
                             {% endif %}
 
