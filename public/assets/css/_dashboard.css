@@ -210,7 +210,7 @@ h3 {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    
+
 }
 
 .dashboardUserList {
@@ -246,4 +246,14 @@ h3 {
 
 .paragraph-avis {
     font-size : 0.75rem;
+}
+
+.delete_avis {
+    color: red;
+    text-decoration: none;
+}
+
+.backlink {
+    text-decoration: none;
+    color: var(--primary-colour);
 }

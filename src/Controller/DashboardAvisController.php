@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Model\RoomManager;
 use App\Model\AvisManager;
+use App\Model\ConnectManager;
 
 class DashboardAvisController extends AbstractController
 {
@@ -13,7 +14,7 @@ class DashboardAvisController extends AbstractController
         $rooms = $roomManager->selectAll();
 
         if (!empty($_GET) && isset($_GET['envoyer'])) {
-            if (!empty($_GET['room'])) {
+            if (strlen($_GET['room']) < 3) {
                  $room = $_GET['room'];
 
                  header("Location: /dashboard/avis/room?id=$room");
@@ -29,6 +30,7 @@ class DashboardAvisController extends AbstractController
         $room = $roomManager->selectOneById($id);
         $avisManager = new AvisManager();
         $avis = $avisManager->selectAvis($id);
+
 
         return $this->twig->render('Dashboard/Avis/show.html.twig', [
         'room' => $room,
@@ -52,5 +54,38 @@ class DashboardAvisController extends AbstractController
         $avisManager->updateAvisIsVisible($id, $statut);
 
         header('location: /room/showRoom?id=' . $roomId);
+    }
+
+    public function addAvis($id)
+    {
+        $avisManager = new AvisManager();
+
+        $connectManager = new ConnectManager();
+        $username = $connectManager->selectOneById($_SESSION['user_id']);
+
+        $roomManager = new RoomManager();
+        $roomInfo = $roomManager->selectOneById($id);
+
+        if (!empty($_POST)) {
+            $userId = $_SESSION['user_id'];
+            $room = $_POST;
+            $avisManager->addNewAvis($room['description'], $room['id'], $userId);
+
+            header('Location: /rooms/showRoom?id=' . $id);
+        }
+
+
+        return $this->twig->render('Dashboard/Avis/addAvis.html.twig', [
+            'room' => $roomInfo,
+            'username' => $username
+            ]);
+    }
+
+    public function delete()
+    {
+        $id = $_GET['id'];
+        $avisManager = new AvisManager();
+        $avisManager->deleteAvis($id);
+        header('Location: dashboard/avis');
     }
 }
