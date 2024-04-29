@@ -15,6 +15,7 @@
 {% endblock %}
 
 {% block content %}
+<div>
 	<article class="room-article">
 		<div class="room-description">
 			<h1>{{ room.title }}</h1>
@@ -81,8 +82,12 @@
 					</form>
 				</div>
 			</div>
-
+            <div class="avis-title">
 			<h3 class="title-temoignage">Temoignages</h3>
+            {% if user %}
+                <a class='edit-btn' id='avis' href="/add_avis?id={{ room.id }}">Vous souhaitez ajouter un avis ?</a>
+            {% endif %}
+            </div>
 			<div class="row">
 				{% for temoignage in allAvis %}
 					<div class="col-md-4 w-25 m-2 dashboard-card">
@@ -91,7 +96,7 @@
 								<div class="overflow-hidden d-flex ">
 									<img class="rounded-circle object-fit-cover" src="https://picsum.photos/50/50" alt="">
 									<div class="d-flex flex-column align-items-start ms-3">
-										<h6 class="title-avis">Charlie</h6>
+										<h6 class="title-avis">{{temoignage.firstname}}</h6>
 										<p class="title-avis">
 											Angleterre, Royaume-Uni
 										</p>
@@ -101,7 +106,7 @@
 									<i>Septembre 2023</i>
 								</p>
 								<p class="paragraph-avis text-start">
-									<i>{{temoignage.description}} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam officia dicta quo architecto odit, cupiditate, repellendus quae reiciendis ad necessitatibus, repellat cumque eos voluptates inventore odio. Iste, nobis aperiam? Eum?</i>
+									<i>{{temoignage.description}}</i>
 								</p>
 							</div>
 						</div>
@@ -123,14 +128,14 @@
 				<button name="send">Send</button>
 			</form>
 
-			<form class='form-delete-btn' action="/rooms/delete" method="POST">
-				<input type="hidden" name="id" value="{{ room.id }}">
-				<button>Delete</button>
-			</form>
-			{# <a href="/rooms">Back</a> #}
-			<a href="javascript:history.go(-1)">Back</a>
-		</div>
-	{% endif %}
+            <form class='form-delete-btn' action="/rooms/delete" method="POST">
+                <input type="hidden" name="id" value="{{ room.id }}">
+                <button>Delete the room</button>
+            </form>
+            <a href="javascript:history.go(-1)">Back</a>
+        </div>
+    {% endif %}
+</div>
 {% endblock %}
 {% block javascript %}{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>#}<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 	<script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>

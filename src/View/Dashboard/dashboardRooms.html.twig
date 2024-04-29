@@ -10,11 +10,11 @@
     <div class="dashboard">
         <div class="dashboardTitle">
             <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
-            <h2> Interface Administrateur > Gestion des chambres </h2>
+            <h2> <a class='backlink' href="/dashboard">Interface Administrateur</a> > Gestion des chambres </h2>
         </div>
         <ul class="addRoomButton">
             <li><a href="/dashboard/rooms/add">Ajouter une chambre</a></li>
-        </ul>   
+        </ul>
         <div class="dashboardList">
         <ul class="listTitle">
         <hr>
@@ -23,7 +23,7 @@
                 <li>Type :&nbsp;<em>{{room.type}}</em>&nbsp;/ Lit :&nbsp;<em>{{room.bed_type}}</em></li>
                 <li>
                     {% if room.isBooked is same as 1 %}<strong>Réservée</strong>&nbsp;du {{room.start_date|date("d/m/Y")}} au {{room.end_date|date("d/m/Y")}}
-                    {% else %}<strong>Libre</strong>{% endif %}                    
+                    {% else %}<strong>Libre</strong>{% endif %}
                 </li>
                 <hr>
             {% endfor %}
@@ -34,10 +34,10 @@
                 <li>
                     <a href="/rooms/edit?id={{room.id}}">Modifier</a>
                     <a href="/dashboard/rooms/delete?id={{room.id}}">Supprimer</a>
-                </li> 
-                <hr>                   
+                </li>
+                <hr>
             {% endfor %}
         </ul>
-        </div>     
+        </div>
     </div>
 {% endblock %}

@@ -7,7 +7,7 @@
 {% block content %}
     <div class="dashboard d-flex flex-column">
         <div class="dashboardTitle">
-            <img src="/assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
             <h2>
                 Interface Administrateur > Administration des avis
             </h2>
@@ -21,7 +21,7 @@
             <div class="row">
                 {% for temoignage in avis %}
                     {# MAJ status un avis #}
-                    <div class="col-md-4 w-25 m-2 dashboard-card"> 
+                    <div class="col-md-4 w-25 m-2 dashboard-card">
 
                         <div class="listButton mt-3 w-15 m-auto">
                             {% if temoignage.isVisible == 1 %}
@@ -44,7 +44,7 @@
                             <div class="overflow-hidden d-flex ">
                                 <img class="rounded-circle object-fit-cover" src="https://picsum.photos/50/50" alt="">
                                   <div class="d-flex flex-column align-items-start ms-3">
-								    <h6 class="title-avis">Charlie</h6>
+								    <h6 class="title-avis">{{temoignage.firstname}}</h6>
                                     <p class="title-avis">
                                         Angleterre, Royaume-Uni
                                     </p>
@@ -56,8 +56,9 @@
                                         <i>Septembre 2023</i>
                                     </p>
                             <p class="paragraph-avis text-start">
-                                 <i>{{temoignage.description}} Lorem ipsum dolor sit amet consectetur adipisicing elit. A voluptates quam nostrum voluptatum id quod, esse aliquid rerum, inventore aspernatur ipsam molestias facere sit culpa? Consequatur culpa voluptatum cum animi!</i> 
+                                 <i>{{temoignage.description}}</i>
 						    </p>
+                            <a class='delete_avis' href="/deleteAvis?id={{temoignage.id_avis}}">X</a>
                         </div>
                     </div>
                 {% endfor %}
