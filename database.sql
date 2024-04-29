@@ -50,7 +50,7 @@ VALUES (1, 'Stuff'),
 -- Création de la table `room` si elle n'existe pas Alex
 --
 CREATE TABLE IF NOT EXISTS `room` (
-    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL, `isBooked` TINYINT(1) NOT NULL, `start_date` DATE, `end_date` DATE
+    `id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT, `title` VARCHAR(100) NOT NULL, `description` TEXT NOT NULL, `type` VARCHAR(50) NOT NULL, `bed_type` VARCHAR(50) NOT NULL
 );
 
 --
@@ -101,7 +101,7 @@ MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT = 3;
 -- Création table `contact`
 --
 CREATE TABLE IF NOT EXISTS contact (
-    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45), message TEXT NOT NULL
+    id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, lastname VARCHAR(45) NOT NULL, firstname VARCHAR(45) NOT NULL, email VARCHAR(80) NOT NULL, subject VARCHAR(45) NOT NULL, message TEXT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS user (
@@ -124,6 +124,7 @@ VALUES (
 -- UPDATE user SET isClient = 1 WHERE id = 3;
 
 -- UPDATE user SET isVIP = 1 WHERE id = 3;
+
 
 
 CREATE TABLE IF NOT EXISTS reservation (
