@@ -5,6 +5,13 @@
     font-size: 1.2rem;
     width: 100%;
 }
+.dashboard-card {
+    margin-block: 2.5rem;
+    border-radius: 25px 0px 25px 0px;
+    border: 3px solid var(--tertiary-colour);
+    font-size: 1.2rem;
+    width: 33%;
+}
 
 .dashboard li {
     list-style: none;
@@ -152,4 +159,91 @@ h3 {
         width: fit-content;
         align-self: center;
     }
+}
+
+.listButton button {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: 1rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
+    white-space: nowrap;
+}
+
+.listButton a:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.addDeleteUser {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline:2rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    white-space: nowrap;
+}
+
+.addDeleteUser:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.userCard {
+    display:flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    
+}
+
+.dashboardUserList {
+    margin-inline:2rem;
+    display:flex;
+    flex-direction: column;
+}
+
+.dashboardUserList .listButton {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.listButton button {
+    color: var(--secondary-font-colour);
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
+}
+
+.title-avis {
+    font-size: 0.75rem;
+}
+
+.paragraph-avis {
+    font-size : 0.75rem;
 }

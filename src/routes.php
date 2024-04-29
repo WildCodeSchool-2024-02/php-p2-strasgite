@@ -43,5 +43,9 @@ return [
     'profile/bookingdelete' => ['ConnectController', 'deleteReservation',],
     'logout' => ['ConnectController', 'logout'],
     'contact' => ['ContactController', 'contact'],
-    'contact/result' => ['ContactController', 'result']
+    'contact/result' => ['ContactController', 'result'],
+    'dashboard/avis' => ['DashboardAvisController', 'index'],
+    'dashboard/avis/room' => ['DashboardAvisController', 'show', ['id']],
+    'dashboard/avis/visible' => ['DashboardAvisController', 'isVisible', ['id','statut','roomId']],
+    'dashboard/allAvisIsVisible/visible' => ['DashboardAvisController', 'allAvisIsVisible', ['roomId','statut']],
 ];

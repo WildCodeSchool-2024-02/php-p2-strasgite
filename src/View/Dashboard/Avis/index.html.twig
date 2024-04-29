@@ -1,0 +1,28 @@
+{% extends "layout.html.twig" %}
+
+{% block banner %}
+	<img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
+{% block content %}
+	<div class="dashboard d-flex flex-column h-100">
+		<div class="dashboardTitle">
+			<img src="/assets/images/roue-dentee (1).png" alt="Logo roue crantée">
+			<h2>
+				Interface Administrateur > Administration des avis
+			</h2>
+		</div>
+		<form class="dashboardList w-25 m-auto d-flex flex-column" method="GET">
+			<select class="form-select" name="room" aria-label="Default select example">
+				<option selected>Selectionner une chambre</option>
+                {% for room in rooms %}
+				<option value="{{room.id}}">{{room.title}}</option>
+                {% endfor %}
+			</select>
+			<div class="listButton mt-3 w-50 m-auto">
+				<button type="submit" name="envoyer">Gérer les avis</a>
+			</div>
+		</form
+
+	</div>
+{% endblock %}
