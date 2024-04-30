@@ -47,7 +47,7 @@
 .contact-form {
     display: grid;
     grid:
-        "l-name f-name" .2fr "e-mail e-mail" .2fr "msg msg" .2fr "send-button send-button" .2fr / 1fr 1fr;
+        "l-name f-name" .2fr "e-mail e-mail" .2fr "subject subject" .2fr "msg msg" .2fr "send-button send-button" .2fr / 1fr 1fr;
     gap: 8px;
 
     #l-name {
@@ -60,6 +60,10 @@
 
     #e-mail {
         grid-area: e-mail;
+    }
+
+    #subject {
+        grid-area: subject;
     }
 
     #msg {
@@ -77,6 +81,35 @@
     #send-button {
         grid-area: send-button;
         width: 30%;
+        margin: 1rem 0;
+    }
+
+    #send-button a {
+        color: var(--secondary-font-colour);
+        text-decoration: none;
+        padding: 0.5rem;
+        padding-inline: 2rem;
+        font-size: 1rem;
+        color: var(--secondary-font-colour);
+        background-color: var(--primary-colour);
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: .5rem;
+        border: 0.2rem solid var(--primary-color);
+        box-shadow: 2px 4px 1.2px #44444471;
+        margin-inline: 0.3rem;
+        white-space: nowrap;
+    }
+
+    #send-button a:hover {
+        background-color: var(--secondary-colour);
+        transition: all 0.3s;
+    }
+
+    input,
+    textarea {
+        border-radius: 5px;
+        border: 1px solid var(--secondary-colour);
     }
 }
 

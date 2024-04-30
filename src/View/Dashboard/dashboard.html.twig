@@ -4,26 +4,36 @@
     <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
 {% endblock %}
 
+{% block title %}
+Panneau Administrateur
+{% endblock %}
 {% block content %}
     <div class="dashboard">
         <div class="dashboardTitle">
-            <img src="assets/images/roue-dentee.png" alt="Logo roue crantée">
-            <h2> Interface administrateur </h2>
+            <img src="/assets/images/roue-dentee.png" alt="Logo roue crantée">
+            <h2> Interface Administrateur </h2>
         </div>
         <div class="dashboardList">
             <ul class="listTitle">
                 <li><div class="listTitleLogo">&#x1F465;</div> <h3>Administration des utilisateurs</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/users">Gérer</a></li>
                 <li><div class="listTitleLogo">&#x1F4F1;</div> <h3>Administration des avis</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/avis">Gérer</a></li>
                 <li><div class="listTitleLogo">&#x1F6CC;</div> <h3>Administration des chambres</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/rooms">Gérer</a></li>
                 <li><div class="listTitleLogo">&#x1F3E8;</div> <h3>Administration des services</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/services">Gérer</a></li>
                 <li><div class="listTitleLogo">&#x1F4D9;</div> <h3>Administration des reservations</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/bookings">Gérer</a></li>
+                <li><div class="listTitleLogo">📧</div> <h3>Administration des messages</h3></li>
+                <li class="listButton-responsive"><a href="dashboard/messages">Gérer</a></li>
             </ul>
-            <ul class="listButton">
+            <ul class="listButton-desktop">
                 <li>
                     <a href="dashboard/users">Gérer</a>
                 </li>
                 <li>
-                    <a href="dashboard/comments">Gérer</a>
+                    <a href="dashboard/avis">Gérer</a>
                 </li>
                 <li>
                     <a href="dashboard/rooms">Gérer</a>
@@ -33,6 +43,9 @@
                 </li>
                 <li>
                     <a href="dashboard/bookings">Gérer</a>
+                </li>
+                <li>
+                    <a href="dashboard/messages">Gérer</a>
                 </li>
             </ul>
         </div>

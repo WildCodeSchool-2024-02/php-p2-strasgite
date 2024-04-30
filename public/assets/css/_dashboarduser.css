@@ -1,0 +1,98 @@
+.addDeleteUser {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    white-space: nowrap;
+}
+
+.listButton-d a {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: 1rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    white-space: nowrap;
+}
+
+.addDeleteUser:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+.userCard {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+
+}
+
+.dashboardUserList {
+    margin-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.dashboardUserList .listButton {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-content: flex-end;
+}
+
+.listButton-r li {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .listButton-r li .addDeleteUser a {
+        font-size: 1rem;
+    }
+
+    .listButton-r li .addDeleteUser {
+        font-size: 1rem;
+    }
+
+    .listButton-d {
+        display: none;
+    }
+
+    .listButton-r li {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .listButton-r a,
+    .dashboard .addDeleteUser {
+        color: var(--secondary-font-colour);
+        text-decoration: none;
+        padding: 0.5rem;
+        padding-inline: 2rem;
+        font-size: 1rem;
+        color: var(--secondary-font-colour);
+        background-color: var(--primary-colour);
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: .5rem;
+        border: 0.2rem solid var(--primary-color);
+        box-shadow: 2px 4px 1.2px #44444471;
+        white-space: nowrap;
+        margin-bottom: 1rem;
+    }
+}

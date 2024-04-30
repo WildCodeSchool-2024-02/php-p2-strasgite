@@ -1,7 +1,8 @@
 {% extends 'layout.html.twig' %}
 
 {% block banner %}
-<img src="https://picsum.photos/seed/picsum/1920/200" alt="">
+    <img src="../assets/images/facade2.jpg" id='clip_accueil' alt="">
+
 {% endblock %}
 
 {% block content %}
@@ -9,15 +10,21 @@
         <ul class='index-ul'>
             <div class='grid'>
             {% for room in rooms %}
-                <div>
-                    <li><a href="/rooms/showRoom?id={{ room.id }}">{{ room.title }}</a></li>
+                <div id='room-article'>
                     <article>
-                        <div class='room_img'><img src="https://fastly.picsum.photos/id/866/200/300.jpg?hmac=rcadCENKh4rD6MAp6V_ma-AyWv641M4iiOpe1RyFHeI" alt=""></div>
                         <div class='room_description'>
-                            <p>{{ room.title }}</p>
-                            <p>Type : {{ room.type }}:</p>
-                            <p>Type de lits : {{ room.bed_type }}</p>
-                            <p>Description :</p>
+                            <div class='text-and-image'>
+                                <div class='room_img'><img src="/assets/images/room{{room.id}}/room{{room.id}}-1.webp" alt=""></div>
+                                <div class='text-and-button'>
+                                    <h3>{{ room.title }}</h3>
+                                    <p><strong>Type : </strong>{{ room.type }} </p>
+                                    <p><strong>Type de lits : </strong>{{ room.bed_type }}</p>
+                                </div>
+                                <div class='type-div'>
+                                    <a href="/rooms/showRoom?id={{ room.id }}">En savoir plus</a>
+                                </div>
+                            </div>
+                            <p><strong>Description :</strong></p>
                             <p>{{ room.description }}</p>
                         </div>
                     </article>
@@ -27,7 +34,4 @@
             {% endfor %}
             </div>
         </ul>
-        {% if user.isAdmin %}
-            <a href="/items/add">Ajouter</a>
-        {% endif %}
 {% endblock %}

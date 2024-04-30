@@ -13,14 +13,17 @@ Contactez-nous
 {% block content %}   
 <div class="bloc-form-infos">
     <div class="form-container">
-        <form class="contact-form" method="post">
+        <form class="contact-form" id="contact-form" method="post">
             <input id="l-name" type="text" placeholder="{{ errors ? errors.lastname : "Nom" }}" name="lastname">
 	        <input id="f-name" type="text" placeholder="{{ errors ? errors.firstname : "Prénom" }}" name="firstname">
             <input id="e-mail" type="email" placeholder="{{ errors ? errors.email : "Adresse e-mail" }}" name="email">
+            <input id="subject" type="subject" placeholder="{{ errors ? errors.subject : "Sujet" }}" name="subject">
             <div id="msg">
             <textarea name="message" id="message" placeholder="{{ errors ? errors.message : "Votre message..." }}" rows="10"></textarea>
             </div>
-            <button id="send-button">Envoyer</button>    
+            <div id="send-button">
+                <a href="javascript:;" onclick="document.getElementById('contact-form').submit();">Envoyer</a>    
+            </div>
         </form>
     </div>
     <div class="contact-infos">

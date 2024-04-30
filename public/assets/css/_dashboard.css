@@ -6,6 +6,14 @@
     width: 100%;
 }
 
+.dashboard-card {
+    margin-block: 2.5rem;
+    border-radius: 25px 0px 25px 0px;
+    border: 3px solid var(--tertiary-colour);
+    font-size: 1.2rem;
+    width: 70%;
+}
+
 .dashboard li {
     list-style: none;
 }
@@ -58,18 +66,103 @@ h3 {
     width: 24px;
 }
 
-.listButton {
+.listButton-desktop {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     padding-bottom: 1rem;
 }
 
-.listButton li {
-    display:flex;
+.listButton-desktop li {
+    display: flex;
 }
 
-.listButton a {
+.addRoomButton {
+    justify-content: center;
+}
+
+.listButton-desktop a,
+.addRoomButton a,
+.add-room a {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: 1rem;
+    /* font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem); */
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
+    white-space: nowrap;
+}
+
+.listButton a:hover,
+.addRoomButton a:hover,
+.add-room a:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
+
+.dashboard-booking-btn {
+    margin-left: 1rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 8px;
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 1rem;
+    font-size: 0.8rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+}
+
+.addDeleteUser {
+    color: var(--secondary-font-colour);
+    text-decoration: none;
+    padding: 0.5rem;
+    padding-inline: 2rem;
+    font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+}
+
+.listTitle hr,
+.listButton-desktop hr {
+    color: var(--primary-color);
+    border: .1rem solid;
+    width: 100%;
+    margin: 0;
+}
+
+.RoomsList {
+    border: 1px solid var(--primary-color);
+}
+
+.add-room {
+    margin: 10rem auto;
+
+    textarea {
+        resize: none;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        width: fit-content;
+        align-self: center;
+    }
+}
+
+.listButton-desktop button {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
@@ -92,21 +185,11 @@ h3 {
     transition: all 0.3s;
 }
 
-
-.dashboard-booking-btn {
-    margin-left: 1rem;
-    color: var(--secondary-font-colour);
-    text-decoration: none;
-    padding: 0.5rem;
-    padding-inline:1rem;
-    font-size: 0.8rem;
-}
-
 .addDeleteUser {
     color: var(--secondary-font-colour);
     text-decoration: none;
     padding: 0.5rem;
-    padding-inline:2rem;
+    padding-inline: 2rem;
     font-size: clamp(0.3rem, -0.2rem + 1.333vw, 1rem);
     color: var(--secondary-font-colour);
     background-color: var(--primary-colour);
@@ -124,16 +207,17 @@ h3 {
 }
 
 .userCard {
-    display:flex;
+    display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: flex-start;
-    
+
+
 }
 
 .dashboardUserList {
-    margin-inline:2rem;
-    display:flex;
+    margin-inline: 2rem;
+    display: flex;
     flex-direction: column;
 }
 
@@ -142,4 +226,85 @@ h3 {
     flex-wrap: nowrap;
     justify-content: center;
     align-content: flex-end;
+}
+
+.listButton-desktop button {
+    color: var(--secondary-font-colour);
+    padding: 0.5rem;
+    font-size: 1rem;
+    color: var(--secondary-font-colour);
+    background-color: var(--primary-colour);
+    border-radius: 0.5rem;
+    -webkit-border-radius: 0.5rem;
+    -moz-border-radius: .5rem;
+    border: 0.2rem solid var(--primary-color);
+    box-shadow: 2px 4px 1.2px #44444471;
+    margin-inline: 0.3rem;
+}
+
+.title-avis {
+    font-size: 0.75rem;
+}
+
+.paragraph-avis {
+    font-size: 0.75rem;
+}
+
+.listTitle .listButton-responsive {
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+    .listButton-desktop {
+        display: none;
+    }
+
+    .listTitle .listButton-responsive {
+        display: flex;
+        align-self: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .listTitle {
+        padding-left: .5;
+    }
+
+    .listTitle li {
+        margin-block: .3rem;
+        text-align: left;
+    }
+
+    .listTitle li h3 {
+        font-size: 1.4rem;
+        margin: .5rem 0 0 .5rem;
+    }
+
+    .dashboard .dashboardList {
+        margin-block: 0;
+    }
+
+    .listTitle li .listTitleLogo {
+        margin: .5rem 0 0 0;
+    }
+
+    .listButton-responsive a,
+    .listButton.mt-3.w-50.m-auto button {
+        color: var(--secondary-font-colour);
+        padding: 0.5rem;
+        font-size: 1rem;
+        color: var(--secondary-font-colour);
+        background-color: var(--primary-colour);
+        border-radius: 0.5rem;
+        -webkit-border-radius: 0.5rem;
+        -moz-border-radius: .5rem;
+        border: 0.2rem solid var(--primary-color);
+        box-shadow: 2px 4px 1.2px #44444471;
+        margin-inline: 0.3rem;
+        text-decoration: none;
+    }
+
+    .listButton.mt-3.w-50.m-auto {
+        display: flex;
+    }
+
 }
