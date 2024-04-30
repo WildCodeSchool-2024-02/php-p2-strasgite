@@ -28,7 +28,7 @@ article p {
 .room_description {
     display: flex;
     flex-direction: column;
-    min-width:10rem;
+    min-width: 10rem;
 }
 
 .room_img {
@@ -87,7 +87,7 @@ article p {
 
 @media screen and (max-width: 1000px) {
     .grid {
-        display:flex;
+        display: flex;
         flex-direction: column;
         align-items: center;
     }
@@ -95,5 +95,16 @@ article p {
     .type-div a {
         width: 3rem;
         height: 5rem;
+        width: 70%;
+        margin: 0;
+    }
+
+    .text-and-image {
+        flex-direction: column;
+    }
+
+    .type-div {
+        display: inline;
+
     }
 }
