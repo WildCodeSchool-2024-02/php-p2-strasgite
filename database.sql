@@ -133,8 +133,6 @@ CREATE TABLE avis (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, description TEXT NOT NULL, note INT NULL, avis_room_id INT NOT NULL, avis_user_id int NOT NULL, isVisible BOOLEAN NOT NULL, foreign KEY (avis_room_id) REFERENCES room (id), FOREIGN KEY (avis_user_id) REFERENCES user (id)
 );
 
-ALTER TABLE avis add isVisible BOOLEAN;
-
 CREATE TABLE IF NOT EXISTS service (
     id INT PRIMARY KEY NOT NULL AUTO_INCREMENT, reservation_id INT NULL, breakfast BOOLEAN NOT NULL DEFAULT '0', minibar BOOLEAN NOT NULL DEFAULT '0', parking BOOLEAN NOT NULL DEFAULT '0', service24 BOOLEAN NOT NULL DEFAULT '0', driver BOOLEAN NOT NULL DEFAULT '0', FOREIGN KEY (reservation_id) REFERENCES reservation (id) ON DELETE CASCADE
 );

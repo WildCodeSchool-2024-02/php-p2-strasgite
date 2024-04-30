@@ -1,5 +1,9 @@
 {% extends 'layout.html.twig' %}
 
+{% block banner %}
+    <img src="/assets/images/Dashboardbanner.jpg" id='clip_accueil' alt="Dashboard Bannière">
+{% endblock %}
+
 {% block content %}
     <h1>Edition du profil de {{ user.firstname }}</h1>
     {% include 'Include/_formUser.html.twig' %}

@@ -254,6 +254,27 @@ h3 {
     display: none;
 }
 
+.backlink {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.listButton-avis.mt-3.w-50.m-auto button {
+    text-decoration: none;
+    color: white;
+    border: 0.1rem solid var(--primary-colour);
+    border-radius: 8px;
+    padding: 0.3rem;
+    background-color: var(--primary-colour);
+    margin-top: 0.3rem;
+    margin-bottom: 1rem;
+}
+
+.listButton-avis.mt-3.w-50.m-auto button:hover {
+    background-color: var(--secondary-colour);
+    transition: all 0.3s;
+}
+
 @media screen and (max-width: 1000px) {
     .listButton-desktop {
         display: none;
